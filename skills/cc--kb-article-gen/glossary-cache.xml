@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FluidFlow Glossary Cache -->
+<!-- Generated: 2026-02-17 -->
+<!-- Total Terms: 143 -->
+<glossary>
+  <term id="GL-001">
+    <name>Absolute Roughness</name>
+    <slug>absolute-roughness</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#absolute-roughness</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pipes</category>
+  </term>
+  <term id="GL-002">
+    <name>Affinity Laws</name>
+    <slug>affinity-laws</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#affinity-laws</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-003">
+    <name>Ambient Conditions</name>
+    <slug>ambient-conditions</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#ambient-conditions</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-004">
+    <name>ANSI 9.6.7</name>
+    <slug>ansi-9-6-7</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#ansi-9-6-7</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Sizing</category>
+  </term>
+  <term id="GL-005">
+    <name>Auto Sizing</name>
+    <slug>auto-sizing</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#auto-sizing</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Sizing</category>
+  </term>
+  <term id="GL-006">
+    <name>B (test)</name>
+    <slug>b-test</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#b-test</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>General</category>
+  </term>
+  <term id="GL-007">
+    <name>Backcalc</name>
+    <slug>backcalc</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#backcalc</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-008">
+    <name>Backpressure</name>
+    <slug>backpressure</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#backpressure</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-009">
+    <name>Bend</name>
+    <slug>bend</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#bend</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-010">
+    <name>Best Efficiency Point (BEP)</name>
+    <slug>best-efficiency-point-bep</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#best-efficiency-point-bep</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-011">
+    <name>Bill of Materials</name>
+    <slug>bill-of-materials</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#bill-of-materials</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Reporting</category>
+  </term>
+  <term id="GL-012">
+    <name>Bingham Plastic</name>
+    <slug>bingham-plastic</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#bingham-plastic</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Non-Newtonian</category>
+  </term>
+  <term id="GL-013">
+    <name>Boosters</name>
+    <slug>boosters</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#boosters</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-014">
+    <name>Boundaries</name>
+    <slug>boundaries</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#boundaries</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Boundaries</category>
+  </term>
+  <term id="GL-015">
+    <name>Branch Angle</name>
+    <slug>branch-angle</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#branch-angle</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-016">
+    <name>Buried Pipe Heat Loss</name>
+    <slug>buried-pipe-heat-loss</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#buried-pipe-heat-loss</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Heat Transfer</category>
+  </term>
+  <term id="GL-017">
+    <name>Bursting Disk</name>
+    <slug>bursting-disk</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#bursting-disk</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Valves</category>
+  </term>
+  <term id="GL-018">
+    <name>Calculation Options</name>
+    <slug>calculation-options</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#calculation-options</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-019">
+    <name>Casson Fluid</name>
+    <slug>casson-fluid</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#casson-fluid</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Non-Newtonian</category>
+  </term>
+  <term id="GL-020">
+    <name>Cavitation</name>
+    <slug>cavitation</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#cavitation</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-021">
+    <name>Centrifugal Pump</name>
+    <slug>centrifugal-pump</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#centrifugal-pump</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-022">
+    <name>Centrifugal Pump Basic Hydraulic Criteria</name>
+    <slug>centrifugal-pump-basic-hydraulic-criteria</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#centrifugal-pump-basic-hydraulic-criteria</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-023">
+    <name>Centrifugal Pump Derating</name>
+    <slug>centrifugal-pump-derating</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#centrifugal-pump-derating</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-024">
+    <name>Centrifugal Pump Performance Curve</name>
+    <slug>centrifugal-pump-performance-curve</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#centrifugal-pump-performance-curve</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-025">
+    <name>Check Valve</name>
+    <slug>check-valve</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#check-valve</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Valves</category>
+  </term>
+  <term id="GL-026">
+    <name>Classification</name>
+    <slug>classification</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#classification</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-027">
+    <name>Component</name>
+    <slug>component</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#component</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-028">
+    <name>Component Chart</name>
+    <slug>component-chart</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#component-chart</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Reporting</category>
+  </term>
+  <term id="GL-029">
+    <name>Composite Chart</name>
+    <slug>composite-chart</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#composite-chart</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Reporting</category>
+  </term>
+  <term id="GL-030">
+    <name>Connection Rules</name>
+    <slug>connection-rules</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#connection-rules</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-031">
+    <name>Connectors</name>
+    <slug>connectors</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#connectors</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-032">
+    <name>Controllers</name>
+    <slug>controllers</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#controllers</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-033">
+    <name>Convergence</name>
+    <slug>convergence</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#convergence</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-034">
+    <name>Correlation</name>
+    <slug>correlation</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#correlation</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-035">
+    <name>Cross Junction</name>
+    <slug>cross-junction</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#cross-junction</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-036">
+    <name>Cv</name>
+    <slug>cv</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#cv</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Valves</category>
+  </term>
+  <term id="GL-037">
+    <name>Cvd Deposition Velocity</name>
+    <slug>cvd-deposition-velocity</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#cvd-deposition-velocity</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Slurry</category>
+  </term>
+  <term id="GL-038">
+    <name>Darcy-Weisbach Equation</name>
+    <slug>darcy-weisbach-equation</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#darcy-weisbach-equation</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-039">
+    <name>Data Palette</name>
+    <slug>data-palette</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#data-palette</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-040">
+    <name>Database</name>
+    <slug>database</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#database</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-041">
+    <name>Density</name>
+    <slug>density</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#density</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-042">
+    <name>Deposition Velocity</name>
+    <slug>deposition-velocity</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#deposition-velocity</anchor_url>
+    <dedicated_page>true</dedicated_page>
+    <category>Slurry</category>
+  </term>
+  <term id="GL-043">
+    <name>Dialog Box</name>
+    <slug>dialog-box</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#dialog-box</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-044">
+    <name>Differential Head</name>
+    <slug>differential-head</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#differential-head</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-045">
+    <name>Directional Components</name>
+    <slug>directional-components</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#directional-components</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-046">
+    <name>Do Heat Loss</name>
+    <slug>do-heat-loss</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#do-heat-loss</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Heat Transfer</category>
+  </term>
+  <term id="GL-047">
+    <name>Driver</name>
+    <slug>driver</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#driver</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-048">
+    <name>Duty Efficiency</name>
+    <slug>duty-efficiency</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#duty-efficiency</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-049">
+    <name>Duty Flow</name>
+    <slug>duty-flow</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#duty-flow</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-050">
+    <name>Duty NPSH Available</name>
+    <slug>duty-npsh-available</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#duty-npsh-available</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-051">
+    <name>Duty NPSH Required</name>
+    <slug>duty-npsh-required</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#duty-npsh-required</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-052">
+    <name>Duty Point</name>
+    <slug>duty-point</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#duty-point</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-053">
+    <name>Duty Power</name>
+    <slug>duty-power</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#duty-power</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-054">
+    <name>Duty Pressure Rise</name>
+    <slug>duty-pressure-rise</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#duty-pressure-rise</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-055">
+    <name>Duxbury Method</name>
+    <slug>duxbury-method</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#duxbury-method</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Slurry</category>
+  </term>
+  <term id="GL-056">
+    <name>Economic Velocity</name>
+    <slug>economic-velocity</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#economic-velocity</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pipes</category>
+  </term>
+  <term id="GL-057">
+    <name>Efficiency</name>
+    <slug>efficiency</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#efficiency</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-058">
+    <name>EGL</name>
+    <slug>egl</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#egl</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-059">
+    <name>Elevation</name>
+    <slug>elevation</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#elevation</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-060">
+    <name>Elevation Gradient</name>
+    <slug>elevation-gradient</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#elevation-gradient</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-061">
+    <name>Environment</name>
+    <slug>environment</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#environment</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-062">
+    <name>Equation of state (EOS)</name>
+    <slug>equation-of-state-eos</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#equation-of-state-eos</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Gas Flow</category>
+  </term>
+  <term id="GL-063">
+    <name>Equipment Performance</name>
+    <slug>equipment-performance</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#equipment-performance</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-064">
+    <name>Fixed Temperature Change Heat Loss</name>
+    <slug>fixed-temperature-change-heat-loss</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#fixed-temperature-change-heat-loss</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Heat Transfer</category>
+  </term>
+  <term id="GL-065">
+    <name>Fixed Transfer Rate Heat Loss</name>
+    <slug>fixed-transfer-rate-heat-loss</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#fixed-transfer-rate-heat-loss</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Heat Transfer</category>
+  </term>
+  <term id="GL-066">
+    <name>Flow Regime</name>
+    <slug>flow-regime</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#flow-regime</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-067">
+    <name>Flowsheet</name>
+    <slug>flowsheet</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#flowsheet</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-068">
+    <name>Fluid</name>
+    <slug>fluid</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#fluid</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-069">
+    <name>Fluid Type</name>
+    <slug>fluid-type</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#fluid-type</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-070">
+    <name>Flyby</name>
+    <slug>flyby</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#flyby</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-071">
+    <name>General Resistance</name>
+    <slug>general-resistance</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#general-resistance</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-072">
+    <name>Geometry</name>
+    <slug>geometry</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#geometry</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-073">
+    <name>Hazen-Williams Friction Factor</name>
+    <slug>hazen-williams-friction-factor</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#hazen-williams-friction-factor</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-074">
+    <name>Hazen-Williams Friction Model</name>
+    <slug>hazen-williams-friction-model</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#hazen-williams-friction-model</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-075">
+    <name>Heat Exchanger</name>
+    <slug>heat-exchanger</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#heat-exchanger</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Heat Transfer</category>
+  </term>
+  <term id="GL-076">
+    <name>Heat Loss Model</name>
+    <slug>heat-loss-model</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#heat-loss-model</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Heat Transfer</category>
+  </term>
+  <term id="GL-077">
+    <name>Herschel-Bulkley Fluid</name>
+    <slug>herschel-bulkley-fluid</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#herschel-bulkley-fluid</anch or_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Non-Newtonian</category>
+  </term>
+  <term id="GL-078">
+    <name>Heterogeneous Settling Slurry Correlation</name>
+    <slug>heterogeneous-settling-slurry-correlation</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#heterogeneous-settling-slurry-correlation</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Slurry</category>
+  </term>
+  <term id="GL-079">
+    <name>HGL</name>
+    <slug>hgl</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#hgl</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-080">
+    <name>Impeller</name>
+    <slug>impeller</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#impeller</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-081">
+    <name>Inclined Pipe Correction</name>
+    <slug>inclined-pipe-correction</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#inclined-pipe-correction</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Slurry</category>
+  </term>
+  <term id="GL-082">
+    <name>Inclined Pipe Settling Slurry Deposition Velocity Correlation</name>
+    <slug>inclined-pipe-settling-slurry-deposition-velocity-correlation</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#inclined-pipe-settling-slurry-deposition-velocity-correlation</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Slurry</category>
+  </term>
+  <term id="GL-083">
+    <name>Inlet Boundary</name>
+    <slug>inlet-boundary</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#inlet-boundary</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Boundaries</category>
+  </term>
+  <term id="GL-084">
+    <name>Input Editor</name>
+    <slug>input-editor</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#input-editor</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-085">
+    <name>Intermediate Flow</name>
+    <slug>intermediate-flow</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#intermediate-flow</anchor_url>
+    <dedicated_page>true</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-086">
+    <name>Isometric Mode</name>
+    <slug>isometric-mode</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#isometric-mode</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-087">
+    <name>Joule-Thomson Effect</name>
+    <slug>joule-thomson-effect</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#joule-thomson-effect</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Gas Flow</category>
+  </term>
+  <term id="GL-088">
+    <name>Junction</name>
+    <slug>junction</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#junction</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-089">
+    <name>Junction Pressure Loss Correlation</name>
+    <slug>junction-pressure-loss-correlation</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#junction-pressure-loss-correlation</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-090">
+    <name>K Node</name>
+    <slug>k-node</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#k-node</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Boundaries</category>
+  </term>
+  <term id="GL-091">
+    <name>K_f Node</name>
+    <slug>k-f-node</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#k-f-node</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Boundaries</category>
+  </term>
+  <term id="GL-092">
+    <name>Known Flow Node</name>
+    <slug>known-flow-node</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#known-flow-node</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Boundaries</category>
+  </term>
+  <term id="GL-093">
+    <name>Known Pressure Node</name>
+    <slug>known-pressure-node</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#known-pressure-node</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Boundaries</category>
+  </term>
+  <term id="GL-094">
+    <name>Known Resistance</name>
+    <slug>known-resistance</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#known-resistance</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-095">
+    <name>Kv Node</name>
+    <slug>kv-node</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#kv-node</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Boundaries</category>
+  </term>
+  <term id="GL-096">
+    <name>Laminar Flow</name>
+    <slug>laminar-flow</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#laminar-flow</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-097">
+    <name>Message</name>
+    <slug>message</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#message</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-098">
+    <name>Metzner-Reed Reynolds Number</name>
+    <slug>metzner-reed-reynolds-number</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#metzner-reed-reynolds-number</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Non-Newtonian</category>
+  </term>
+  <term id="GL-099">
+    <name>Minimum Flow Rate</name>
+    <slug>minimum-flow-rate</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#minimum-flow-rate</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-100">
+    <name>Moody Friction Factor</name>
+    <slug>moody-friction-factor</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#moody-friction-factor</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-101">
+    <name>Multicalc</name>
+    <slug>multicalc</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#multicalc</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-102">
+    <name>Named User</name>
+    <slug>named-user</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#named-user</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Licensing</category>
+  </term>
+  <term id="GL-103">
+    <name>Newtonian Fluid</name>
+    <slug>newtonian-fluid</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#newtonian-fluid</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-104">
+    <name>Newtonian Friction Loss Correlations</name>
+    <slug>newtonian-friction-loss-correlations</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#newtonian-friction-loss-correlations</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-105">
+    <name>Nodes</name>
+    <slug>nodes</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#nodes</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-106">
+    <name>Nominal Size</name>
+    <slug>nominal-size</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#nominal-size</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pipes</category>
+  </term>
+  <term id="GL-107">
+    <name>Non-Newtonian Fluid</name>
+    <slug>non-newtonian-fluid</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#non-newtonian-fluid</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Non-Newtonian</category>
+  </term>
+  <term id="GL-108">
+    <name>Non-Newtonian Friction Loss Correlations</name>
+    <slug>non-newtonian-friction-loss-correlations</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#non-newtonian-friction-loss-correlations</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Non-Newtonian</category>
+  </term>
+  <term id="GL-109">
+    <name>Non-settling Slurry</name>
+    <slug>non-settling-slurry</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#non-settling-slurry</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Slurry</category>
+  </term>
+  <term id="GL-110">
+    <name>Nozzle</name>
+    <slug>nozzle</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#nozzle</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-111">
+    <name>NPSH</name>
+    <slug>npsh</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#npsh</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-112">
+    <name>NPSHA</name>
+    <slug>npsha</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#npsha</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-113">
+    <name>Operating Speed</name>
+    <slug>operating-speed</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#operating-speed</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-114">
+    <name>Orifice</name>
+    <slug>orifice</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#orifice</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-115">
+    <name>Orthogonal Mode</name>
+    <slug>orthogonal-mode</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#orthogonal-mode</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-116">
+    <name>Piezometric Pressure</name>
+    <slug>piezometric-pressure</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#piezometric-pressure</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-117">
+    <name>Pipe</name>
+    <slug>pipe</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#pipe</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pipes</category>
+  </term>
+  <term id="GL-118">
+    <name>Pipe Slope</name>
+    <slug>pipe-slope</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#pipe-slope</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pipes</category>
+  </term>
+  <term id="GL-119">
+    <name>Positive Displacement Pump</name>
+    <slug>positive-displacement-pump</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#positive-displacement-pump</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-120">
+    <name>Power Law Fluid</name>
+    <slug>power-law-fluid</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#power-law-fluid</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Non-Newtonian</category>
+  </term>
+  <term id="GL-121">
+    <name>Pressure Gradient</name>
+    <slug>pressure-gradient</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#pressure-gradient</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-122">
+    <name>Pressure Model</name>
+    <slug>pressure-model</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#pressure-model</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-123">
+    <name>Pressure Relief Valve</name>
+    <slug>pressure-relief-valve</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#pressure-relief-valve</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Valves</category>
+  </term>
+  <term id="GL-124">
+    <name>Quality</name>
+    <slug>quality</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#quality</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Two-Phase</category>
+  </term>
+  <term id="GL-125">
+    <name>R/D Ratio</name>
+    <slug>r-d-ratio</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#r-d-ratio</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-126">
+    <name>Read from Excel</name>
+    <slug>read-from-excel</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#read-from-excel</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-127">
+    <name>Reference Gas Volume Flow Units</name>
+    <slug>reference-gas-volume-flow-units</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#reference-gas-volume-flow-units</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Gas Flow</category>
+  </term>
+  <term id="GL-128">
+    <name>Reynolds Number</name>
+    <slug>reynolds-number</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#reynolds-number</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-129">
+    <name>Scaling</name>
+    <slug>scaling</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#scaling</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-130">
+    <name>Script</name>
+    <slug>script</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#script</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-131">
+    <name>Settling Slurry</name>
+    <slug>settling-slurry</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#settling-slurry</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Slurry</category>
+  </term>
+  <term id="GL-132">
+    <name>Settling Slurry Deposition Velocity Correlation</name>
+    <slug>settling-slurry-deposition-velocity-correlation</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#settling-slurry-deposition-velocity-correlation</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Slurry</category>
+  </term>
+  <term id="GL-133">
+    <name>Settling Slurry Horizontal Pipe Friction Loss Correlation</name>
+    <slug>settling-slurry-horizontal-pipe-friction-loss-correlation</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#settling-slurry-horizontal-pipe-friction-loss-correlation</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Slurry</category>
+  </term>
+  <term id="GL-134">
+    <name>Settling Slurry Vertical Pipe Friction Loss Correlation</name>
+    <slug>settling-slurry-vertical-pipe-friction-loss-correlation</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#settling-slurry-vertical-pipe-friction-loss-correlation</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Slurry</category>
+  </term>
+  <term id="GL-135">
+    <name>Shell-MIT</name>
+    <slug>shell-mit</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#shell-mit</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-136">
+    <name>Size Change</name>
+    <slug>size-change</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#size-change</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-137">
+    <name>Sizing Model</name>
+    <slug>sizing-model</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#sizing-model</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Sizing</category>
+  </term>
+  <term id="GL-138">
+    <name>Sprinkler</name>
+    <slug>sprinkler</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#sprinkler</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-139">
+    <name>Stagnation Pressure</name>
+    <slug>stagnation-pressure</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#stagnation-pressure</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-140">
+    <name>Static Pressure</name>
+    <slug>static-pressure</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#static-pressure</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-141">
+    <name>System Curve</name>
+    <slug>system-curve</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#system-curve</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Pumps</category>
+  </term>
+  <term id="GL-142">
+    <name>Tee</name>
+    <slug>tee</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#tee</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-143">
+    <name>Template</name>
+    <slug>template</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#template</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-144">
+    <name>Transition Flow</name>
+    <slug>transition-flow</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#transition-flow</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-145">
+    <name>Turbulent Flow</name>
+    <slug>turbulent-flow</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#turbulent-flow</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-146">
+    <name>Valve</name>
+    <slug>valve</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#valve</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Valves</category>
+  </term>
+  <term id="GL-147">
+    <name>Vapor Pressure</name>
+    <slug>vapor-pressure</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#vapor-pressure</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fundamentals</category>
+  </term>
+  <term id="GL-148">
+    <name>Venturi</name>
+    <slug>venturi</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#venturi</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Fittings</category>
+  </term>
+  <term id="GL-149">
+    <name>Write to Excel</name>
+    <slug>write-to-excel</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#write-to-excel</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Software Interface</category>
+  </term>
+  <term id="GL-150">
+    <name>X_t Factor</name>
+    <slug>x-t-factor</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#x-t-factor</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Valves</category>
+  </term>
+  <term id="GL-151">
+    <name>Yield Stress</name>
+    <slug>yield-stress</slug>
+    <anchor_url>https://fluidflowinfo.com/glossary/#yield-stress</anchor_url>
+    <dedicated_page>false</dedicated_page>
+    <category>Non-Newtonian</category>
+  </term>
+</glossary>

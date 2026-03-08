@@ -1,0 +1,62 @@
+KB_ID,Category,Title,Type,Word_Target,Status,Pain_Matrix_Match,Glossary_Links,Selling_Message,Batch,Priority
+KB-PP-01,Pillar Page,Pump Sizing & Selection (Complete Guide),Pillar Page,4500,Existing,P1 TOP,GL-021|GL-010|GL-111|GL-052|GL-141,1,1,P1
+KB-PP-02,Pillar Page,Control Valve Sizing,Pillar Page,3500,Existing,Control Valve Sizing Pillar,GL-036|GL-146|GL-004|GL-137|GL-150,2,1,P1
+KB-PP-03,Pillar Page,PSV Sizing Methodology,Pillar Page,3500,New,PSV Sizing Pillar,GL-123|GL-017|GL-004|GL-008,3,1,P1
+KB-PP-04,Pillar Page,Fire Protection Hydraulics,Pillar Page,3500,New,Fire Protection Pillar,GL-138|GL-128|GL-074|GL-121,4,1,P1
+KB-PP-05,Pillar Page,Energy Efficiency Analysis,Pillar Page,3500,New,Energy Efficiency Pillar,GL-010|GL-057|GL-056|GL-141,1,1,P1
+KB-PP-06,Pillar Page,Water Hammer Analysis (FlowDesigner),Pillar Page,3500,New,Water Hammer Pillar,GL-139|GL-121|GL-008|GL-124,5,2,P2
+KB-PP-07,Pillar Page,Slurry System Design (Complete Guide),Pillar Page,4500,New,Slurry Deep-Dive,GL-131|GL-042|GL-037|GL-055|GL-078,6,2,P1
+KB-PP-08,Pillar Page,Gas System Design (Complete Guide),Pillar Page,4500,New,,GL-062|GL-087|GL-127|GL-124|GL-128,7,2,P2
+KB-CC-01,Core Calculations,Liquid Pressure Drop Calculations,Deep-dive,2800,New,,GL-038|GL-100|GL-121|GL-128|GL-001,2,2,P1
+KB-CC-02,Core Calculations,Gas Flow Calculations & Compressibility,Deep-dive,2800,New,,GL-062|GL-087|GL-127|GL-041|GL-128,2,2,P2
+KB-CC-03,Core Calculations,Two-Phase Flow Modeling,Deep-dive,2800,New,,GL-124|GL-066|GL-128|GL-147|GL-020,3,2,P2
+KB-CC-04,Core Calculations,Slurry & Non-Newtonian Calculations,Deep-dive,2800,New,,GL-131|GL-107|GL-120|GL-098|GL-042,3,2,P1
+KB-CC-05,Core Calculations,Critical Velocity & Deposition,Deep-dive,2500,New,,GL-042|GL-037|GL-132|GL-056,3,3,P2
+KB-CC-06,Core Calculations,Friction Factor Methods (Moody H-W Shell-MIT),Deep-dive,2500,New,,GL-100|GL-073|GL-135|GL-038|GL-128,4,3,P2
+KB-CC-07,Core Calculations,Reynolds Number & Flow Regimes,Deep-dive,2200,New,,GL-128|GL-066|GL-096|GL-145|GL-144,4,3,P3
+KB-CC-08,Core Calculations,Pressure Drop Optimization,Deep-dive,2500,New,,GL-121|GL-056|GL-117|GL-001|GL-106,4,3,P2
+KB-CC-09,Core Calculations,Flash Calculations & Phase Change,Deep-dive,2500,New,,GL-147|GL-124|GL-087|GL-062,5,3,P3
+KB-CC-10,Core Calculations,Heat Transfer Calculations,Deep-dive,2500,New,,GL-076|GL-016|GL-064|GL-065|GL-075,5,3,P3
+KB-EC-01,Equipment & Components,Centrifugal Pump Selection (7 Critical Parameters),How-to,1800,Refactor,Pump Selection How-to,GL-021|GL-024|GL-010|GL-111|GL-052,1,2,P1
+KB-EC-02,Equipment & Components,Pump Curves Interpretation,How-to,1500,New,,GL-024|GL-141|GL-010|GL-044|GL-099,2,2,P2
+KB-EC-03,Equipment & Components,Pumps in Parallel vs Series,How-to,1500,New,,GL-021|GL-013|GL-002|GL-024,2,3,P2
+KB-EC-04,Equipment & Components,Positive Displacement Pumps,How-to,1500,New,,GL-119|GL-021|GL-049|GL-053,3,3,P3
+KB-EC-05,Equipment & Components,Control Valve Noise Prediction,How-to,1500,New,,GL-036|GL-146|GL-150,3,3,P3
+KB-EC-06,Equipment & Components,Valve Sizing & Selection,How-to,1800,Refactor,Valve Sizing How-to,GL-036|GL-146|GL-137|GL-004,4,2,P1
+KB-EC-07,Equipment & Components,Relief Valve Sizing (API RP 520),How-to,1800,New,,GL-123|GL-008|GL-004|GL-137,4,2,P1
+KB-EC-08,Equipment & Components,Rupture Disk Selection,How-to,1200,New,,GL-017|GL-123|GL-008,4,3,P3
+KB-EC-09,Equipment & Components,Two-Phase Relief Design,How-to,1800,New,,GL-123|GL-124|GL-147|GL-004,5,3,P2
+KB-EC-10,Equipment & Components,Pipe Material Selection,How-to,1500,New,,GL-117|GL-001|GL-106|GL-041,5,3,P3
+KB-EC-11,Equipment & Components,Heat Exchangers in FluidFlow,How-to,1500,New,,GL-075|GL-064|GL-065|GL-076,5,3,P3
+KB-EC-12,Equipment & Components,Economic Pipe Sizing,How-to,1500,New,,GL-056|GL-117|GL-106|GL-121,6,3,P2
+KB-SA-01,System Analysis,Flow Distribution in Complex Networks,Deep-dive,2500,New,,GL-067|GL-088|GL-105|GL-014|GL-092,6,3,P2
+KB-SA-02,System Analysis,VFD Applications in Pumping,Deep-dive,2200,New,,GL-002|GL-113|GL-024|GL-057,6,3,P2
+KB-SA-03,System Analysis,Slurry Troubleshooting,How-to,1800,New,,GL-131|GL-042|GL-133|GL-134,6,3,P2
+KB-SA-04,System Analysis,Valve Transient Effects,Deep-dive,2200,New,,GL-146|GL-025|GL-139|GL-008,7,3,P3
+KB-SA-05,System Analysis,Pipeline Design Workflow,How-to,1800,New,,GL-117|GL-001|GL-106|GL-121|GL-059,7,3,P2
+KB-SA-06,System Analysis,BEP Selection & Energy Efficiency,Deep-dive,2500,Refactor,BEP Deep-dive,GL-010|GL-057|GL-052|GL-024|GL-048,1,2,P1
+KB-SA-07,System Analysis,Pressure Drop Optimization,How-to,1800,New,,GL-121|GL-038|GL-100|GL-056,7,3,P2
+KB-SA-08,System Analysis,Dynamic Analysis (FlowDesigner),Deep-dive,2500,New,,GL-139|GL-121|GL-066|GL-124,7,3,P3
+KB-IA-01,Industry Applications,Oil & Gas Hydraulic Systems,Industry Solution,2000,New,,GL-062|GL-124|GL-117|GL-123,1,4,P2
+KB-IA-02,Industry Applications,Chemical Process Hydraulics,Industry Solution,2000,New,,GL-021|GL-146|GL-075|GL-107,1,4,P2
+KB-IA-03,Industry Applications,Mining & Metals Slurry Transport,Industry Solution,2000,New,,GL-131|GL-042|GL-133|GL-055,1,4,P1
+KB-IA-04,Industry Applications,Marine Hydraulic Systems,Industry Solution,2000,New,,GL-021|GL-117|GL-146|GL-008,2,4,P3
+KB-IA-05,Industry Applications,HVAC Piping Systems,Industry Solution,2000,New,,GL-021|GL-075|GL-117|GL-056,2,4,P3
+KB-IA-06,Industry Applications,Steam System Design,Industry Solution,2000,New,,GL-124|GL-147|GL-076|GL-117,2,4,P3
+KB-IA-07,Industry Applications,Utilities & Power Plant Systems,Industry Solution,2000,New,,GL-021|GL-075|GL-146|GL-057,3,4,P3
+KB-IA-08,Industry Applications,Pharmaceutical Fluid Systems,Industry Solution,2000,New,,GL-021|GL-146|GL-103|GL-128,3,4,P3
+KB-TH-01,Thermal Analysis,Heat Transfer in Pipe Systems,Deep-dive,2500,New,,GL-076|GL-064|GL-065|GL-046|GL-016,5,4,P3
+KB-TH-02,Thermal Analysis,Pipe Insulation Economics,How-to,1500,New,,GL-016|GL-076|GL-046|GL-056,6,4,P3
+KB-TH-03,Thermal Analysis,Buried Pipe Heat Loss,How-to,1500,New,,GL-016|GL-076|GL-003|GL-064,6,4,P3
+KB-VC-01,Validation,Spreadsheet vs Professional Software,Deep-dive,2200,New,,GL-033|GL-097|GL-101|GL-018,4,5,P2
+KB-VC-02,Validation,Hand Calculation Pitfalls,Deep-dive,2000,New,,GL-038|GL-100|GL-128|GL-007,5,5,P3
+KB-VC-03,Validation,Hydraulic Software Comparison,Deep-dive,2200,New,,GL-067|GL-040|GL-101|GL-011,5,5,P3
+KB-GS-01,Getting Started,Build Your First Network,How-to,1500,Refactor,Getting Started Guide,GL-067|GL-105|GL-027|GL-014|GL-092,6,1,P1
+KB-GS-02,Getting Started,Installation & Activation,How-to,1200,Existing,Installation Guide,GL-102|GL-040|GL-061,6,5,P2
+KB-GS-03,Getting Started,Interface Tour & Software Basics,How-to,1500,Refactor,Interface Guide,GL-067|GL-039|GL-084|GL-043|GL-070,7,5,P2
+KB-GS-04,Getting Started,Unit Systems & Environments,How-to,1200,New,,GL-061|GL-127|GL-041|GL-003,7,5,P3
+KB-TS-01,Troubleshooting,Convergence Issues,Troubleshooting,1200,New,,GL-033|GL-097|GL-092|GL-093,7,5,P2
+KB-TS-02,Troubleshooting,Warning Message Resolution,Troubleshooting,1200,New,,GL-097|GL-033|GL-020|GL-111,7,5,P3
+KB-TS-03,Troubleshooting,Database Integrity,Troubleshooting,1000,New,,GL-040|GL-143|GL-027,7,5,P3
+KB-TS-04,Troubleshooting,Azure & Cloud Deployment,Troubleshooting,1200,New,,GL-102|GL-040,7,5,P3
+KB-TS-05,Troubleshooting,Over-Constrained Models,Troubleshooting,1200,New,,GL-092|GL-093|GL-090|GL-091|GL-033,7,5,P3

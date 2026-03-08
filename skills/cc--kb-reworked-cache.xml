@@ -1,0 +1,1330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notion_page>
+  <metadata>
+    <page_id>30a8fb7c-51ac-81d3-a71d-d7409d8a4819</page_id>
+    <page_title>KB REWORKED (P01-P144 Article Plan)</page_title>
+    <cached_date>2026-02-17</cached_date>
+    <total_blocks>99</total_blocks>
+    <total_articles>144</total_articles>
+    <batches>15</batches>
+  </metadata>
+  <blocks>
+    <block type="callout" id="eddd52a3-e3c2-4a6c-945c-bf2f0fe81836">
+      <text>Quality standard: Untitled — Every article must meet this standard before publish.</text>
+      <link url="https://www.notion.so/8a63e657527b4bb7b6a18b42ee0f7ec7">Untitled</link>
+    </block>
+    <block type="callout" id="30a8fb7c-51ac-81ea-abbe-ddb2007105de">
+      <text>Add these internal links across your articles to boost technical authority and guide readers through key concepts. Use them in intros, &quot;See also&quot; boxes, and at section ends.</text>
+    </block>
+    <block type="heading_3" id="30a8fb7c-51ac-8120-a819-ce80d9eef446">
+      <text>High‑value Knowledge Base links</text>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-81f7-a8ec-d3deeef7ba55">
+      <text>System Curve Analysis</text>
+      <link url="discussion://2088fb7c-51ac-8095-b9a0-001c0c5168da">System Curve Analysis</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-8103-b952-f6f15caa9df3">
+      <text>Applying Pump Affinity Laws: From Theory to Real‑World Applications</text>
+      <link url="discussion://2088fb7c-51ac-80b1-bd27-001c134a3876">Applying Pump Affinity Laws: From Theory to Real‑World Applications</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-818e-9da7-da31db027923">
+      <text>The Essential Guide to Pressure Drop Calculations in Piping Systems</text>
+      <link url="discussion://2088fb7c-51ac-8071-8f94-001cd41bc369">The Essential Guide to Pressure Drop Calculations in Piping Systems</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-8163-ac51-f26082066793">
+      <text>Pipe Sizing in FluidFlow: Methods, Principles, and Best Practices</text>
+      <link url="discussion://2088fb7c-51ac-80d7-817b-001c1528c457">Pipe Sizing in FluidFlow: Methods, Principles, and Best Practices</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-8163-b3e2-e36aeaf1675a">
+      <text>What is Cavitation — and How Do You Avoid It in Fluid Systems</text>
+      <link url="discussion://2088fb7c-51ac-80f1-a905-001c2a673a23">What is Cavitation — and How Do You Avoid It in Fluid Systems</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-81c3-9a37-f426c5021f45">
+      <text>Net Positive Suction Head (NPSH) in Pump Systems</text>
+      <link url="discussion://2088fb7c-51ac-80a2-b84f-001cf3a488b1">Net Positive Suction Head (NPSH) in Pump Systems</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-81f6-ad36-e02c4c9fb34c">
+      <text>Calculation Methods and Standards Used in FluidFlow</text>
+      <link url="discussion://2088fb7c-51ac-80f1-a304-001c69eed102">Calculation Methods and Standards Used in FluidFlow</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-8198-8d25-c44809fe4407">
+      <text>Fluid Databases and Mixing Capabilities in FluidFlow</text>
+      <link url="discussion://2088fb7c-51ac-8029-9543-001cc54fc18c">Fluid Databases and Mixing Capabilities in FluidFlow</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-810e-94f9-e1ef331c86ce">
+      <text>Engineering Slurry Flow Systems: Principles, Challenges, and Solutions</text>
+      <link url="discussion://2088fb7c-51ac-803f-a137-001c725c1478">Engineering Slurry Flow Systems: Principles, Challenges, and Solutions</link>
+    </block>
+    <block type="heading_3" id="30a8fb7c-51ac-8121-87d0-dae1059630c2">
+      <text>Glossary pages to link for better user journeys</text>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-816a-8988-f1a8569fa63d">
+      <text>Hydraulic Components - Pipes</text>
+      <link url="https://www.notion.so/30a8fb7c51ac8139acfce850bb6b6b32">Hydraulic Components - Pipes</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-81f1-a93e-f2ab3dc9641e">
+      <text>Hydraulic Components - Boundaries</text>
+      <link url="https://www.notion.so/30a8fb7c51ac8100897ce9728e1c5627">Hydraulic Components - Boundaries</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-81e7-9d79-c0df8e368f9f">
+      <text>Hydraulic Components - Boosters</text>
+      <link url="https://www.notion.so/30a8fb7c51ac81519441cc2b3f86f822">Hydraulic Components - Boosters</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-8104-b0c8-dde6c049ea1b">
+      <text>Hydraulic Components - Valves</text>
+      <link url="https://www.notion.so/30a8fb7c51ac81a19a92c5a13c481e18">Hydraulic Components - Valves</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-814e-a9ad-fcf67fb71a56">
+      <text>Hydraulic Components - Controllers</text>
+      <link url="https://www.notion.so/30a8fb7c51ac81de8c8fde1197751eb0">Hydraulic Components - Controllers</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-8117-b138-e333953fc260">
+      <text>Hydraulic Components - Check Valves</text>
+      <link url="https://www.notion.so/30a8fb7c51ac81258b1ac1acd0d1ae93">Hydraulic Components - Check Valves</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-81d7-869a-cc84e2a76885">
+      <text>Hydraulic Components - General Resistances</text>
+      <link url="https://www.notion.so/30a8fb7c51ac818ab31fd460acc0988b">Hydraulic Components - General Resistances</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-81e5-8aa2-c2eb9455a218">
+      <text>Hydraulic Components - Size Change</text>
+      <link url="https://www.notion.so/30a8fb7c51ac814cbcf6e429eb1773cc">Hydraulic Components - Size Change</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-813e-8c2e-d0d5bf371939">
+      <text>Hydraulic Components - Relief Devices</text>
+      <link url="https://www.notion.so/30a8fb7c51ac8190a6fdd12f0f63f46b">Hydraulic Components - Relief Devices</link>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-8195-bf0a-e6da1cda2de4">
+      <text>Hydraulic Components - Heat Exchangers</text>
+      <link url="https://www.notion.so/30a8fb7c51ac8104b04ae7906335c531">Hydraulic Components - Heat Exchangers</link>
+    </block>
+    <block type="heading_3" id="30a8fb7c-51ac-812c-9d67-f54705019b93">
+      <text>Placement guidance (use consistently)</text>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-812a-ba0d-ef2731e218ec">
+      <text>Getting Started articles: add &quot;Next steps&quot; linking to System Curve, Pump Affinity Laws, and Pipe Sizing.</text>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-8179-83cf-f16c91b31906">
+      <text>Installation/Licensing: add CTA to FAQs and Glossary — Valves, Pipes.</text>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-8142-8be4-e79e0a5e3e2f">
+      <text>Technical Library topics: add &quot;See also&quot; to Pressure Drop, Cavitation, NPSH as applicable.</text>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-819b-ada1-f0ddffa025e0">
+      <text>Industry pages: cross‑link to Pipe Sizing, Pressure Drop, and relevant component glossary.</text>
+    </block>
+    <block type="bulleted_list_item" id="30a8fb7c-51ac-814a-b756-d16ef5f3809c">
+      <text>Troubleshooting: link to Cavitation, NPSH, Pressure Drop.</text>
+    </block>
+    <block type="paragraph" id="30a8fb7c-51ac-81c5-b08e-e41bbbf813b9">
+    </block>
+    <block type="column_list" id="30a8fb7c-51ac-81d4-a9bf-e9dc7797938e">
+    </block>
+    <block type="paragraph" id="30a8fb7c-51ac-813c-b088-eda734e2f8c6">
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-81d9-a358-f36c1b9566b5">
+      <text>Notes:</text>
+      <children>
+        <block type="numbered_list_item" id="30a8fb7c-51ac-8139-b5ab-d12c829e6da2">
+          <text>Clusters are a gateway to the content, and reinforce the blogs for search, also, more of a journey if they are interlinked together. The KB will act as conversion content, blog awareness</text>
+        </block>
+        <block type="numbered_list_item" id="30a8fb7c-51ac-8107-99b8-fa5d3030700f">
+          <text>New docs in that page are blogs we have not covered but should have done, we can figure out where to put them in.</text>
+        </block>
+        <block type="numbered_list_item" id="30a8fb7c-51ac-813f-a15b-fffc8a4e46d2">
+          <text>Page is a bit of a mess, we can delete some stuff from it to make it easier to manage.</text>
+        </block>
+        <block type="numbered_list_item" id="30a8fb7c-51ac-81c8-a4c6-d9a2cd200c27">
+          <text>I like the structure you have suggested but suggest including the following:</text>
+        </block>
+        <block type="numbered_list_item" id="30a8fb7c-51ac-8157-a2be-de54c3cd7ed5">
+          <text>I like the idea of blog in Knowledgebase, however we have the blog.fluidflowinfo.com for awareness pieces, but, if we make FF heavy blog pieces and how-to guides in the KB they become more conversion content</text>
+          <link url="http://blog.fluidflowinfo.com/">blog.fluidflowinfo.com</link>
+        </block>
+        <block type="numbered_list_item" id="30a8fb7c-51ac-81b5-88cf-f4566c5b7800">
+          <text>We should extend some topics from the help file.</text>
+        </block>
+      </children>
+    </block>
+    <block type="divider" id="00fcdeac-6c1b-40eb-83ad-2cbc15ef470b">
+    </block>
+    <block type="heading_2" id="c4b55dd2-a991-4671-a059-7206d32ba6d9">
+      <text>📋 KB Work Order — Priority Batches</text>
+    </block>
+    <block type="paragraph" id="6aa61067-3a6b-490b-83eb-c15c6eb6296c">
+      <text>Each article is numbered P01–P144 by priority. Work through batches sequentially. Every piece must pass the Untitled before publish.</text>
+      <link url="https://www.notion.so/8a63e657527b4bb7b6a18b42ee0f7ec7">Untitled</link>
+    </block>
+    <block type="paragraph" id="108014ee-7f80-41e8-a524-63021ab6dda2">
+      <text>Numbering convention: P{nn} = global priority · (§n) = section on this page where the draft lives.</text>
+    </block>
+    <block type="heading_3" id="d4939f2e-fdeb-4b5d-8e40-1140653a5ab9">
+      <text>Batch 1 — Onboarding Funnel + Core Workflow (P01–P10)</text>
+      <children>
+        <block type="to_do" id="bbacb5c9-710c-4fed-b520-dcfd4cc17bc1" checked="false">
+          <text>P01 · FluidFlow Product Overview (§1)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81f68fd5ee08d57062a6">FluidFlow Product Overview</link>
+        </block>
+        <block type="to_do" id="0ea47871-bcca-4ca8-a392-6c9df6b5279a" checked="false">
+          <text>P02 · Build Your First Network in FluidFlow (§1)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac818486b3e897e4a926c4">Build Your First Network in FluidFlow</link>
+        </block>
+        <block type="to_do" id="f9a40b09-f3bc-499c-83b2-b311c988cc39" checked="false">
+          <text>P03 · Quick Start Guide → Build Your First Model in Minutes (§1)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81718090e0785f017547">Quick Start Guide → Build Your First Model in Minutes</link>
+        </block>
+        <block type="to_do" id="d5c63361-c5a2-4b4f-afd0-b122a69d8059" checked="false">
+          <text>P04 · FluidFlow User Interface Overview (§1)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81e7ba37e048dcd7d887">FluidFlow User Interface Overview</link>
+        </block>
+        <block type="to_do" id="c76fb539-0346-4d31-a4e2-b99ec558148f" checked="false">
+          <text>P05 · FluidFlow Installation &amp; Activation Guide (§2)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81eaabe6fbcde30898a9">FluidFlow Installation &amp; Activation Guide</link>
+        </block>
+        <block type="to_do" id="8df5bc9c-731b-4856-b65e-f85a20bf9351" checked="false">
+          <text>P06 · FluidFlow System Requirements &amp; Customer Download Guide (§2)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8119b595f165fbdaee7a">FluidFlow System Requirements &amp; Customer Download Guide</link>
+        </block>
+        <block type="to_do" id="6ff42707-c847-4edb-9a7a-4ccc06d781b6" checked="false">
+          <text>P07 · How to Build a Model in FluidFlow (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81c78f15defe75eecdd6">How to Build a Model in FluidFlow</link>
+        </block>
+        <block type="to_do" id="51c5047a-0b6f-4240-bf1c-65180e6cd68b" checked="false">
+          <text>P08 · How to Enter Input Data (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81d0bedff124ba942782">How to Enter Input Data</link>
+        </block>
+        <block type="to_do" id="0c31b42e-a8ad-4183-990e-8a1891871614" checked="false">
+          <text>P09 · How to Calculate a Model (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81268b0de2045f7c1ef3">How to Calculate a Model</link>
+        </block>
+        <block type="to_do" id="41e816b0-1b38-4de9-b57c-1ad129d06232" checked="false">
+          <text>P10 · How to Analyze Results (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac817a9cb1cb5ed23099e6">How to Analyze Results</link>
+        </block>
+      </children>
+    </block>
+    <block type="heading_3" id="0682256a-cb65-48b2-bc7b-0c52e5aaddd0">
+      <text>Batch 2 — High-Conversion Technical (P11–P20)</text>
+      <children>
+        <block type="to_do" id="12b944fc-15d2-40e7-a8da-d2d8ae1c3483" checked="false">
+          <text>P11 · FluidFlow Designer Handbook (§3)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81eb8f3beddb594d2794">FluidFlow Designer Handbook</link>
+        </block>
+        <block type="to_do" id="91658bb4-6a17-445b-9278-43cfb5c699aa" checked="false">
+          <text>P12 · Equipment Sizing (§3)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81d1bd74f971acaffa76">Equipment Sizing</link>
+        </block>
+        <block type="to_do" id="73194b50-086a-46f8-85f7-48f78b97f579" checked="false">
+          <text>P13 · FluidFlow - Quality Assurance &amp; Standards (§3)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81e79f7de67a66f0456c">FluidFlow - Quality Assurance &amp; Standards</link>
+        </block>
+        <block type="to_do" id="f142881b-4a09-4fd6-9792-3d3b4c28cd72" checked="false">
+          <text>P14 · Modeling Centrifugal Pumps in FluidFlow Using Manufacturer Data (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81f98cb7ec99e7a5a4b9">Modeling Centrifugal Pumps in FluidFlow Using Manufacturer Data</link>
+        </block>
+        <block type="to_do" id="6ef5b599-6ffe-4f8a-a7f9-a26fe31cab9c" checked="false">
+          <text>P15 · Applying Pump Affinity Laws in FluidFlow: Predict Performance Changes with Speed and Impeller Adjustments (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac814db0f7e3c348de4081">Applying Pump Affinity Laws in FluidFlow: Predict Performance Changes with Speed and Impeller Adjustments</link>
+        </block>
+        <block type="to_do" id="15e2930a-203a-482f-a404-2226a7546af9" checked="false">
+          <text>P16 · Auto-Size Pipes in FluidFlow (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81d4a8d8e56ea6b2a9a8">Auto-Size Pipes in FluidFlow</link>
+        </block>
+        <block type="to_do" id="5d31d31c-45b4-46e0-863e-a7199628d3f2" checked="false">
+          <text>P17 · Creating Fluid Streams (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81e9a6fecb2537e1e471">Creating Fluid Streams</link>
+        </block>
+        <block type="to_do" id="9e824cd8-0b92-418e-b8ee-631a15d45722" checked="false">
+          <text>P18 · Defining a Slurry in FluidFlow (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac812e8247fdecb83fa71e">Defining a Slurry in FluidFlow</link>
+        </block>
+        <block type="to_do" id="5a956502-490f-4ade-9cbe-1b32d2baf899" checked="false">
+          <text>P19 · Non-Newtonian Viscosity Models (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac817f88a8eaf4a9c2864b">Non-Newtonian Viscosity Models</link>
+        </block>
+        <block type="to_do" id="2dd7be9e-329e-495d-bf08-11359f9f112c" checked="false">
+          <text>P20 · FluidFlow Troubleshooting Guide: Resolving Common Warnings &amp; Building Stable Models (§7)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac818ea535d1361cd4607b">FluidFlow Troubleshooting Guide: Resolving Common Warnings &amp; Building Stable Models</link>
+        </block>
+      </children>
+    </block>
+    <block type="heading_3" id="a9a9f36a-fc40-4986-bf65-46f49eb44db5">
+      <text>Batch 3 — Second Wave Technical (P21–P30)</text>
+      <children>
+        <block type="to_do" id="6037b3a1-5234-4922-baf8-fcfff904a68e" checked="false">
+          <text>P21 · Hydraulic Components - Pipes (§8)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8139acfce850bb6b6b32">Hydraulic Components - Pipes</link>
+        </block>
+        <block type="to_do" id="8564d7a0-283e-43dc-9fa1-15404e1199c3" checked="false">
+          <text>P22 · Multi-Calc Feature Overview (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81da9000e80340087243">Multi-Calc Feature Overview</link>
+        </block>
+        <block type="to_do" id="9f1ed919-4817-4274-a8c6-380a652b9762" checked="false">
+          <text>P23 · Auto-Size Pump Feature in FluidFlow (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac812ca4a8e24ab0b69dc5">Auto-Size Pump Feature in FluidFlow</link>
+        </block>
+        <block type="to_do" id="c91d4696-ff83-4e9f-92c4-f74b43bdef89" checked="false">
+          <text>P24 · Modeling Pumps in Parallel &amp; Series (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac815cac33c0dcc5a1ec93">Modeling Pumps in Parallel &amp; Series</link>
+        </block>
+        <block type="to_do" id="4ed0b572-b7aa-417e-ba03-46b2315d99b3" checked="false">
+          <text>P25 · How to Export Reports (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81b7b934efead790a271">How to Export Reports</link>
+        </block>
+        <block type="to_do" id="e2fb4750-4c4f-466a-817d-3a98b3949435" checked="false">
+          <text>P26 · Multi-Component Fluid Mixtures (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81308181fd7aec867397">Multi-Component Fluid Mixtures</link>
+        </block>
+        <block type="to_do" id="6dbaeb61-a42d-4040-8949-60bdfd264743" checked="false">
+          <text>P27 · Modeling Positive Displacement Pumps in FluidFlow (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8118bacbf4b3ae4510a3">Modeling Positive Displacement Pumps in FluidFlow</link>
+        </block>
+        <block type="to_do" id="a4bf8a19-d255-4c57-90dd-59d8160ab347" checked="false">
+          <text>P28 · FluidFlow Excel Integration: Write to Excel and Read from Excel (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac813eab68efbb59e07d91">FluidFlow Excel Integration: Write to Excel and Read from Excel</link>
+        </block>
+        <block type="to_do" id="da68bd41-d620-4b3c-bceb-42bafa153c43" checked="false">
+          <text>P29 · Viscosity Correction for Centrifugal Pumps in FluidFlow (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8136962ac96fa0b46e59">Viscosity Correction for Centrifugal Pumps in FluidFlow</link>
+        </block>
+        <block type="to_do" id="d1ff1d3d-90f3-4819-8147-7ea18f89846b" checked="false">
+          <text>P30 · How to Customize User Experience (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81949fc0c8e6866cc7fb">How to Customize User Experience</link>
+        </block>
+      </children>
+    </block>
+    <block type="heading_3" id="8037797b-b102-4404-a813-62509b12b6de">
+      <text>Batch 4 — Advanced Technical Library (P31–P40)</text>
+      <children>
+        <block type="to_do" id="a55c0044-61ec-4d7a-ba36-2f6c1829edfc" checked="false">
+          <text>P31 · Composite Pump Curves in FluidFlow: Visualizing Series &amp; Parallel Pump Performance for Optimal System Design (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8194b50ef70e86a2e2f2">Composite Pump Curves in FluidFlow: Visualizing Series &amp; Parallel Pump Performance for Optimal System Design</link>
+        </block>
+        <block type="to_do" id="8d14323a-c180-4df9-b6a1-bd99c66f15f0" checked="false">
+          <text>P32 · Understanding Hydraulic &amp; Energy Grade Lines in FluidFlow: A Visual Guide to System Energy (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81f585ebe7c561dcdb06">Understanding Hydraulic &amp; Energy Grade Lines in FluidFlow: A Visual Guide to System Energy</link>
+        </block>
+        <block type="to_do" id="6fb80ddd-d073-48a6-a628-67704a8a4e28" checked="false">
+          <text>P33 · Energy &amp; Hydraulic Grade Lines (EGL/HGL): Advanced System Analysis in FluidFlow (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8187b10ff13395d4db24">Energy &amp; Hydraulic Grade Lines (EGL/HGL): Advanced System Analysis in FluidFlow</link>
+        </block>
+        <block type="to_do" id="e290a424-73e9-4e8d-b1b8-b3625b60b5a8" checked="false">
+          <text>P34 · Using the Equipment Performance Tool in FluidFlow (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81eaa780dfea6c1d5259">Using the Equipment Performance Tool in FluidFlow</link>
+        </block>
+        <block type="to_do" id="79adc18f-a6ea-474b-aa88-0c147ed6eade" checked="false">
+          <text>P35 · Using the Back Calc Input Tool (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81dc950ff9482ce676ac">Using the Back Calc Input Tool</link>
+        </block>
+        <block type="to_do" id="2924b648-8b71-404c-a5ff-37dedb2cd2c3" checked="false">
+          <text>P36 · How to Check Centrifugal Pump Curve Fit in FluidFlow (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8122b3e0e7cf3397f4c5">How to Check Centrifugal Pump Curve Fit in FluidFlow</link>
+        </block>
+        <block type="to_do" id="6b7334e3-2f98-4e5e-a5f9-4680bce57d87" checked="false">
+          <text>P37 · Modeling Fan and Blower Performance Curves in FluidFlow Using Manufacturer Data (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8115b06ef389ceabd30a">Modeling Fan and Blower Performance Curves in FluidFlow Using Manufacturer Data</link>
+        </block>
+        <block type="to_do" id="c603b171-2dbe-4ac0-ad4d-70d1104ccabb" checked="false">
+          <text>P38 · Modeling a Centrifugal Pump (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81fb8cd4d61345d258a7">Modeling a Centrifugal Pump</link>
+        </block>
+        <block type="to_do" id="08825e7f-92c4-41a4-bc09-aaf2472a3d32" checked="false">
+          <text>P39 · How do I model a manufacturer&#x27;s pump? (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81589b50ccf44a09abac">How do I model a manufacturer&#x27;s pump?</link>
+        </block>
+        <block type="to_do" id="5954f6dd-fa48-4305-82e5-be81d7d0b39f" checked="false">
+          <text>P40 · Modeling Vacuum Pumps with Vendor Data in FluidFlow (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8119a0b1da2829de4ab2">Modeling Vacuum Pumps with Vendor Data in FluidFlow</link>
+        </block>
+      </children>
+    </block>
+    <block type="heading_3" id="482c96e6-711d-43ac-ad6b-f1d67821161b">
+      <text>Batch 5 — Software Docs + Remaining Technical (P41–P50)</text>
+      <children>
+        <block type="to_do" id="ed1a6cb2-45ba-49a9-a4db-24ff37fd830d" checked="false">
+          <text>P41 · Can FluidFlow predict two-phase choked flow conditions? (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81298119d1496377fb40">Can FluidFlow predict two-phase choked flow conditions?</link>
+        </block>
+        <block type="to_do" id="a18c17a2-5480-472d-ac1f-f8dad2af4548" checked="false">
+          <text>P42 · Can I plot Energy &amp; Hydraulic Grade Lines? (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8163bfeaf93894388bd9">Can I plot Energy &amp; Hydraulic Grade Lines?</link>
+        </block>
+        <block type="to_do" id="0d982892-a470-484e-a1ee-c17783b9e92a" checked="false">
+          <text>P43 · FluidFlow Database (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81c2b442d3049b71ae74">FluidFlow Database</link>
+        </block>
+        <block type="to_do" id="9c719e66-f8dd-4c02-91b1-06f166514624" checked="false">
+          <text>P44 · FluidFlow Relief Valve Sizing (§3)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81dea32fc921810c0c96">FluidFlow Relief Valve Sizing</link>
+        </block>
+        <block type="to_do" id="e1b3a1c5-a25a-4be9-a409-0bf2616088fe" checked="false">
+          <text>P45 · FluidFlow Fire Systems (§3)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac812f87b0fdc677be7b2e">FluidFlow Fire Systems</link>
+        </block>
+        <block type="to_do" id="647ac1f2-d815-4f4e-a0fa-47d4969ad4bc" checked="false">
+          <text>P46 · FluidFlow Release History: Version Highlights and Key Features, as well as the full history (§3)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8128b515c1d3b96fbadf">FluidFlow Release History: Version Highlights and Key Features, as well as the full history</link>
+        </block>
+        <block type="to_do" id="fa152215-d14c-4bb2-8295-8e49835eae07" checked="false">
+          <text>P47 · FluidFlow Scripting Handbook (§3)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac819f8a7de801358541ed">FluidFlow Scripting Handbook</link>
+        </block>
+        <block type="to_do" id="367ddc15-a0b9-436c-80d5-826139257838" checked="false">
+          <text>P48 · FluidFlow Mining White Paper (§3)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac815eb443d8df5dfa07ce">FluidFlow Mining White Paper</link>
+        </block>
+        <block type="to_do" id="e8039780-c3e9-45c5-9ec2-2cc0f7ef906f" checked="false">
+          <text>P49 · PCF File Import Guide (§1)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81079404fe7b5342b36d">PCF File Import Guide</link>
+        </block>
+        <block type="to_do" id="9a645c1b-fe32-4052-9a7d-596ddc339e62" checked="false">
+          <text>P50 · License Manager in FluidFlow (§2)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81b08c97e20dea817d89">License Manager in FluidFlow</link>
+        </block>
+      </children>
+    </block>
+    <block type="heading_3" id="af5f5bb1-cca6-4944-8ee8-66258146d412">
+      <text>Batch 6 — Licensing + Troubleshooting + FAQ + Theory (P51–P60)</text>
+      <children>
+        <block type="to_do" id="b167708e-7a99-4dc6-92ae-f894b8c3220c" checked="false">
+          <text>P51 · Understanding FluidFlow Licensing Options (§2)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8137a7d6d4eec6d5843e">Understanding FluidFlow Licensing Options</link>
+        </block>
+        <block type="to_do" id="2a9a46db-0f0d-421c-b3a7-f7470378c09f" checked="false">
+          <text>P52 · FluidFlow Standalone License Transfer Guide (§2)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81c38d05f5bc8b156a5d">FluidFlow Standalone License Transfer Guide</link>
+        </block>
+        <block type="to_do" id="4102b849-0d59-4c01-8740-c7e111b7ec80" checked="false">
+          <text>P53 · Updating FluidFlow (Post-3.5 Versions) (§2)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81adac43fcdefad1cd38">Updating FluidFlow (Post-3.5 Versions)</link>
+        </block>
+        <block type="to_do" id="0d0ddbaa-8858-41a9-af6d-552ac5a9e8a1" checked="false">
+          <text>P54 · FluidFlow – Transferring to Another Server (§2)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81a59933d110acb27f3e">FluidFlow – Transferring to Another Server</link>
+        </block>
+        <block type="to_do" id="57e89a65-988e-47cc-bd00-049b538b08d3" checked="false">
+          <text>P55 · FluidFlow Results Verification (§6)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac811388b8c8827cd8b1eb">FluidFlow Results Verification</link>
+        </block>
+        <block type="to_do" id="49f213d3-424d-463a-b17a-37e1e93641e3" checked="false">
+          <text>P56 · FluidFlow - Network License Speed Issues (§7)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81a9872fd6d46786b85e">FluidFlow - Network License Speed Issues</link>
+        </block>
+        <block type="to_do" id="3fba69da-2f2e-41ad-acd1-29602598286d" checked="false">
+          <text>P57 · Restoring Missing Toolbars and UI Elements in FluidFlow (§7)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac819fbbf1d2e5c2485f16">Restoring Missing Toolbars and UI Elements in FluidFlow</link>
+        </block>
+        <block type="to_do" id="5d7588ef-b54e-4ecb-99b4-bd3130e37509" checked="false">
+          <text>P58 · Troubleshooting Software Freezing Issues in FluidFlow (§7)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8107a49efd3c47cba16d">Troubleshooting Software Freezing Issues in FluidFlow</link>
+        </block>
+        <block type="to_do" id="a168a2d9-5ff4-4746-92b8-0598df40c668" checked="false">
+          <text>P59 · Troubleshooting “Network Build Error” and “Unable to Prepare Network” (§7)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac815eaeeeed23762bf491">Troubleshooting “Network Build Error” and “Unable to Prepare Network”</link>
+        </block>
+        <block type="to_do" id="a0904641-34fe-4286-bd86-d276ad013835" checked="false">
+          <text>P60 · FluidFlow Software – Comprehensive FAQ (§9)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81a491affee91a1e13b4">FluidFlow Software – Comprehensive FAQ</link>
+        </block>
+      </children>
+    </block>
+    <block type="heading_3" id="23a21609-75d8-48d9-992e-f0c372d5f01c">
+      <text>Batch 7 — UI Operations + Database Additions (P61–P74)</text>
+      <children>
+        <block type="to_do" id="7180ceba-6218-4964-bdbd-e64f160846ba" checked="false">
+          <text>P61 · Connecting Pipes (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8103b73bf6b61200c9f7">Connecting Pipes</link>
+        </block>
+        <block type="to_do" id="f856643f-617b-43da-bb41-edc905bd8063" checked="false">
+          <text>P62 · Placing a Component (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81279e9ddfc6b9d80d40">Placing a Component</link>
+        </block>
+        <block type="to_do" id="ffe7d2b8-32c0-4afd-9a4a-382215851cff" checked="false">
+          <text>P63 · Deleting Components (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81eea3a4c0ecb21fdd54">Deleting Components</link>
+        </block>
+        <block type="to_do" id="c051e8b0-c473-41d0-9c54-e33561926a7d" checked="false">
+          <text>P64 · Flowsheet Snap Grid and Zoom (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac815c8f8ec246dfa32fce">Flowsheet Snap Grid and Zoom</link>
+        </block>
+        <block type="to_do" id="fbe50ef7-007c-456c-94e0-fda6cd88e34f" checked="false">
+          <text>P65 · Placing and Displaying Free Text and Shapes (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81cdb039fc34966c15de">Placing and Displaying Free Text and Shapes</link>
+        </block>
+        <block type="to_do" id="1dc3c4b9-8b55-4417-a2ac-2e13a2bf3296" checked="false">
+          <text>P66 · Adding Images and Tables (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81518d21c95f58842ccd">Adding Images and Tables</link>
+        </block>
+        <block type="to_do" id="08747015-0ba2-45b9-bf55-f54f5259e733" checked="false">
+          <text>P67 · Reposition Nodes (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac816aaee7f713bd6b18ac">Reposition Nodes</link>
+        </block>
+        <block type="to_do" id="cde3d86b-d90d-4afc-aa77-ee4a692ba112" checked="false">
+          <text>P68 · Resizing Components (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81e6983ac7e609a7efc3">Resizing Components</link>
+        </block>
+        <block type="to_do" id="7abe6952-ce31-46db-931c-c6e08df3d401" checked="false">
+          <text>P69 · Rotating Components (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8148be60d7dd62455b8e">Rotating Components</link>
+        </block>
+        <block type="to_do" id="9fc1fbe2-c674-41bf-a689-bfd1d0198522" checked="false">
+          <text>P70 · Adding New Pipe to Database (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81bd945fe1c14d21587a">Adding New Pipe to Database</link>
+        </block>
+        <block type="to_do" id="b62de206-1468-43bb-bea0-dcf38f9f30c9" checked="false">
+          <text>P71 · Adding New Boosters to Database (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac819d9db1d5fc41d92f9d">Adding New Boosters to Database</link>
+        </block>
+        <block type="to_do" id="458fe1fd-ade1-4c21-a147-e3f0a53d557b" checked="false">
+          <text>P72 · Adding New Control Valves to Database (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8197bcfcf04232306d94">Adding New Control Valves to Database</link>
+        </block>
+        <block type="to_do" id="befa5318-f4a3-463b-bf78-7c51a9617358" checked="false">
+          <text>P73 · Adding New Valves to Database (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81239947ee6ac3fd0eb6">Adding New Valves to Database</link>
+        </block>
+        <block type="to_do" id="b2af91f3-e1ed-427d-ab68-bb941e4d8fc7" checked="false">
+          <text>P74 · Adding New General Resistances to Database (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac814cafa4f204f7d1e8a3">Adding New General Resistances to Database</link>
+        </block>
+      </children>
+    </block>
+    <block type="heading_3" id="7021f8fc-b8fd-44e0-99be-74d7f2cd309d">
+      <text>Batch 8 — Database Additions + Glossary (P75–P87)</text>
+      <children>
+        <block type="to_do" id="b0e1fdb9-9fe0-46b8-81a8-7af8db9ddc14" checked="false">
+          <text>P75 · Adding New Size Change to Database (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81c698d6d16c6934cd1b">Adding New Size Change to Database</link>
+        </block>
+        <block type="to_do" id="fa8ce686-4918-4f49-a350-ce06fe67ed2d" checked="false">
+          <text>P76 · Adding New Sprinkler to Database (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81d29767dddd6da0854b">Adding New Sprinkler to Database</link>
+        </block>
+        <block type="to_do" id="07e023bc-7124-4903-a85b-e0efd5da1cfa" checked="false">
+          <text>P77 · Adding New Insulation Material to Database (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac810694a5d58033b31f43">Adding New Insulation Material to Database</link>
+        </block>
+        <block type="to_do" id="d00249b7-a578-4c4f-b7ea-f735315cf213" checked="false">
+          <text>P78 · Adding New Manufacturer, Material or Application to Database (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac815e8cc0cb5344c4a00d">Adding New Manufacturer, Material or Application to Database</link>
+        </block>
+        <block type="to_do" id="0ccca2b8-0545-44f4-9a11-07098f80ebb1" checked="false">
+          <text>P79 · Adding New Pipe Roughness to Database (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac813ca9ddf780f3f95005">Adding New Pipe Roughness to Database</link>
+        </block>
+        <block type="to_do" id="f9db7d66-7fb9-44b7-91d2-57e08a07dcbf" checked="false">
+          <text>P80 · Adding New Pipe Scaling Data to Database (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81f4af10eb6fc3cbf7ed">Adding New Pipe Scaling Data to Database</link>
+        </block>
+        <block type="to_do" id="b1b9594e-b28a-4c01-8a6f-fb350325a7dd" checked="false">
+          <text>P81 · Adding New Pipe Sizing Data (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81f098acd05364335476">Adding New Pipe Sizing Data</link>
+        </block>
+        <block type="to_do" id="c8afc5ea-e535-4f51-ae6d-5fd3bff2155a" checked="false">
+          <text>P82 · Adding New Pipe Thermal Conductivity to Database (§4)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81888e42d09e75a3bf01">Adding New Pipe Thermal Conductivity to Database</link>
+        </block>
+        <block type="to_do" id="7e98494d-4bf0-4573-a500-f230c3233fab" checked="false">
+          <text>P83 · Hydraulic Components - Boundaries (§8)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8100897ce9728e1c5627">Hydraulic Components - Boundaries</link>
+        </block>
+        <block type="to_do" id="bf6e2fce-34e0-4168-a009-57b3e30a1459" checked="false">
+          <text>P84 · Hydraulic Components - Boosters (§8)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81519441cc2b3f86f822">Hydraulic Components - Boosters</link>
+        </block>
+        <block type="to_do" id="ff596220-23cd-48c7-8016-0775470e1949" checked="false">
+          <text>P85 · Hydraulic Components - Valves (§8)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81a19a92c5a13c481e18">Hydraulic Components - Valves</link>
+        </block>
+        <block type="to_do" id="70725853-ad6a-4dfb-be40-254634bc8505" checked="false">
+          <text>P86 · Hydraulic Components - Controllers (§8)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81de8c8fde1197751eb0">Hydraulic Components - Controllers</link>
+        </block>
+        <block type="to_do" id="31c63d6e-7f08-46d9-baec-b9c3c7602fa3" checked="false">
+          <text>P87 · Hydraulic Components - Check Valves (§8)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81258b1ac1acd0d1ae93">Hydraulic Components - Check Valves</link>
+        </block>
+      </children>
+    </block>
+    <block type="heading_3" id="d7145000-e91c-454c-9ded-8ce34cb5dc0b">
+      <text>Batch 9 — Remaining Glossary + Training (P88–P96)</text>
+      <children>
+        <block type="to_do" id="547aa687-e34a-4afb-8c75-4f1c8113788c" checked="false">
+          <text>P88 · Hydraulic Components - General Resistances (§8)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac818ab31fd460acc0988b">Hydraulic Components - General Resistances</link>
+        </block>
+        <block type="to_do" id="a809eb3b-091b-4660-87d2-2b28094d211e" checked="false">
+          <text>P89 · Hydraulic Components - Size Change (§8)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac814cbcf6e429eb1773cc">Hydraulic Components - Size Change</link>
+        </block>
+        <block type="to_do" id="eb16cd73-182b-49e6-b202-8c61be8ba7e4" checked="false">
+          <text>P90 · Hydraulic Components - Relief Devices (§8)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8190a6fdd12f0f63f46b">Hydraulic Components - Relief Devices</link>
+        </block>
+        <block type="to_do" id="05247605-c4c4-4636-b4bc-ab2f360c458d" checked="false">
+          <text>P91 · Hydraulic Components - Heat Exchangers (§8)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8104b04ae7906335c531">Hydraulic Components - Heat Exchangers</link>
+        </block>
+        <block type="to_do" id="07d3636a-ca74-48ac-95e3-5e9734636ea7" checked="false">
+          <text>P92 · For Addition in Glossary (§8)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81e8ba82c52ff5b18be8">For Addition in Glossary</link>
+        </block>
+        <block type="to_do" id="0e0fa54c-b7d5-4169-b652-3bd39afa5a9d" checked="false">
+          <text>P93 · Video Tutorial Library (§10)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac817a89f7edc1f9375e7b">Video Tutorial Library</link>
+        </block>
+        <block type="to_do" id="4d8ce27c-e095-4eb1-92ca-5a2a8df2dd75" checked="false">
+          <text>P94 · Webinar Recordings (§10)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81448fc3cc78bd3c1419">Webinar Recordings</link>
+        </block>
+        <block type="to_do" id="f4cedcd2-9f1b-4b56-b626-8838b2b3b8f5" checked="false">
+          <text>P95 · Free Basic Training  (§10)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac814eab3ce495283d3372">Free Basic Training </link>
+        </block>
+        <block type="to_do" id="d4dab3d0-c4f3-4018-a3be-8d02ba84f0bf" checked="false">
+          <text>P96 · Best Practices for FluidFlow-Compatible Systems (§5)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8193be3cefe299183a27">Best Practices for FluidFlow-Compatible Systems</link>
+        </block>
+      </children>
+    </block>
+    <block type="heading_3" id="4292af95-6d9e-4814-994b-e7d343bf39cc">
+      <text>Batch 10 — Mining &amp; Metals (P97–P104)</text>
+      <children>
+        <block type="to_do" id="6a944d78-2afb-4453-9f10-e0a625dc1448" checked="false">
+          <text>P97 · Mining &amp; Metals - Ring Main Diameter Selection</text>
+          <link url="https://www.notion.so/30a8fb7c51ac813fab08ec9ac0796ca9">Mining &amp; Metals - Ring Main Diameter Selection</link>
+        </block>
+        <block type="to_do" id="8ae2781a-65b7-4c4d-b488-070a4acca068" checked="false">
+          <text>P98 · Mining &amp; Metals - Thickener overflow NPSH risk</text>
+          <link url="https://www.notion.so/30a8fb7c51ac819e8643d29ad8b18323">Mining &amp; Metals - Thickener overflow NPSH risk</link>
+        </block>
+        <block type="to_do" id="2ccabca1-064e-408b-9e84-60a454e0d1aa" checked="false">
+          <text>P99 · Mining &amp; Metals - Series/Parallel Pipelines</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81fd9028d63aa2e93770">Mining &amp; Metals - Series/Parallel Pipelines</link>
+        </block>
+        <block type="to_do" id="ee5673d9-df57-426a-b32c-f91fba69612a" checked="false">
+          <text>P100 · Mining &amp; Metals - Filter-Press Feed Pump Curve Drift</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8100a556e4b310ce32ee">Mining &amp; Metals - Filter-Press Feed Pump Curve Drift</link>
+        </block>
+        <block type="to_do" id="c0a07bb2-e780-488f-a9e3-44fb342f7908" checked="false">
+          <text>P101 · Mining &amp; Metals - Dust Suppression Grids</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81d0839dc29f83d46f7a">Mining &amp; Metals - Dust Suppression Grids</link>
+        </block>
+        <block type="to_do" id="98323893-1e1e-4e0f-a1b1-88b927abb402" checked="false">
+          <text>P102 · Mining &amp; Metals - Cooling-Water Multi-Pump Combinations</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81609b80c79faa9ed261">Mining &amp; Metals - Cooling-Water Multi-Pump Combinations</link>
+        </block>
+        <block type="to_do" id="7d62636e-5c9a-426d-b006-1a7ee707caa3" checked="false">
+          <text>P103 · Mining &amp; Metals - Two-Phase Tank Vents</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81a3a150f8312b285572">Mining &amp; Metals - Two-Phase Tank Vents</link>
+        </block>
+        <block type="to_do" id="d14224ed-801e-4cf2-9d45-c931ed2d2d47" checked="false">
+          <text>P104 · Mining &amp; Metals - Fire-Water Tie-Ins</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81c781f6ee59079ae436">Mining &amp; Metals - Fire-Water Tie-Ins</link>
+        </block>
+      </children>
+    </block>
+    <block type="heading_3" id="d7ccabb8-a7cb-423f-b4e9-2a1962b33808">
+      <text>Batch 11 — Utilities (P105–P112)</text>
+      <children>
+        <block type="to_do" id="8b46d0b4-3bae-40f9-b017-8577a3dfbf92" checked="false">
+          <text>P105 · A Technical Guide to Modeling Utility Systems with FluidFlow - Pump Selection vs. System Head Curve</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81c49f36de43a0b66304">A Technical Guide to Modeling Utility Systems with FluidFlow - Pump Selection vs. System Head Curve</link>
+        </block>
+        <block type="to_do" id="c1ada558-cd76-4d4f-978d-5c5f1f3ac69d" checked="false">
+          <text>P106 · A Technical Guide to Modeling Utility Systems with FluidFlow - Cooling-Water Loop Diameter Selection</text>
+          <link url="https://www.notion.so/30a8fb7c51ac815bb825e793693a3a21">A Technical Guide to Modeling Utility Systems with FluidFlow - Cooling-Water Loop Diameter Selection</link>
+        </block>
+        <block type="to_do" id="d78df8ec-da4b-4297-9105-5b47c475bb48" checked="false">
+          <text>P107 · A Technical Guide to Modeling Utility Systems with FluidFlow - Parallel Pump Staging</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81e89812eb0a17b0771a">A Technical Guide to Modeling Utility Systems with FluidFlow - Parallel Pump Staging</link>
+        </block>
+        <block type="to_do" id="77843135-2986-4a10-9a0b-1b36dbdea95b" checked="false">
+          <text>P108 · A Technical Guide to Modeling Utility Systems with FluidFlow - Booster Stations Across Elevation</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8140a64cc4873ccfe11a">A Technical Guide to Modeling Utility Systems with FluidFlow - Booster Stations Across Elevation</link>
+        </block>
+        <block type="to_do" id="0256c6d1-fd7d-4328-a111-bead749bdfda" checked="false">
+          <text>P109 · A Technical Guide to Modeling Utility Systems with FluidFlow - District Heating Valve Δp</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8131ba34ee1921cd00cf">A Technical Guide to Modeling Utility Systems with FluidFlow - District Heating Valve Δp</link>
+        </block>
+        <block type="to_do" id="1b53e9ed-bf7d-48bd-bf35-698befc0ef18" checked="false">
+          <text>P110 · A Technical Guide to Modeling Utility Systems with FluidFlow - Cooling Tower Make-up NPSH Margin</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81ce811cc06d01ce6a5f">A Technical Guide to Modeling Utility Systems with FluidFlow - Cooling Tower Make-up NPSH Margin</link>
+        </block>
+        <block type="to_do" id="b3e539cc-5dc9-4179-8e40-5646d2a19910" checked="false">
+          <text>P111 · A Technical Guide to Modeling Utility Systems with FluidFlow - Two-Phase PRV Venting (Steady-State)</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81748f4ef21e040d0ac3">A Technical Guide to Modeling Utility Systems with FluidFlow - Two-Phase PRV Venting (Steady-State)</link>
+        </block>
+        <block type="to_do" id="927bbca7-92c2-4a9a-b5a7-d50876036166" checked="false">
+          <text>P112 · A Technical Guide to Modeling Utility Systems with FluidFlow - Pipe Diameter Optimization</text>
+          <link url="https://www.notion.so/30a8fb7c51ac815987ced339d0ff6803">A Technical Guide to Modeling Utility Systems with FluidFlow - Pipe Diameter Optimization</link>
+        </block>
+      </children>
+    </block>
+    <block type="heading_3" id="328134d3-12ad-4e13-aece-7d732edab5c1">
+      <text>Batch 12 — Chemical Processing (P113–P120)</text>
+      <children>
+        <block type="to_do" id="6f1e21c4-a62c-495a-b050-7ce6409ceb1a" checked="false">
+          <text>P113 · Chemical Processing - Cooling-Water Loop Pipe Diameter</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8178b596c8a5a4655706">Chemical Processing - Cooling-Water Loop Pipe Diameter</link>
+        </block>
+        <block type="to_do" id="131fa983-b640-44db-b387-7a5e2be5c182" checked="false">
+          <text>P114 · Chemical Processing - Chilled-Water Valve Cv and Authority</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81978197f1a60aee1d8f">Chemical Processing - Chilled-Water Valve Cv and Authority</link>
+        </block>
+        <block type="to_do" id="019b862e-03a7-4d7f-b4b1-def726237e21" checked="false">
+          <text>P115 · Chemical Processing - Wash/Flush Water Geometry</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81dfbdbbecc43e44d6ea">Chemical Processing - Wash/Flush Water Geometry</link>
+        </block>
+        <block type="to_do" id="902b66a9-16dd-4a30-a134-76339603ea4a" checked="false">
+          <text>P116 · Chemical Processing - Two-Phase Outlet Checks</text>
+          <link url="https://www.notion.so/30a8fb7c51ac813fb63bcd2fcaa60d0c">Chemical Processing - Two-Phase Outlet Checks</link>
+        </block>
+        <block type="to_do" id="6af02a6a-e600-4c86-86c0-ab09a91cd973" checked="false">
+          <text>P117 · Chemical Processing - Strainer Block Δp</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81bcaf08ebe5baac5fcd">Chemical Processing - Strainer Block Δp</link>
+        </block>
+        <block type="to_do" id="e61a4b5f-7af6-44d3-bb16-065069705dd2" checked="false">
+          <text>P118 · Chemical Processing - PW/CIP NPSH Margin</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81a8aa61e60b17f43692">Chemical Processing - PW/CIP NPSH Margin</link>
+        </block>
+        <block type="to_do" id="778f0b30-6f16-43db-a7c3-a4cd939ae58f" checked="false">
+          <text>P119 · Chemical Processing - Parallel Pump Staging</text>
+          <link url="https://www.notion.so/30a8fb7c51ac812ea254e0798978cfc5">Chemical Processing - Parallel Pump Staging</link>
+        </block>
+        <block type="to_do" id="df86810a-4cde-497e-bb0e-23ecaf36a0cf" checked="false">
+          <text>P120 · Chemical Processing - Pipe-Size “One-Up” Study</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81e38753f7801f32c056">Chemical Processing - Pipe-Size “One-Up” Study</link>
+        </block>
+      </children>
+    </block>
+    <block type="heading_3" id="e2debd61-46a3-44e9-9e09-f69d1e10242f">
+      <text>Batch 13 — Pharmaceuticals (P121–P128)</text>
+      <children>
+        <block type="to_do" id="39ec8395-7b82-44e2-ad58-c195bd745331" checked="false">
+          <text>P121 · Pharmaceuticals - PW loop velocity</text>
+          <link url="https://www.notion.so/30a8fb7c51ac811881f2cba3c07f0631">Pharmaceuticals - PW loop velocity</link>
+        </block>
+        <block type="to_do" id="fc3f81cd-488b-4252-b086-fd66ca34a0b8" checked="false">
+          <text>P122 · Pharmaceuticals - WFI loop NPSH</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81d79bfbffa42eeb9e42">Pharmaceuticals - WFI loop NPSH</link>
+        </block>
+        <block type="to_do" id="2d6c6b1d-190b-408c-bf8c-0a4a57a203d2" checked="false">
+          <text>P123 · Pharmaceuticals - Clean-Steam Condensate Return</text>
+          <link url="https://www.notion.so/30a8fb7c51ac817ab975f53bbfc9ede5">Pharmaceuticals - Clean-Steam Condensate Return</link>
+        </block>
+        <block type="to_do" id="a2e51f8c-d0bc-4bae-bef9-de3b3125fdc0" checked="false">
+          <text>P124 · Pharmaceuticals - Cooling Water D vs ΔH</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8190b4a5d1ed87c2382e">Pharmaceuticals - Cooling Water D vs ΔH</link>
+        </block>
+        <block type="to_do" id="0dda681f-4655-4827-96cd-8547c86ff07f" checked="false">
+          <text>P125 · Pharmaceuticals - Point-of-Use Entry Losses</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81dfb5e2da3455bbce4a">Pharmaceuticals - Point-of-Use Entry Losses</link>
+        </block>
+        <block type="to_do" id="f45b48bb-6bb7-4aa8-9416-5cc883edb233" checked="false">
+          <text>P126 · Pharmaceuticals - Duty/Standby Pump Range</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81f8a4b6ea495df3fd2a">Pharmaceuticals - Duty/Standby Pump Range</link>
+        </block>
+        <block type="to_do" id="934c61e1-080d-49b6-b5e7-271de2d11ffd" checked="false">
+          <text>P127 · Pharmaceuticals - Small-Bore Valve Cv</text>
+          <link url="https://www.notion.so/30a8fb7c51ac814d933dfac2b6a3cfa9">Pharmaceuticals - Small-Bore Valve Cv</link>
+        </block>
+        <block type="to_do" id="0dde9818-d150-46ae-ba91-4861fea9e75a" checked="false">
+          <text>P128 · Pharmaceuticals - Aged Stainless C-Values</text>
+          <link url="https://www.notion.so/30a8fb7c51ac815ab951c705b55016ec">Pharmaceuticals - Aged Stainless C-Values</link>
+        </block>
+      </children>
+    </block>
+    <block type="heading_3" id="63e7a2a9-905c-43e7-9aa5-6341d5a1955f">
+      <text>Batch 14 — Shipbuilding (P129–P136)</text>
+      <children>
+        <block type="to_do" id="7cce0c0a-778d-46a2-afdb-5e7685b40303" checked="false">
+          <text>P129 · Shipbuilding - SW Cooling NPSH</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8147802af7026589e196">Shipbuilding - SW Cooling NPSH</link>
+        </block>
+        <block type="to_do" id="7aee9b8d-2c19-479c-92f4-e66f645e36ca" checked="false">
+          <text>P130 · Shipbuilding - Ballast Transfer D Selection</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81acbbd3d75a4bd65c53">Shipbuilding - Ballast Transfer D Selection</link>
+        </block>
+        <block type="to_do" id="33cd55f5-6337-4692-aba5-57f9269852d0" checked="false">
+          <text>P131 · Shipbuilding - Potable Water Pumps</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81fda287ce00d2dae6ed">Shipbuilding - Potable Water Pumps</link>
+        </block>
+        <block type="to_do" id="3edc952e-570a-4e64-b52d-bcea88e8c252" checked="false">
+          <text>P132 · Shipbuilding - Fire Main Pressures</text>
+          <link url="https://www.notion.so/30a8fb7c51ac814e8148c1ad6fcfa0d7">Shipbuilding - Fire Main Pressures</link>
+        </block>
+        <block type="to_do" id="aaa370a1-dd25-4519-8b66-fe200bd2082c" checked="false">
+          <text>P133 · Shipbuilding - Chiller CW Loops</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81a8a334c87f66c3ecf9">Shipbuilding - Chiller CW Loops</link>
+        </block>
+        <block type="to_do" id="abcb09c7-f104-4f29-94fb-73dd4e5d21f8" checked="false">
+          <text>P134 · Shipbuilding - Evaporator Brine Inlets</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81bda650c81c26d5eb09">Shipbuilding - Evaporator Brine Inlets</link>
+        </block>
+        <block type="to_do" id="2bc8de42-a998-4f31-8b11-f5916e10bf7a" checked="false">
+          <text>P135 · Shipbuilding - Hydrophore Multi-Pump</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81be89e7ce9532d9124c">Shipbuilding - Hydrophore Multi-Pump</link>
+        </block>
+        <block type="to_do" id="d7263e25-1725-4e78-8ba4-f3a1806649e5" checked="false">
+          <text>P136 · Shipbuilding - Tank Stripping Water C-Values</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8198b6b0c94cf883025a">Shipbuilding - Tank Stripping Water C-Values</link>
+        </block>
+      </children>
+    </block>
+    <block type="heading_3" id="6996239b-9dab-4e91-b960-7a8a70945ad3">
+      <text>Batch 15 — Fire Protection (P137–P144)</text>
+      <children>
+        <block type="to_do" id="ad8129d9-713a-4adf-a44a-a66c60cde314" checked="false">
+          <text>P137 · Fire Protection - Sprinkler Tree Hydraulics</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81179706df7c21c92f6e">Fire Protection - Sprinkler Tree Hydraulics</link>
+        </block>
+        <block type="to_do" id="da057e1c-99bf-4e17-861d-9eb155f6695a" checked="false">
+          <text>P138 · Fire Protection - Fire Pump Duty</text>
+          <link url="https://www.notion.so/30a8fb7c51ac814b95e8c7daf18cf48a">Fire Protection - Fire Pump Duty</link>
+        </block>
+        <block type="to_do" id="57a8d276-7050-4608-90f7-cfda384f4d77" checked="false">
+          <text>P139 · Fire Protection - Hydrant Ring Main C-Values</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81fda36bceb3f51c43a6">Fire Protection - Hydrant Ring Main C-Values</link>
+        </block>
+        <block type="to_do" id="928dae80-0b7e-4c6c-942b-900789b1fcb3" checked="false">
+          <text>P140 · Fire Protection - Jockey Pump Setpoint Mapping</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81b9add8cef1780ae6f9">Fire Protection - Jockey Pump Setpoint Mapping</link>
+        </block>
+        <block type="to_do" id="08df1b6b-5e29-4b88-9ce9-c4332ebb94d6" checked="false">
+          <text>P141 · Fire Protection - Roof Hydrant Static Head</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81d395a0d0e616c54af7">Fire Protection - Roof Hydrant Static Head</link>
+        </block>
+        <block type="to_do" id="a1aca530-5259-4f52-9242-3a1f07e95ca2" checked="false">
+          <text>P142 · Fire Protection - Meter/Backflow K-Loss</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81378c6afeeb6d55cfeb">Fire Protection - Meter/Backflow K-Loss</link>
+        </block>
+        <block type="to_do" id="8186042d-7e69-4d2a-b419-0dd560e8c2d0" checked="false">
+          <text>P143 · Fire Protection - Dual Pumps in Parallel</text>
+          <link url="https://www.notion.so/30a8fb7c51ac81c6b496dc42e5c85d43">Fire Protection - Dual Pumps in Parallel</link>
+        </block>
+        <block type="to_do" id="7dccdbd9-e47b-4c86-bf1a-21777eb34521" checked="false">
+          <text>P144 · Fire Protection - Tank Suction NPSH</text>
+          <link url="https://www.notion.so/30a8fb7c51ac8158a91df0c541a47525">Fire Protection - Tank Suction NPSH</link>
+        </block>
+      </children>
+    </block>
+    <block type="divider" id="dabfc9bd-6a82-4725-8046-81a6fea5705d">
+    </block>
+    <block type="heading_2" id="30a8fb7c-51ac-816d-b830-dd7788a83b8d">
+      <text>1. Getting Started</text>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-81fc-893a-e9d5bb69e03e">
+      <text>FF/FD Documentation Meeting Notes</text>
+      <children>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-815e-9b81-f6ca2b396e58">
+          <text>Getting Started section required for both FF and FD but with different content/structure</text>
+        </block>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-81f4-b220-c15df5942577">
+          <text>Status:</text>
+        </block>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-81b8-900d-f395e9ddb16a">
+          <text>Duplicate the FF KB Structure Notion Page for FD - DONE</text>
+        </block>
+      </children>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-81df-b23c-dee6e00d1027">
+      <text>Getting Started drafts</text>
+      <children>
+        <block type="child_page" id="30a8fb7c-51ac-81f6-8fd5-ee08d57062a6">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8171-8090-e0785f017547">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8184-86b3-e897e4a926c4">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81e7-ba37-e048dcd7d887">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8107-9404-fe7b5342b36d">
+        </block>
+      </children>
+    </block>
+    <block type="child_database" id="30a8fb7c-51ac-81e5-82da-e67d81c3850c">
+    </block>
+    <block type="heading_2" id="30a8fb7c-51ac-814f-9c67-f128d730db31">
+      <text>2. Installation and Licensing</text>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-8127-aa7b-eba0b3ffa456">
+      <text>FF/FD Documentation Meeting Notes</text>
+      <children>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-8186-8891-c6dcc9d420f4">
+          <text>Installation and Licensing section required for both FF and FD but with different content/structure</text>
+        </block>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-81c5-afdd-d4f39c5439a2">
+          <text>Status:</text>
+        </block>
+      </children>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-8185-9063-c586c6f1adaf">
+      <text>Installation and Licensing drafts</text>
+      <children>
+        <block type="child_page" id="30a8fb7c-51ac-81a5-9933-d110acb27f3e">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81b0-8c97-e20dea817d89">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81ad-ac43-fcdefad1cd38">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8137-a7d6-d4eec6d5843e">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81c3-8d05-f5bc8b156a5d">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8119-b595-f165fbdaee7a">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81ea-abe6-fbcde30898a9">
+        </block>
+      </children>
+    </block>
+    <block type="child_database" id="30a8fb7c-51ac-81e6-8b59-d85517a4fa31">
+    </block>
+    <block type="heading_2" id="30a8fb7c-51ac-81dd-b4cb-e260b0e2767c">
+      <text>3. Software Documentation</text>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-8195-a04d-ef39fba1d092">
+      <text>FF/FD Documentation Meeting Notes</text>
+      <children>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-81e4-9ea4-f2c536696cb9">
+          <text>Low Priority for FF, High Priority for FD</text>
+        </block>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-8166-bc96-d6eec5f73a1f">
+          <text>Apps Team to conduct a separate brainstorming activity to finalize the content of this section in FD</text>
+        </block>
+      </children>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-8163-8c65-f6cf03670111">
+      <text>Software Documentation drafts</text>
+      <children>
+        <block type="child_page" id="30a8fb7c-51ac-8128-b515-c1d3b96fbadf">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81eb-8f3b-eddb594d2794">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81d1-bd74-f971acaffa76">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81de-a32f-c921810c0c96">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-812f-87b0-fdc677be7b2e">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-819f-8a7d-e801358541ed">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81e7-9f7d-e67a66f0456c">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-815e-b443-d8df5dfa07ce">
+        </block>
+      </children>
+    </block>
+    <block type="child_database" id="30a8fb7c-51ac-8156-b834-dc416f93daff">
+    </block>
+    <block type="paragraph" id="30a8fb7c-51ac-819d-b9ac-d7070b157018">
+    </block>
+    <block type="heading_2" id="30a8fb7c-51ac-8148-8774-da01d0869718">
+      <text>4. Technical Library</text>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-8160-918e-ec6668213438">
+      <text>FF/FD Documentation Meeting Notes</text>
+      <children>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-81ff-8273-c5b49950ec91">
+          <text>FF Technical Library</text>
+        </block>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-81b7-8cd7-d0121a3f0366">
+          <text>FD Technical Library</text>
+        </block>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-81d1-a267-eebf6ab2202d">
+          <text>FF and FD can be done simultaneously</text>
+        </block>
+      </children>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-81df-85ae-c089de251cfd">
+      <text>Technical Library Drafts</text>
+      <children>
+        <block type="child_page" id="30a8fb7c-51ac-8103-b73b-f6b61200c9f7">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81ee-a3a4-c0ecb21fdd54">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-815c-8f8e-c246dfa32fce">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8127-9e9d-dfc6b9d80d40">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81cd-b039-fc34966c15de">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8151-8d21-c95f58842ccd">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-816a-aee7-f713bd6b18ac">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81e6-983a-c7e609a7efc3">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8148-be60-d7dd62455b8e">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81da-9000-e80340087243">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-812c-a4a8-e24ab0b69dc5">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8126-8b0d-e2045f7c1ef3">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-817a-9cb1-cb5ed23099e6">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81b7-b934-efead790a271">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8194-9fc0-c8e6866cc7fb">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81d4-a8d8-e56ea6b2a9a8">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81e9-a6fe-cb2537e1e471">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81c2-b442-d3049b71ae74">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81bd-945f-e1c14d21587a">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-819d-9db1-d5fc41d92f9d">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8197-bcfc-f04232306d94">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8123-9947-ee6ac3fd0eb6">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-814c-afa4-f204f7d1e8a3">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81c6-98d6-d16c6934cd1b">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81d2-9767-dddd6da0854b">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8106-94a5-d58033b31f43">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-815e-8cc0-cb5344c4a00d">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-813c-a9dd-f780f3f95005">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81f4-af10-eb6fc3cbf7ed">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81f0-98ac-d05364335476">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8188-8e42-d09e75a3bf01">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81dc-950f-f9482ce676ac">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8163-bfea-f93894388bd9">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81f5-85eb-e7c561dcdb06">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8194-b50e-f70e86a2e2f2">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81fb-8cd4-d61345d258a7">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8158-9b50-ccf44a09abac">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8118-bacb-f4b3ae4510a3">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-815c-ac33-c0dcc5a1ec93">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8119-a0b1-da2829de4ab2">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8130-8181-fd7aec867397">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8129-8119-d1496377fb40">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8187-b10f-f13395d4db24">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81ea-a780-dfea6c1d5259">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81f9-8cb7-ec99e7a5a4b9">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81c7-8f15-defe75eecdd6">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81d0-bedf-f124ba942782">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8115-b06e-f389ceabd30a">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-813e-ab68-efbb59e07d91">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8136-962a-c96fa0b46e59">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-812e-8247-fdecb83fa71e">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-817f-88a8-eaf4a9c2864b">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-814d-b0f7-e3c348de4081">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8122-b3e0-e7cf3397f4c5">
+        </block>
+      </children>
+    </block>
+    <block type="child_database" id="30a8fb7c-51ac-8179-a858-fdda266f62bc">
+    </block>
+    <block type="heading_2" id="30a8fb7c-51ac-8106-a2cb-f7e8eaa4f074">
+      <text>5. Industry-Specific Solutions</text>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-81cd-b5de-de1541925baa">
+      <text>FF/FD Documentation Meeting Notes</text>
+      <children>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-8156-962d-e225b402fd79">
+          <text>Low Priority </text>
+        </block>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-81b2-90bf-dd8cf0624bd1">
+          <text>We can create this post-release, for AI, for Chatbot, etc.)</text>
+        </block>
+      </children>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-8109-8bfd-e6ac5cf78b71">
+      <text>Industry-Specific Solutions drafts</text>
+      <children>
+        <block type="child_page" id="30a8fb7c-51ac-8193-be3c-efe299183a27">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81c4-9f36-de43a0b66304">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-815b-b825-e793693a3a21">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81e8-9812-eb0a17b0771a">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8140-a64c-c4873ccfe11a">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8131-ba34-ee1921cd00cf">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81ce-811c-c06d01ce6a5f">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8174-8f4e-f21e040d0ac3">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8159-87ce-d339d0ff6803">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-813f-ab08-ec9ac0796ca9">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-819e-8643-d29ad8b18323">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81fd-9028-d63aa2e93770">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8100-a556-e4b310ce32ee">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81d0-839d-c29f83d46f7a">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8160-9b80-c79faa9ed261">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81a3-a150-f8312b285572">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81c7-81f6-ee59079ae436">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8178-b596-c8a5a4655706">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8197-8197-f1a60aee1d8f">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81df-bdbb-ecc43e44d6ea">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-813f-b63b-cd2fcaa60d0c">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81bc-af08-ebe5baac5fcd">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81a8-aa61-e60b17f43692">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-812e-a254-e0798978cfc5">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81e3-8753-f7801f32c056">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8118-81f2-cba3c07f0631">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81d7-9bfb-ffa42eeb9e42">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-817a-b975-f53bbfc9ede5">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8190-b4a5-d1ed87c2382e">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81df-b5e2-da3455bbce4a">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81f8-a4b6-ea495df3fd2a">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-814d-933d-fac2b6a3cfa9">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-815a-b951-c705b55016ec">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8147-802a-f7026589e196">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81ac-bbd3-d75a4bd65c53">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81fd-a287-ce00d2dae6ed">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-814e-8148-c1ad6fcfa0d7">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81a8-a334-c87f66c3ecf9">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81bd-a650-c81c26d5eb09">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81be-89e7-ce9532d9124c">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8198-b6b0-c94cf883025a">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8117-9706-df7c21c92f6e">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-814b-95e8-c7daf18cf48a">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81fd-a36b-ceb3f51c43a6">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81b9-add8-cef1780ae6f9">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81d3-95a0-d0e616c54af7">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8137-8c6a-feeb6d55cfeb">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81c6-b496-dc42e5c85d43">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8158-a91d-f0c541a47525">
+        </block>
+        <block type="paragraph" id="30a8fb7c-51ac-8144-bab7-d1c8a1882ab0">
+        </block>
+      </children>
+    </block>
+    <block type="child_database" id="30a8fb7c-51ac-814b-87a0-da7330e18ac5">
+    </block>
+    <block type="child_page" id="30a8fb7c-51ac-8196-993e-e21b8fc9237d">
+    </block>
+    <block type="child_page" id="30a8fb7c-51ac-817a-b40f-c88ff28d2852">
+    </block>
+    <block type="heading_2" id="30a8fb7c-51ac-8199-9e7e-f7654668571d">
+      <text>6. Calculation References / Theory and Methods</text>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-815e-94da-e6dbcea2f5f3">
+      <text>FF/FD Documentation Meeting Notes</text>
+      <children>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-81ae-ad76-d01156c54837">
+          <text>FF</text>
+        </block>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-8170-b5c4-c19f7980fefc">
+          <text>FD: To be included in FD Glossary</text>
+        </block>
+      </children>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-812f-a455-d898f07eba33">
+      <text>Theory and Methods drafts</text>
+      <children>
+        <block type="child_page" id="30a8fb7c-51ac-8113-88b8-c8827cd8b1eb">
+        </block>
+      </children>
+    </block>
+    <block type="child_database" id="30a8fb7c-51ac-8158-b20c-d3268e6b5930">
+    </block>
+    <block type="heading_2" id="30a8fb7c-51ac-8160-827a-c532bf2a00e1">
+      <text>7. Troubleshooting</text>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-813b-b191-dc415d565d5a">
+      <text>FF/FD Documentation Meeting Notes</text>
+      <children>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-8187-8fdc-c1ea64379997">
+          <text>Troubleshooting section for FF only</text>
+        </block>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-8106-9417-c958bdf65758">
+          <text>FD (TBD) - will be finalized post-release once the Pre-Calculation Checklist is available</text>
+        </block>
+      </children>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-812f-81ba-f67225b984dd">
+      <text>Troubleshooting drafts</text>
+      <children>
+        <block type="child_page" id="30a8fb7c-51ac-81a9-872f-d6d46786b85e">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-818e-a535-d1361cd4607b">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-819f-bbf1-d2e5c2485f16">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8107-a49e-fd3c47cba16d">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-815e-aeee-ed23762bf491">
+        </block>
+      </children>
+    </block>
+    <block type="child_database" id="30a8fb7c-51ac-818e-9252-c99afbc2400b">
+    </block>
+    <block type="heading_2" id="30a8fb7c-51ac-817c-8f54-f50b8cb7840e">
+      <text>8. Glossary &amp; Terminology</text>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-81e9-8502-ed4d8d551a5f">
+      <text>FF/FD Documentation Meeting Notes</text>
+      <children>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-81d0-941c-e28f6145f3b4">
+          <text>Glossary required for both FF and FD </text>
+        </block>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-8143-9ec5-c074eb5cee7a">
+          <text>Prioritize FF first, then FD</text>
+        </block>
+      </children>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-81c9-a81d-d38694edb8ae">
+      <text>Glossary drafts</text>
+      <children>
+        <block type="child_page" id="30a8fb7c-51ac-8139-acfc-e850bb6b6b32">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8100-897c-e9728e1c5627">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8151-9441-cc2b3f86f822">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81a1-9a92-c5a13c481e18">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81de-8c8f-de1197751eb0">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8125-8b1a-c1acd0d1ae93">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-818a-b31f-d460acc0988b">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-814c-bcf6-e429eb1773cc">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8190-a6fd-d12f0f63f46b">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8104-b04a-e7906335c531">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-81e8-ba82-c52ff5b18be8">
+        </block>
+      </children>
+    </block>
+    <block type="child_database" id="30a8fb7c-51ac-8179-ac88-d147484a6b64">
+    </block>
+    <block type="heading_2" id="30a8fb7c-51ac-8182-95e7-eda21dd26a56">
+      <text>9. FAQs</text>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-81e7-9a56-e960ed72d1c9">
+      <text>FF/FD Documentation Meeting Notes</text>
+      <children>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-81c2-88b0-fca2c0d28e2b">
+          <text>FF - for review</text>
+        </block>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-815a-ac07-ddf3ade292d5">
+          <text>FD - draft prepared by Patty &amp; Leo (on-going)</text>
+        </block>
+      </children>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-8155-9c6f-db3070485f43">
+      <text>FAQ drafts</text>
+      <children>
+        <block type="child_page" id="30a8fb7c-51ac-81a4-91af-fee91a1e13b4">
+        </block>
+      </children>
+    </block>
+    <block type="child_database" id="30a8fb7c-51ac-81a0-9da5-d690dcc68550">
+    </block>
+    <block type="heading_2" id="30a8fb7c-51ac-81ab-a852-f1aad51aad68">
+      <text>10. Training &amp; Learning Center</text>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-813f-a3c1-e6d624bd6d85">
+      <text>FF/FD Documentation Meeting Notes</text>
+      <children>
+        <block type="bulleted_list_item" id="30a8fb7c-51ac-8144-8855-cfac2d3b5696">
+          <text>To be updated later - Separate meeting to be conducted about trainings</text>
+        </block>
+      </children>
+    </block>
+    <block type="toggle" id="30a8fb7c-51ac-8198-9870-c7376d941a4d">
+      <text>Training &amp; Learning Center drafts</text>
+      <children>
+        <block type="child_page" id="30a8fb7c-51ac-817a-89f7-edc1f9375e7b">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-8144-8fc3-cc78bd3c1419">
+        </block>
+        <block type="child_page" id="30a8fb7c-51ac-814e-ab3c-e495283d3372">
+        </block>
+      </children>
+    </block>
+    <block type="child_database" id="30a8fb7c-51ac-8137-815c-fc20cc311e55">
+    </block>
+    <block type="paragraph" id="30a8fb7c-51ac-81b6-9c40-f6c26cf26b90">
+    </block>
+    <block type="paragraph" id="30a8fb7c-51ac-81c5-91cb-e2813b9c5169">
+    </block>
+    <block type="paragraph" id="30a8fb7c-51ac-81d5-aecc-c7606748c760">
+    </block>
+  </blocks>
+</notion_page>

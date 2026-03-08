@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notion_page>
+  <metadata>
+    <page_id>2488fb7c-51ac-807f-8a66-e3b6c34c8499</page_id>
+    <page_title>Knowledge Base Structure (Current Live KB)</page_title>
+    <cached_date>2026-02-17</cached_date>
+    <total_blocks>80</total_blocks>
+  </metadata>
+  <blocks>
+    <block type="paragraph" id="5a1c19a4-5ea4-4348-b9e3-72aaf8919870">
+    </block>
+    <block type="callout" id="6afcb6a4-8e70-4105-9db3-c9119ecfb4f4">
+      <text>Add these internal links across your articles to boost technical authority and guide readers through key concepts. Use them in intros, &quot;See also&quot; boxes, and at section ends.</text>
+    </block>
+    <block type="heading_3" id="f47ea116-93c2-41cf-90e0-1a1203f6ba2d">
+      <text>High‑value Knowledge Base links</text>
+    </block>
+    <block type="bulleted_list_item" id="06f2b20c-b26f-4b7f-a177-433b8bc52112">
+      <text>System Curve Analysis</text>
+      <link url="discussion://2088fb7c-51ac-8095-b9a0-001c0c5168da">System Curve Analysis</link>
+    </block>
+    <block type="bulleted_list_item" id="4b1429ee-6a82-4316-a71f-ab8020403e3a">
+      <text>Applying Pump Affinity Laws: From Theory to Real‑World Applications</text>
+      <link url="discussion://2088fb7c-51ac-80b1-bd27-001c134a3876">Applying Pump Affinity Laws: From Theory to Real‑World Applications</link>
+    </block>
+    <block type="bulleted_list_item" id="554ea67a-1754-460e-a69b-05f6b0dd2a79">
+      <text>The Essential Guide to Pressure Drop Calculations in Piping Systems</text>
+      <link url="discussion://2088fb7c-51ac-8071-8f94-001cd41bc369">The Essential Guide to Pressure Drop Calculations in Piping Systems</link>
+    </block>
+    <block type="bulleted_list_item" id="1a0a9369-c13c-4967-9944-15abc6a4862c">
+      <text>Pipe Sizing in FluidFlow: Methods, Principles, and Best Practices</text>
+      <link url="discussion://2088fb7c-51ac-80d7-817b-001c1528c457">Pipe Sizing in FluidFlow: Methods, Principles, and Best Practices</link>
+    </block>
+    <block type="bulleted_list_item" id="94b70094-68ff-405c-818c-3232a4d8cece">
+      <text>What is Cavitation — and How Do You Avoid It in Fluid Systems</text>
+      <link url="discussion://2088fb7c-51ac-80f1-a905-001c2a673a23">What is Cavitation — and How Do You Avoid It in Fluid Systems</link>
+    </block>
+    <block type="bulleted_list_item" id="3aec6868-8c99-43e5-ae9f-350dfcdfe670">
+      <text>Net Positive Suction Head (NPSH) in Pump Systems</text>
+      <link url="discussion://2088fb7c-51ac-80a2-b84f-001cf3a488b1">Net Positive Suction Head (NPSH) in Pump Systems</link>
+    </block>
+    <block type="bulleted_list_item" id="6d06de94-3cbb-441c-b4be-3cc5472bdaa7">
+      <text>Calculation Methods and Standards Used in FluidFlow</text>
+      <link url="discussion://2088fb7c-51ac-80f1-a304-001c69eed102">Calculation Methods and Standards Used in FluidFlow</link>
+    </block>
+    <block type="bulleted_list_item" id="8dedf8ce-dbb8-4ca3-ab90-1706d670b9f0">
+      <text>Fluid Databases and Mixing Capabilities in FluidFlow</text>
+      <link url="discussion://2088fb7c-51ac-8029-9543-001cc54fc18c">Fluid Databases and Mixing Capabilities in FluidFlow</link>
+    </block>
+    <block type="bulleted_list_item" id="4687f325-3aca-42cc-8782-8a5300bb0270">
+      <text>Engineering Slurry Flow Systems: Principles, Challenges, and Solutions</text>
+      <link url="discussion://2088fb7c-51ac-803f-a137-001c725c1478">Engineering Slurry Flow Systems: Principles, Challenges, and Solutions</link>
+    </block>
+    <block type="heading_3" id="58e66e62-391b-44e4-b5b2-e0fe4511d9d1">
+      <text>Glossary pages to link for better user journeys</text>
+    </block>
+    <block type="bulleted_list_item" id="0f81da13-3455-4f96-909e-3447e12bc4f1">
+      <text>Hydraulic Components - Pipes</text>
+      <link url="https://www.notion.so/24a8fb7c51ac800d8205ea3ca4dcf32e">Hydraulic Components - Pipes</link>
+    </block>
+    <block type="bulleted_list_item" id="6ed6b4db-5079-43d4-8f04-ac2226f75231">
+      <text>Hydraulic Components - Boundaries</text>
+      <link url="https://www.notion.so/24a8fb7c51ac800599cccd73809d91a7">Hydraulic Components - Boundaries</link>
+    </block>
+    <block type="bulleted_list_item" id="d088a370-b453-475c-bcaa-53e3c37db833">
+      <text>Hydraulic Components - Boosters</text>
+      <link url="https://www.notion.so/24b8fb7c51ac8054903cded4368af4fb">Hydraulic Components - Boosters</link>
+    </block>
+    <block type="bulleted_list_item" id="3bbdbcb0-447d-4fc3-a153-843343f2cf14">
+      <text>Hydraulic Components - Valves</text>
+      <link url="https://www.notion.so/24b8fb7c51ac80d49b3dcaa33996d886">Hydraulic Components - Valves</link>
+    </block>
+    <block type="bulleted_list_item" id="66b77b84-fed7-4919-a546-004ab6b0ab6b">
+      <text>Hydraulic Components - Controllers</text>
+      <link url="https://www.notion.so/24b8fb7c51ac806587c2c4523a122dd6">Hydraulic Components - Controllers</link>
+    </block>
+    <block type="bulleted_list_item" id="4b2460a7-6e78-41d3-950f-6bc4b75438b1">
+      <text>Hydraulic Components - Check Valves</text>
+      <link url="https://www.notion.so/24b8fb7c51ac8037806ee0124573eeb4">Hydraulic Components - Check Valves</link>
+    </block>
+    <block type="bulleted_list_item" id="469f4a5f-89ac-4767-91c0-e16558e2e3ef">
+      <text>Hydraulic Components - General Resistances</text>
+      <link url="https://www.notion.so/24b8fb7c51ac8064b64ad5ed36ec7ddb">Hydraulic Components - General Resistances</link>
+    </block>
+    <block type="bulleted_list_item" id="70249226-3775-45f4-af96-8e72fc7deed9">
+      <text>Hydraulic Components - Size Change</text>
+      <link url="https://www.notion.so/24b8fb7c51ac8012acd7ec386860102f">Hydraulic Components - Size Change</link>
+    </block>
+    <block type="bulleted_list_item" id="8a3cb4e9-3038-4442-a054-e14d0f350589">
+      <text>Hydraulic Components - Relief Devices</text>
+      <link url="https://www.notion.so/24b8fb7c51ac8047a6add41929345a7b">Hydraulic Components - Relief Devices</link>
+    </block>
+    <block type="bulleted_list_item" id="b85a119b-e1b4-4dd4-9376-8e86fb03695c">
+      <text>Hydraulic Components - Heat Exchangers</text>
+      <link url="https://www.notion.so/24b8fb7c51ac80eba561d7e46c0709b0">Hydraulic Components - Heat Exchangers</link>
+    </block>
+    <block type="heading_3" id="60e2cba5-4b02-4373-a45e-78006ec5d9a8">
+      <text>Placement guidance (use consistently)</text>
+    </block>
+    <block type="bulleted_list_item" id="57ba5220-d832-401d-9d4f-08c540252890">
+      <text>Getting Started articles: add &quot;Next steps&quot; linking to System Curve, Pump Affinity Laws, and Pipe Sizing.</text>
+    </block>
+    <block type="bulleted_list_item" id="a47de187-dc93-4043-abb0-9b2fd19cb981">
+      <text>Installation/Licensing: add CTA to FAQs and Glossary — Valves, Pipes.</text>
+    </block>
+    <block type="bulleted_list_item" id="f4f92839-3683-422e-918a-af0ec8497e30">
+      <text>Technical Library topics: add &quot;See also&quot; to Pressure Drop, Cavitation, NPSH as applicable.</text>
+    </block>
+    <block type="bulleted_list_item" id="41f56492-158a-428e-b6a5-65ddd652c498">
+      <text>Industry pages: cross‑link to Pipe Sizing, Pressure Drop, and relevant component glossary.</text>
+    </block>
+    <block type="bulleted_list_item" id="3b6bb93f-d158-4c7c-886c-e14d5ed1567b">
+      <text>Troubleshooting: link to Cavitation, NPSH, Pressure Drop.</text>
+    </block>
+    <block type="paragraph" id="2488fb7c-51ac-800c-9881-fe3e3f1b4600">
+    </block>
+    <block type="column_list" id="25b8fb7c-51ac-80b9-9b6f-f748eb421a23">
+    </block>
+    <block type="paragraph" id="2488fb7c-51ac-8043-8cc8-e8cc945e001d">
+    </block>
+    <block type="toggle" id="2488fb7c-51ac-8060-b23e-c80295e0766e">
+      <text>Notes:</text>
+    </block>
+    <block type="paragraph" id="2498fb7c-51ac-8089-b921-c7abc6f4c515">
+    </block>
+    <block type="heading_2" id="2488fb7c-51ac-8064-b3b4-d8d0de5a4ee9">
+      <text>1. Getting Started</text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-8057-a1de-d705999c9719">
+      <text>FF/FD Documentation Meeting Notes</text>
+    </block>
+    <block type="toggle" id="2488fb7c-51ac-800d-9792-cf1da664ca95">
+      <text>Getting Started drafts</text>
+    </block>
+    <block type="child_database" id="2488fb7c-51ac-801e-9729-d0680e82de04">
+    </block>
+    <block type="heading_2" id="2488fb7c-51ac-8090-b8a1-c703cccd037d">
+      <text>2. Installation and Licensing  </text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-806c-8422-e449e84f892d">
+      <text>FF/FD Documentation Meeting Notes</text>
+    </block>
+    <block type="toggle" id="2498fb7c-51ac-80aa-8589-c80a57d0938a">
+      <text>Installation and Licensing drafts</text>
+    </block>
+    <block type="child_database" id="2488fb7c-51ac-804d-aba5-f96e36d4b373">
+    </block>
+    <block type="heading_2" id="2488fb7c-51ac-8051-84ba-fd7e19978e8b">
+      <text>3. Software Documentation</text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-80d9-bf8f-f0b640bfea63">
+      <text>FF/FD Documentation Meeting Notes</text>
+    </block>
+    <block type="toggle" id="2498fb7c-51ac-8003-9d43-eae1762dd6b2">
+      <text>Software Documentation drafts</text>
+    </block>
+    <block type="child_database" id="2488fb7c-51ac-8059-89af-c569c79b495f">
+    </block>
+    <block type="paragraph" id="28c8fb7c-51ac-80a5-932e-fa56d48431f0">
+    </block>
+    <block type="heading_2" id="2488fb7c-51ac-807b-b6fd-c3141303292d">
+      <text>4. Technical Library</text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-8046-9f1e-d3b3d45d5249">
+      <text>FF/FD Documentation Meeting Notes</text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-8006-a570-eb581a894ec4">
+      <text>Technical Library Drafts</text>
+    </block>
+    <block type="child_database" id="2488fb7c-51ac-803c-87ba-c4936ee11a71">
+    </block>
+    <block type="heading_2" id="2488fb7c-51ac-8044-9916-d5e33ca13e39">
+      <text>5. Industry-Specific Solutions </text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-8040-8073-d1aaed263386">
+      <text>FF/FD Documentation Meeting Notes</text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-8095-9dc8-c59306a5be8d">
+      <text>Industry-Specific Solutions drafts</text>
+    </block>
+    <block type="child_database" id="2488fb7c-51ac-80b5-8edc-ce67f088330d">
+    </block>
+    <block type="child_page" id="2928fb7c-51ac-80d9-9423-ea414255a17f">
+    </block>
+    <block type="child_page" id="2928fb7c-51ac-809f-ae81-d89a85c463a4">
+    </block>
+    <block type="heading_2" id="2488fb7c-51ac-8007-824a-d2a2e85a9b6f">
+      <text>6. Calculation References / Theory and Methods</text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-8062-961b-c49e5c79dd00">
+      <text>FF/FD Documentation Meeting Notes</text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-8019-a2f7-e4016b301372">
+      <text>Theory and Methods drafts</text>
+    </block>
+    <block type="child_database" id="2488fb7c-51ac-806a-9e3e-db86ac4dee07">
+    </block>
+    <block type="heading_2" id="2488fb7c-51ac-80b6-8f39-c07c1fff4293">
+      <text>7. Troubleshooting </text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-805b-8b9b-f5312033105f">
+      <text>FF/FD Documentation Meeting Notes</text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-8080-8db4-c762dfc8b937">
+      <text>Troubleshooting drafts</text>
+    </block>
+    <block type="child_database" id="2488fb7c-51ac-8083-ac9b-c278730f676d">
+    </block>
+    <block type="heading_2" id="2488fb7c-51ac-80fa-8dae-eac7a7a81227">
+      <text>8. Glossary &amp; Terminology </text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-80ec-b2a0-f88303789e7b">
+      <text>FF/FD Documentation Meeting Notes</text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-8002-a399-ef3a185a7fab">
+      <text>Glossary drafts</text>
+    </block>
+    <block type="child_database" id="2488fb7c-51ac-807d-9e4c-c80646906737">
+    </block>
+    <block type="heading_2" id="2488fb7c-51ac-803a-ab83-d77a88640135">
+      <text>9. FAQs</text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-80aa-a385-f4de93828f8d">
+      <text>FF/FD Documentation Meeting Notes</text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-806f-860b-eb033fc5522c">
+      <text>FAQ drafts</text>
+    </block>
+    <block type="child_database" id="2488fb7c-51ac-8003-87da-cc4e1d88b9c7">
+    </block>
+    <block type="heading_2" id="2488fb7c-51ac-8099-9961-da9719cebbdf">
+      <text>10. Training &amp; Learning Center</text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-80e7-b9ba-d564035c6672">
+      <text>FF/FD Documentation Meeting Notes</text>
+    </block>
+    <block type="toggle" id="2648fb7c-51ac-8005-8f85-e2f7806ead04">
+      <text>Training &amp; Learning Center drafts</text>
+    </block>
+    <block type="child_database" id="2488fb7c-51ac-80b8-92c9-f3c7a3231ef2">
+    </block>
+    <block type="paragraph" id="2488fb7c-51ac-801a-8e71-ca1817838262">
+    </block>
+    <block type="paragraph" id="2488fb7c-51ac-8058-8a8e-c6345c7fbec0">
+    </block>
+    <block type="paragraph" id="2488fb7c-51ac-8046-b1f0-ed083907302a">
+    </block>
+  </blocks>
+</notion_page>

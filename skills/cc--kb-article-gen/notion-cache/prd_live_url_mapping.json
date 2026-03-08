@@ -1,0 +1,540 @@
+{
+  "matches": {
+    "P01": {
+      "title": "FluidFlow Product Overview",
+      "live_title": "FluidFlow Product Overview",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13186504-fluidflow-product-overview",
+      "score": 0.9
+    },
+    "P02": {
+      "title": "Build Your First Network in FluidFlow",
+      "live_title": "Build Your First Network in FluidFlow",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13238470-build-your-first-network-in-fluidflow",
+      "score": 0.9
+    },
+    "P03": {
+      "title": "Quick Start Guide: Build Your First Model in Minutes",
+      "live_title": "Quick Start Guide - Build Your First Model in Minutes",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13238364-quick-start-guide-build-your-first-model-in-minutes",
+      "score": 0.9714285714285714
+    },
+    "P04": {
+      "title": "FluidFlow User Interface Overview",
+      "live_title": "FluidFlow User Interface Overview",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13238397-fluidflow-user-interface-overview",
+      "score": 0.9
+    },
+    "P05": {
+      "title": "FluidFlow Installation & Activation Guide",
+      "live_title": "FluidFlow Installation & Activation Guide",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13238775-fluidflow-installation-activation-guide",
+      "score": 0.9
+    },
+    "P06": {
+      "title": "FluidFlow System Requirements & Customer Download Guide",
+      "live_title": "FluidFlow System Requirements & Customer Download Guide",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13238625-fluidflow-system-requirements-customer-download-guide",
+      "score": 0.9
+    },
+    "P07": {
+      "title": "How to Build a Model in FluidFlow",
+      "live_title": "How to Build a Model in FluidFlow",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13212464-how-to-build-a-model-in-fluidflow",
+      "score": 0.9
+    },
+    "P08": {
+      "title": "How to Enter Input Data",
+      "live_title": "How to Enter Input Data",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13212705-how-to-enter-input-data",
+      "score": 0.9
+    },
+    "P09": {
+      "title": "How to Calculate a Model",
+      "live_title": "How to Calculate a Model",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13212804-how-to-calculate-a-model",
+      "score": 0.9
+    },
+    "P10": {
+      "title": "How to Analyze Results",
+      "live_title": "How to Analyze Results",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13213016-how-to-analyze-results",
+      "score": 0.9
+    },
+    "P11": {
+      "title": "FluidFlow Designer Handbook",
+      "live_title": "FluidFlow Designer Handbook",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284109-fluidflow-designer-handbook",
+      "score": 0.9
+    },
+    "P12": {
+      "title": "Equipment Sizing",
+      "live_title": "Equipment Sizing",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284961-equipment-sizing",
+      "score": 0.9
+    },
+    "P13": {
+      "title": "FluidFlow Quality Assurance & Standards",
+      "live_title": "Quality Assurance and Standards",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13298251-quality-assurance-and-standards",
+      "score": 0.8
+    },
+    "P14": {
+      "title": "Modeling Centrifugal Pumps Using Manufacturer Data",
+      "live_title": "Modeling Centrifugal Pumps in FluidFlow Using Manufacturer Data",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271066-modeling-centrifugal-pumps-in-fluidflow-using-manufacturer-data",
+      "score": 0.8849557522123894
+    },
+    "P16": {
+      "title": "Auto-Size Pipes in FluidFlow",
+      "live_title": "Auto-Size Pipes in FluidFlow",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13213358-auto-size-pipes-in-fluidflow",
+      "score": 0.9
+    },
+    "P17": {
+      "title": "Creating Fluid Streams",
+      "live_title": "Creating Fluid Streams",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284523-creating-fluid-streams",
+      "score": 0.9
+    },
+    "P18": {
+      "title": "Defining a Slurry in FluidFlow",
+      "live_title": "Defining a Slurry in FluidFlow",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271421-defining-a-slurry-in-fluidflow",
+      "score": 0.9
+    },
+    "P19": {
+      "title": "Non-Newtonian Viscosity Models",
+      "live_title": "Non-Newtonian Viscosity Models",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271434-non-newtonian-viscosity-models",
+      "score": 0.9
+    },
+    "P20": {
+      "title": "FluidFlow Troubleshooting Guide",
+      "live_title": "FluidFlow Troubleshooting Guide",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271795-fluidflow-troubleshooting-guide-resolving-common-warnings-building-stable-models",
+      "score": 0.9
+    },
+    "P22": {
+      "title": "Multi-Calc Feature Overview",
+      "live_title": "Multi-Calc Feature Overview",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13270887-multi-calc-feature-overview",
+      "score": 0.9
+    },
+    "P23": {
+      "title": "Auto-Size Pump Feature",
+      "live_title": "Auto-Size Pump Feature in FluidFlow",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13213392-auto-size-pump-feature-in-fluidflow",
+      "score": 0.9
+    },
+    "P24": {
+      "title": "Modeling Pumps in Parallel & Series",
+      "live_title": "Modeling Pumps in Parallel & Series",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271089-modeling-pumps-in-parallel-series",
+      "score": 0.9
+    },
+    "P25": {
+      "title": "How to Export Reports",
+      "live_title": "How to Export Reports",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13213232-how-to-export-reports",
+      "score": 0.9
+    },
+    "P27": {
+      "title": "Modeling Positive Displacement Pumps",
+      "live_title": "Modeling Positive Displacement Pumps in FluidFlow",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271080-modeling-positive-displacement-pumps-in-fluidflow",
+      "score": 0.9
+    },
+    "P28": {
+      "title": "FluidFlow Excel Integration",
+      "live_title": "FluidFlow Excel Integration: Write to Excel and Read from Excel",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13270804-fluidflow-excel-integration-write-to-excel-and-read-from-excel",
+      "score": 0.9
+    },
+    "P29": {
+      "title": "Viscosity Correction for Centrifugal Pumps",
+      "live_title": "Viscosity Correction for Centrifugal Pumps in FluidFlow",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271103-viscosity-correction-for-centrifugal-pumps-in-fluidflow",
+      "score": 0.9
+    },
+    "P30": {
+      "title": "How to Customize User Experience",
+      "live_title": "How to Customize User Experience",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13213279-how-to-customize-user-experience",
+      "score": 0.9
+    },
+    "P31": {
+      "title": "Composite Pump Curves",
+      "live_title": "Composite Pump Curves in FluidFlow",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271025-composite-pump-curves-in-fluidflow-visualizing-series-parallel-pump-performance-for-optimal-system-design",
+      "score": 0.9
+    },
+    "P32": {
+      "title": "Hydraulic & Energy Grade Lines",
+      "live_title": "Energy & Hydraulic Grade Lines (EGL/HGL)",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13270998-energy-hydraulic-grade-lines-egl-hgl-advanced-system-analysis-in-fluidflow",
+      "score": 0.6
+    },
+    "P34": {
+      "title": "Equipment Performance Tool",
+      "live_title": "Using the Equipment Performance Tool in FluidFlow",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271043-using-the-equipment-performance-tool-in-fluidflow",
+      "score": 0.9
+    },
+    "P35": {
+      "title": "Back Calc Input Tool",
+      "live_title": "Using the Back Calc Input Tool",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13270967-using-the-back-calc-input-tool",
+      "score": 0.9
+    },
+    "P36": {
+      "title": "Check Centrifugal Pump Curve Fit",
+      "live_title": "Modeling a Centrifugal Pump (Part 2)",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284776-modeling-a-centrifugal-pump-part-2",
+      "score": 0.6176470588235294
+    },
+    "P37": {
+      "title": "Modeling Fan and Blower Performance Curves",
+      "live_title": "Modeling Fan and Blower Performance Curves in FluidFlow Using Manufacturer Data",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271114-modeling-fan-and-blower-performance-curves-in-fluidflow-using-manufacturer-data",
+      "score": 0.9
+    },
+    "P38": {
+      "title": "Modeling a Centrifugal Pump",
+      "live_title": "Modeling a Centrifugal Pump (Part 2)",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284776-modeling-a-centrifugal-pump-part-2",
+      "score": 0.9
+    },
+    "P39": {
+      "title": "How to Model a Manufacturer's Pump",
+      "live_title": "How to Model a Manufacturer's Pump",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284671-how-to-model-a-manufacturer-s-pump",
+      "score": 0.9
+    },
+    "P40": {
+      "title": "Modeling Vacuum Pumps with Vendor Data",
+      "live_title": "Modeling Vacuum Pumps with Vendor Data in FluidFlow",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271406-modeling-vacuum-pumps-with-vendor-data-in-fluidflow",
+      "score": 0.9
+    },
+    "P42": {
+      "title": "Can I Plot Energy & Hydraulic Grade Lines?",
+      "live_title": "Energy & Hydraulic Grade Lines (EGL/HGL)",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13270998-energy-hydraulic-grade-lines-egl-hgl-advanced-system-analysis-in-fluidflow",
+      "score": 0.7317073170731707
+    },
+    "P43": {
+      "title": "FluidFlow Database",
+      "live_title": "FluidFlow Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284555-fluidflow-database",
+      "score": 0.9
+    },
+    "P44": {
+      "title": "FluidFlow Relief Valve Sizing",
+      "live_title": "FluidFlow Relief Valve Sizing",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13285154-fluidflow-relief-valve-sizing",
+      "score": 0.9
+    },
+    "P45": {
+      "title": "FluidFlow Fire Systems",
+      "live_title": "Fire Systems",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13297553-fire-systems",
+      "score": 0.9
+    },
+    "P46": {
+      "title": "FluidFlow Release History",
+      "live_title": "FluidFlow Release History",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13282830-fluidflow-release-history-version-highlights-key-features-and-release-notes",
+      "score": 0.9
+    },
+    "P47": {
+      "title": "FluidFlow Scripting Handbook",
+      "live_title": "Scripting Handbook",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13297820-scripting-handbook",
+      "score": 0.9
+    },
+    "P48": {
+      "title": "FluidFlow Mining White Paper",
+      "live_title": "FluidFlow Mining White Paper",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13298314-fluidflow-mining-white-paper",
+      "score": 0.9
+    },
+    "P49": {
+      "title": "PCF File Import Guide",
+      "live_title": "PCF File Import",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284927-pcf-file-import",
+      "score": 0.9
+    },
+    "P50": {
+      "title": "License Manager in FluidFlow",
+      "live_title": "License Manager in FluidFlow",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13239849-license-manager-in-fluidflow",
+      "score": 0.9
+    },
+    "P51": {
+      "title": "Understanding FluidFlow Licensing Options",
+      "live_title": "Understanding FluidFlow Licensing Options",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13239798-understanding-fluidflow-licensing-options",
+      "score": 0.9
+    },
+    "P52": {
+      "title": "FluidFlow Standalone License Transfer Guide",
+      "live_title": "FluidFlow Standalone License Transfer Guide",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13239477-fluidflow-standalone-license-transfer-guide",
+      "score": 0.9
+    },
+    "P53": {
+      "title": "Updating FluidFlow Post-3.5",
+      "live_title": "Updating FluidFlow (Post-3.5 Versions)",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13239752-updating-fluidflow-post-3-5-versions",
+      "score": 0.8307692307692308
+    },
+    "P54": {
+      "title": "Transferring to Another Server",
+      "live_title": "FluidFlow \u2013 Transferring to Another Server",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13239226-fluidflow-transferring-to-another-server",
+      "score": 0.9
+    },
+    "P55": {
+      "title": "FluidFlow Results Verification",
+      "live_title": "FluidFlow Results Verification",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13286977-fluidflow-results-verification",
+      "score": 0.9
+    },
+    "P56": {
+      "title": "Network License Speed Issues",
+      "live_title": "Network License Speed Issues",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271975-network-license-speed-issues",
+      "score": 0.9
+    },
+    "P57": {
+      "title": "Restoring Missing Toolbars",
+      "live_title": "Restoring Missing Toolbars and UI Elements in FluidFlow",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271923-restoring-missing-toolbars-and-ui-elements-in-fluidflow",
+      "score": 0.9
+    },
+    "P58": {
+      "title": "Troubleshooting Software Freezing",
+      "live_title": "Troubleshooting Software Freezing Issues in FluidFlow",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271929-troubleshooting-software-freezing-issues-in-fluidflow",
+      "score": 0.9
+    },
+    "P59": {
+      "title": "Troubleshooting Network Build Error",
+      "live_title": "Troubleshooting Network Build Error",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271945-troubleshooting-network-build-error-and-unable-to-prepare-network",
+      "score": 0.9
+    },
+    "P60": {
+      "title": "FluidFlow Comprehensive FAQ",
+      "live_title": "FluidFlow Release History",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13282830-fluidflow-release-history-version-highlights-key-features-and-release-notes",
+      "score": 0.6153846153846154
+    },
+    "P61": {
+      "title": "Connecting Pipes",
+      "live_title": "Creating Mixtures",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284529-creating-mixtures",
+      "score": 0.6060606060606061
+    },
+    "P64": {
+      "title": "Flowsheet Snap Grid and Zoom",
+      "live_title": "Flowsheet Snap, Grid and Zoom",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284336-flowsheet-snap-grid-and-zoom",
+      "score": 0.9824561403508771
+    },
+    "P66": {
+      "title": "Adding Images and Tables",
+      "live_title": "Adding New Valves to Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284586-adding-new-valves-to-database",
+      "score": 0.6037735849056604
+    },
+    "P67": {
+      "title": "Reposition Nodes",
+      "live_title": "Repositioning or Stretching a Model",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284913-repositioning-or-stretching-a-model",
+      "score": 0.5882352941176471
+    },
+    "P68": {
+      "title": "Resizing Components",
+      "live_title": "Customizing Reports",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284945-customizing-reports",
+      "score": 0.5789473684210527
+    },
+    "P69": {
+      "title": "Rotating Components",
+      "live_title": "Creating Mixtures",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284529-creating-mixtures",
+      "score": 0.5555555555555556
+    },
+    "P70": {
+      "title": "Adding New Pipe to Database",
+      "live_title": "Adding New Pipe to Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284562-adding-new-pipe-to-database",
+      "score": 0.9
+    },
+    "P71": {
+      "title": "Adding New Boosters to Database",
+      "live_title": "Adding New Boosters to Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284567-adding-new-boosters-to-database",
+      "score": 0.9
+    },
+    "P72": {
+      "title": "Adding New Control Valves to Database",
+      "live_title": "Adding New Control Valves to Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284583-adding-new-control-valves-to-database",
+      "score": 0.9
+    },
+    "P73": {
+      "title": "Adding New Valves to Database",
+      "live_title": "Adding New Valves to Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284586-adding-new-valves-to-database",
+      "score": 0.9
+    },
+    "P74": {
+      "title": "Adding New General Resistances to Database",
+      "live_title": "Adding New General Resistances to Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284589-adding-new-general-resistances-to-database",
+      "score": 0.9
+    },
+    "P75": {
+      "title": "Adding New Size Change to Database",
+      "live_title": "Adding New Size Change to Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284591-adding-new-size-change-to-database",
+      "score": 0.9
+    },
+    "P76": {
+      "title": "Adding New Sprinkler to Database",
+      "live_title": "Adding New Sprinkler to Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284595-adding-new-sprinkler-to-database",
+      "score": 0.9
+    },
+    "P77": {
+      "title": "Adding New Insulation Material to Database",
+      "live_title": "Adding New Insulation Material to Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284599-adding-new-insulation-material-to-database",
+      "score": 0.9
+    },
+    "P78": {
+      "title": "Adding New Manufacturer; Material or Application to Database",
+      "live_title": "Adding New Manufacturer, Material, or Application to Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284608-adding-new-manufacturer-material-or-application-to-database",
+      "score": 0.9752066115702479
+    },
+    "P79": {
+      "title": "Adding New Pipe Roughness to Database",
+      "live_title": "Adding New Pipe Roughness to Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284613-adding-new-pipe-roughness-to-database",
+      "score": 0.9
+    },
+    "P80": {
+      "title": "Adding New Pipe Scaling Data to Database",
+      "live_title": "Adding New Pipe Scaling Data to Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284620-adding-new-pipe-scaling-data-to-database",
+      "score": 0.9
+    },
+    "P81": {
+      "title": "Adding New Pipe Sizing Data",
+      "live_title": "Adding New Pipe Sizing Data",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284625-adding-new-pipe-sizing-data",
+      "score": 0.9
+    },
+    "P82": {
+      "title": "Adding New Pipe Thermal Conductivity to Database",
+      "live_title": "Adding New Pipe Thermal Conductivity to Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284629-adding-new-pipe-thermal-conductivity-to-database",
+      "score": 0.9
+    },
+    "P88": {
+      "title": "Hydraulic Components - General Resistances",
+      "live_title": "Adding New General Resistances to Database",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284589-adding-new-general-resistances-to-database",
+      "score": 0.5952380952380952
+    },
+    "P90": {
+      "title": "Hydraulic Components - Relief Devices",
+      "live_title": "Automatic Sizing of Safety Pressure Relief Devices",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13285083-automatic-sizing-of-safety-pressure-relief-devices",
+      "score": 0.5517241379310345
+    },
+    "P96": {
+      "title": "Best Practices for FluidFlow-Compatible Systems",
+      "live_title": "Characteristics of FluidFlow Streams",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13284513-characteristics-of-fluidflow-streams",
+      "score": 0.6024096385542169
+    },
+    "P143": {
+      "title": "Dual Fire Pumps in Parallel",
+      "live_title": "Modeling Pumps in Parallel & Series",
+      "url": "https://knowledge.fluidflowinfo.com/en/articles/13271089-modeling-pumps-in-parallel-series",
+      "score": 0.6774193548387096
+    }
+  },
+  "unmatched": [
+    "P15",
+    "P21",
+    "P26",
+    "P33",
+    "P41",
+    "P62",
+    "P63",
+    "P65",
+    "P83",
+    "P84",
+    "P85",
+    "P86",
+    "P87",
+    "P89",
+    "P91",
+    "P92",
+    "P93",
+    "P94",
+    "P95",
+    "P97",
+    "P98",
+    "P99",
+    "P100",
+    "P101",
+    "P102",
+    "P103",
+    "P104",
+    "P105",
+    "P106",
+    "P107",
+    "P108",
+    "P109",
+    "P110",
+    "P111",
+    "P112",
+    "P113",
+    "P114",
+    "P115",
+    "P116",
+    "P117",
+    "P118",
+    "P119",
+    "P120",
+    "P121",
+    "P122",
+    "P123",
+    "P124",
+    "P125",
+    "P126",
+    "P127",
+    "P128",
+    "P129",
+    "P130",
+    "P131",
+    "P132",
+    "P133",
+    "P134",
+    "P135",
+    "P136",
+    "P137",
+    "P138",
+    "P139",
+    "P140",
+    "P141",
+    "P142",
+    "P144"
+  ]
+}
