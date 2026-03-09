@@ -24,6 +24,15 @@ import { Inbox } from "./pages/Inbox";
 import { CompanySettings } from "./pages/CompanySettings";
 import { DesignGuide } from "./pages/DesignGuide";
 import { OrgChart } from "./pages/OrgChart";
+import { DashboardsLayout } from "./pages/dashboards/DashboardsLayout";
+import { CommandCenter } from "./pages/dashboards/CommandCenter";
+import { Sales } from "./pages/dashboards/Sales";
+import { Pipeline } from "./pages/dashboards/Pipeline";
+import { Marketing } from "./pages/dashboards/Marketing";
+import { Trials } from "./pages/dashboards/Trials";
+import { Analytics } from "./pages/dashboards/Analytics";
+import { ABM } from "./pages/dashboards/ABM";
+import { PM } from "./pages/dashboards/PM";
 import { AuthPage } from "./pages/Auth";
 import { BoardClaimPage } from "./pages/BoardClaim";
 import { InviteLandingPage } from "./pages/InviteLanding";
@@ -128,6 +137,17 @@ function boardRoutes() {
       <Route path="inbox/new" element={<Inbox />} />
       <Route path="inbox/all" element={<Inbox />} />
       <Route path="design-guide" element={<DesignGuide />} />
+      <Route path="bi" element={<DashboardsLayout />}>
+        <Route index element={<Navigate to="command-center" replace />} />
+        <Route path="command-center" element={<CommandCenter />} />
+        <Route path="sales" element={<Sales />} />
+        <Route path="pipeline" element={<Pipeline />} />
+        <Route path="marketing" element={<Marketing />} />
+        <Route path="trials" element={<Trials />} />
+        <Route path="analytics" element={<Analytics />} />
+        <Route path="abm" element={<ABM />} />
+        <Route path="pm" element={<PM />} />
+      </Route>
     </>
   );
 }

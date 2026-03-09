@@ -12,9 +12,10 @@ import {
   Gauge,
   TrendingUp,
   Users,
-  Calendar,
-  FileText,
-  Database,
+  FlaskConical,
+  BarChart2,
+  Building2,
+  Kanban,
 } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { SidebarSection } from "./SidebarSection";
@@ -28,25 +29,6 @@ import { heartbeatsApi } from "../api/heartbeats";
 import { queryKeys } from "../lib/queryKeys";
 import { Button } from "@/components/ui/button";
 
-function EquilibriNavLink({
-  href,
-  label,
-  icon: Icon,
-}: {
-  href: string;
-  label: string;
-  icon: React.ComponentType<{ className?: string }>;
-}) {
-  return (
-    <a
-      href={href}
-      className="flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium text-foreground/80 hover:bg-accent/50 hover:text-foreground transition-colors"
-    >
-      <Icon className="h-4 w-4 shrink-0" />
-      <span className="flex-1 truncate">{label}</span>
-    </a>
-  );
-}
 
 export function Sidebar() {
   const { openNewIssue } = useDialog();
@@ -128,15 +110,15 @@ export function Sidebar() {
           <SidebarNavItem to="/company/settings" label="Settings" icon={Settings} />
         </SidebarSection>
 
-        <SidebarSection label="Equilibri">
-          <EquilibriNavLink href="/dashboards/" label="Briefing" icon={Gauge} />
-          <EquilibriNavLink href="/dashboards/pipeline" label="Pipeline" icon={TrendingUp} />
-          <EquilibriNavLink href="/dashboards/revenue" label="Revenue" icon={DollarSign} />
-          <EquilibriNavLink href="/dashboards/customers" label="Customers" icon={Users} />
-          <EquilibriNavLink href="/dashboards/renewals" label="Renewals" icon={Calendar} />
-          <EquilibriNavLink href="/dashboards/marketing" label="Marketing" icon={Search} />
-          <EquilibriNavLink href="/dashboards/content" label="Content" icon={FileText} />
-          <EquilibriNavLink href="/dashboards/data-health" label="Data Health" icon={Database} />
+        <SidebarSection label="Dashboards">
+          <SidebarNavItem to="/bi/command-center" label="Command Center" icon={Gauge} />
+          <SidebarNavItem to="/bi/sales" label="Sales" icon={TrendingUp} />
+          <SidebarNavItem to="/bi/pipeline" label="Pipeline" icon={DollarSign} />
+          <SidebarNavItem to="/bi/marketing" label="Marketing" icon={Search} />
+          <SidebarNavItem to="/bi/trials" label="Trials" icon={FlaskConical} />
+          <SidebarNavItem to="/bi/analytics" label="Analytics" icon={BarChart2} />
+          <SidebarNavItem to="/bi/abm" label="ABM" icon={Building2} />
+          <SidebarNavItem to="/bi/pm" label="PM" icon={Kanban} />
         </SidebarSection>
       </nav>
     </aside>
