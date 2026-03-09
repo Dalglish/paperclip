@@ -123,6 +123,16 @@ export async function createApp(
   app.use("/api", api);
 
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+  // Serve Equilibri dashboard hub static build under /dashboards/
+  const equilibriDashboardDir = path.resolve(__dirname, "../../server/public/dashboards");
+  if (fs.existsSync(path.join(equilibriDashboardDir, "index.html"))) {
+    app.use("/dashboards", express.static(equilibriDashboardDir));
+    // SPA fallback: serve index.html for any /dashboards/* route that doesn't match a static file
+    app.get("/dashboards/*splat", (_req, res) => {
+      res.sendFile(path.join(equilibriDashboardDir, "index.html"));
+    });
+  }
   if (opts.uiMode === "static") {
     // Try published location first (server/ui-dist/), then monorepo dev location (../../ui/dist)
     const candidates = [
