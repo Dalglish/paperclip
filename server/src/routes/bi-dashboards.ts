@@ -147,29 +147,48 @@ export function biDashboardRoutes(_db: Db) {
   router.get("/companies/:companyId/bi/pipeline", async (req, res) => {
     assertCompanyAccess(req, req.params.companyId);
     try {
-      const [pipeline, leaks, forecast] = await Promise.all([
+      const [pipeline, funnel, nrr, leaks] = await Promise.all([
         dashboardGet("pipeline") as Promise<Record<string, unknown>>,
+        dashboardGet("funnel") as Promise<Record<string, unknown>>,
+        dashboardGet("nrr") as Promise<Record<string, unknown>>,
         dashboardGet("pipeline/leaks") as Promise<Record<string, unknown>>,
-        dashboardGet("pipeline/forecast") as Promise<Record<string, unknown>>,
       ]);
 
-      const stageCounts = (pipeline as { stage_counts?: Record<string, number> }).stage_counts ?? {};
-      const stages = Object.entries(stageCounts).map(([stage, count]) => ({ stage, count, value: 0 }));
+      // Use funnel stages — cleaner than pipeline stage_counts (which are tracking states)
+      const funnelStages = (funnel as { stages?: Array<{ name: string; count: number }> }).stages ?? [];
+      const dealsByStage = (funnel as { deals_by_stage?: Record<string, Array<{ quote_amount?: number }>> }).deals_by_stage ?? {};
+
+      const stages = funnelStages
+        .filter((s) => s.name !== "Lost")
+        .map((s) => {
+          const deals = dealsByStage[s.name] ?? [];
+          const value = deals.reduce((sum, d) => sum + Number(d.quote_amount ?? 0), 0);
+          return { stage: s.name, count: s.count, value };
+        });
+
+      const winRate = (funnel as { win_rate?: number }).win_rate ?? 0;
+
+      // Coverage ratio: open pipeline value vs quarterly ARR target
+      const currentArr = Number((nrr as { current_arr?: number }).current_arr ?? 0);
+      const openValue = stages.reduce((sum, s) => sum + s.value, 0);
+      const quarterlyTarget = currentArr / 4;
+      const coverageRatio = quarterlyTarget > 0 ? openValue / quarterlyTarget : null;
+
+      const avgDays = Math.round(Number((pipeline as { avg_full_cycle_days?: number }).avg_full_cycle_days ?? 0));
 
       res.json({
         stages,
         velocity: {
-          avgDaysToClose: `${Math.round(Number((pipeline as { avg_full_cycle_days?: number }).avg_full_cycle_days ?? 0))}d`,
-          winRate: "—",
+          avgDaysToClose: avgDays > 0 ? `${avgDays}d` : "—",
+          winRate: `${winRate.toFixed(0)}%`,
           forecastVsActual: "—",
         },
-        coverageRatio: 0,
+        coverageRatio,
         leaks: {
           total: (leaks as { total_leaks?: number }).total_leaks ?? 0,
           critical: (leaks as { critical?: number }).critical ?? 0,
           value: (leaks as { total_leaked_value?: number }).total_leaked_value ?? 0,
         },
-        forecast: (forecast as { forecast?: unknown[] }).forecast ?? [],
       });
     } catch (err) {
       res.status(502).json({ error: (err as Error).message });
@@ -181,12 +200,25 @@ export function biDashboardRoutes(_db: Db) {
     assertCompanyAccess(req, req.params.companyId);
     try {
       const gsc = await dashboardGet("marketing/gsc") as Record<string, unknown>;
+      const hasGscData = Number(gsc.sites_tracked ?? 0) > 0 || Number(gsc.total_queries ?? 0) > 0;
+      const gscFormatted = hasGscData
+        ? {
+            impressions: `${(Number(gsc.branded_impressions ?? 0) + Number(gsc.non_branded_impressions ?? 0)).toLocaleString()}`,
+            clicks: `${(Number(gsc.branded_clicks ?? 0) + Number(gsc.non_branded_clicks ?? 0)).toLocaleString()}`,
+            avgPosition: "—",
+            ctr: "—",
+          }
+        : { impressions: "—", clicks: "—", avgPosition: "—", ctr: "—" };
+
       res.json({
-        gsc: gsc.has_data ? gsc : { impressions: "—", clicks: "—", avgPosition: "—", ctr: "—" },
+        gsc: gscFormatted,
         ga4: { sessions: "—", newUsers: "—", bounceRate: "—" },
         linkedin: { posts: 0, avgEngagement: "—", followers: "—" },
         seoHealth: 0,
-        spikes: [],
+        spikes: (gsc.top_opportunities as unknown[] ?? []).slice(0, 5).map((o: unknown) => {
+          const item = o as Record<string, unknown>;
+          return { keyword: String(item.query ?? ""), impressions: Number(item.impressions ?? 0), delta: "+trending" };
+        }),
       });
     } catch (err) {
       res.status(502).json({ error: (err as Error).message });
@@ -217,12 +249,19 @@ export function biDashboardRoutes(_db: Db) {
   router.get("/companies/:companyId/bi/analytics", async (req, res) => {
     assertCompanyAccess(req, req.params.companyId);
     try {
-      const [retention, revenue] = await Promise.all([
+      const [retention, revenue, revenueBase] = await Promise.all([
         dashboardGet("retention") as Promise<Record<string, unknown>>,
         dashboardGet("revenue/industry") as Promise<Record<string, unknown>>,
+        dashboardGet("revenue") as Promise<Record<string, unknown>>,
       ]);
 
       const breakdown = (revenue as { breakdown?: unknown[] }).breakdown ?? [];
+      const summary = (revenueBase as { summary?: Record<string, unknown> }).summary ?? {};
+      const totalRevenue = Number(summary.total_revenue_gbp ?? 0);
+      const totalClients = Number(summary.total_clients ?? 0);
+      const avgLtv = totalClients > 0 ? `£${(totalRevenue / totalClients).toFixed(0)}` : "—";
+      const retentionRate = Number((retention as { retention_rate?: number }).retention_rate ?? 0);
+
       res.json({
         cohorts: [],
         segments: breakdown.slice(0, 6).map((b: unknown) => {
@@ -230,8 +269,8 @@ export function biDashboardRoutes(_db: Db) {
           return { segment: item.label ?? "", customers: item.customer_count ?? 0, revenue: `£${(Number(item.estimated_arr ?? 0) / 1000).toFixed(0)}k`, ltv: "—" };
         }),
         kpis: {
-          avgLtv: "—",
-          medianRetention: "—",
+          avgLtv,
+          medianRetention: retentionRate > 0 ? `${retentionRate.toFixed(1)}%` : "—",
           churnRate: `${(retention as { churn_rate?: number }).churn_rate ?? 0}%`,
         },
       });
