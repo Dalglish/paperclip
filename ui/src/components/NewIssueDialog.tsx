@@ -344,6 +344,7 @@ export function NewIssueDialog() {
       setAssigneeChrome(draft.assigneeChrome ?? false);
       setAssigneeUseProjectWorkspace(draft.assigneeUseProjectWorkspace ?? true);
     } else {
+      setTitle(newIssueDefaults.title ?? "");
       setStatus(newIssueDefaults.status ?? "todo");
       setPriority(newIssueDefaults.priority ?? "");
       setProjectId(newIssueDefaults.projectId ?? "");

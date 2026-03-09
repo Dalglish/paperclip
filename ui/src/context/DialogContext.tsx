@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useState, type ReactNode } from "react";
 
 interface NewIssueDefaults {
+  title?: string;
   status?: string;
   priority?: string;
   projectId?: string;
