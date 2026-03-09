@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { issuesApi } from "@/api/issues";
 import { agentsApi } from "@/api/agents";
 import { costsApi } from "@/api/costs";
@@ -7,6 +8,9 @@ import { useCompany } from "@/context/CompanyContext";
 import { queryKeys } from "@/lib/queryKeys";
 import { Link } from "@/lib/router";
 import type { Issue } from "@paperclipai/shared";
+import { KpiCard } from "./components/KpiCard";
+import { DashCard } from "./components/DashCard";
+import { CHART_COLORS, AXIS_STYLE, TOOLTIP_CONTENT_STYLE, TOOLTIP_LABEL_STYLE } from "./components/ChartTheme";
 
 const STATUS_COLOR: Record<string, string> = {
   todo: "bg-blue-500/20 text-blue-300",
@@ -24,7 +28,7 @@ function IssueRow({ issue }: { issue: Issue }) {
       <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium uppercase tracking-wide ${statusCls}`}>
         {issue.status.replace("_", " ")}
       </span>
-      <Link to={`/issues/${issue.id}`} className="flex-1 text-[13px] font-medium truncate hover:underline">
+      <Link to={`/issues/${issue.id}`} className="flex-1 text-sm font-medium truncate hover:underline">
         {issue.title}
       </Link>
     </div>
@@ -68,68 +72,84 @@ export function PM() {
   const blocked = byStatus["blocked"] ?? [];
   const todo = byStatus["todo"] ?? [];
   const done = byStatus["done"] ?? [];
-
   const velocityThisSprint = done.length;
+
+  // Agent cost chart data
+  const agentCostData = agents
+    .map((a) => {
+      const cost = costsByAgent.find((c) => c.agentId === a.id);
+      return {
+        name: a.name.length > 14 ? a.name.slice(0, 14) + "…" : a.name,
+        cost: cost != null ? cost.costCents / 100 : 0,
+      };
+    })
+    .filter((d) => d.cost > 0)
+    .sort((a, b) => b.cost - a.cost);
 
   return (
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-semibold">PM Dashboard</h1>
-        <span className="text-[12px] text-muted-foreground">Paperclip native · live</span>
+        <span className="text-xs text-muted-foreground">Paperclip native · live</span>
       </div>
 
       {/* Summary row */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
-        {[
-          { label: "In Progress", value: inProgress.length, tone: "text-yellow-300" },
-          { label: "Blocked", value: blocked.length, tone: blocked.length > 0 ? "text-red-400" : "text-foreground" },
-          { label: "Todo", value: todo.length, tone: "text-foreground" },
-          { label: "Done (sprint)", value: velocityThisSprint, tone: "text-green-400" },
-          { label: "Pending Approvals", value: approvals.length, tone: approvals.length > 0 ? "text-yellow-300" : "text-foreground" },
-        ].map(({ label, value, tone }) => (
-          <div key={label} className="rounded-lg border border-border bg-card p-4">
-            <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 mb-2">{label}</p>
-            <p className={`text-2xl font-semibold ${tone}`}>{value}</p>
-          </div>
-        ))}
+        <KpiCard label="In Progress" value={inProgress.length} tone="text-yellow-300" />
+        <KpiCard label="Blocked" value={blocked.length} tone={blocked.length > 0 ? "text-red-400" : ""} />
+        <KpiCard label="Todo" value={todo.length} />
+        <KpiCard label="Done (sprint)" value={velocityThisSprint} tone="text-green-400" />
+        <KpiCard label="Pending Approvals" value={approvals.length} tone={approvals.length > 0 ? "text-yellow-300" : ""} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* In Progress */}
-        <div className="rounded-lg border border-border bg-card p-5">
-          <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 mb-2">
-            In Progress
-          </p>
+        <DashCard label="In Progress">
           {inProgress.length === 0 ? (
             <p className="text-sm text-muted-foreground py-2">Nothing in progress.</p>
           ) : (
             inProgress.slice(0, 10).map((i) => <IssueRow key={i.id} issue={i} />)
           )}
-        </div>
+        </DashCard>
 
         {/* Blocked */}
-        <div className="rounded-lg border border-border bg-card p-5">
-          <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 mb-2">
-            Blocked
-          </p>
+        <DashCard label="Blocked">
           {blocked.length === 0 ? (
             <p className="text-sm text-muted-foreground py-2">No blocked items.</p>
           ) : (
             blocked.map((i) => <IssueRow key={i.id} issue={i} />)
           )}
-        </div>
+        </DashCard>
       </div>
 
-      {/* Agent Performance */}
-      <div className="rounded-lg border border-border bg-card p-5">
-        <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 mb-3">
-          Agent Performance
-        </p>
+      {/* Agent Cost — Bar Chart */}
+      {agentCostData.length > 0 && (
+        <DashCard label="Agent Cost">
+          <div className="h-52">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={agentCostData} layout="vertical" margin={{ left: 10, right: 30 }}>
+                <XAxis type="number" {...AXIS_STYLE} tickFormatter={(v: number) => `$${v}`} />
+                <YAxis type="category" dataKey="name" {...AXIS_STYLE} width={110} />
+                <Tooltip
+                  contentStyle={TOOLTIP_CONTENT_STYLE}
+                  labelStyle={TOOLTIP_LABEL_STYLE}
+                  cursor={{ fill: 'hsl(var(--muted))', opacity: 0.3 }}
+                  formatter={(value) => [`$${Number(value).toFixed(2)}`, "Cost"]}
+                />
+                <Bar dataKey="cost" fill={CHART_COLORS[0]} radius={[0, 4, 4, 0]} barSize={18} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </DashCard>
+      )}
+
+      {/* Agent Performance Table */}
+      <DashCard label="Agent Performance">
         {agents.length === 0 ? (
           <p className="text-sm text-muted-foreground">No agents.</p>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-[12px]">
+            <table className="w-full text-xs">
               <thead>
                 <tr className="border-b border-border">
                   <th className="text-left py-2 pr-4 font-medium text-muted-foreground">Agent</th>
@@ -164,7 +184,7 @@ export function PM() {
             </table>
           </div>
         )}
-      </div>
+      </DashCard>
     </div>
   );
 }

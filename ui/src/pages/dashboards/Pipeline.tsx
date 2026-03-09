@@ -1,8 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import { Plus } from "lucide-react";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Cell, ResponsiveContainer } from "recharts";
+import { AlertTriangle, Plus } from "lucide-react";
 import { biDashboardsApi } from "@/api/biDashboards";
 import { useCompany } from "@/context/CompanyContext";
 import { useDialog } from "@/context/DialogContext";
+import { DashCard } from "./components/DashCard";
+import { KpiCard } from "./components/KpiCard";
+import { AlertBanner } from "./components/AlertBanner";
+import { CHART_COLORS, AXIS_STYLE, TOOLTIP_CONTENT_STYLE, TOOLTIP_LABEL_STYLE } from "./components/ChartTheme";
 
 const STAGE_COLORS: Record<string, string> = {
   "Lead": "#6B9BD2",
@@ -13,28 +18,6 @@ const STAGE_COLORS: Record<string, string> = {
   "Closed Won": "#72B07F",
   "Closed Lost": "#C87070",
 };
-
-function StageBar({ stage, count, value, total }: { stage: string; count: number; value: number; total: number }) {
-  const pct = total > 0 ? Math.round((count / total) * 100) : 0;
-  const color = STAGE_COLORS[stage] ?? "#6B9BD2";
-  return (
-    <div className="space-y-1.5">
-      <div className="flex items-center justify-between text-[12px]">
-        <span className="text-foreground">{stage}</span>
-        <div className="flex items-center gap-3 text-muted-foreground">
-          <span>{count} deals</span>
-          <span className="font-medium text-foreground">${(value / 1000).toFixed(0)}k</span>
-        </div>
-      </div>
-      <div className="h-2 rounded-full bg-muted overflow-hidden">
-        <div
-          className="h-full rounded-full transition-all"
-          style={{ width: `${pct}%`, backgroundColor: color }}
-        />
-      </div>
-    </div>
-  );
-}
 
 export function Pipeline() {
   const { selectedCompanyId } = useCompany();
@@ -52,63 +35,98 @@ export function Pipeline() {
 
   const stages = data?.stages ?? [];
   const velocity = data?.velocity ?? { avgDaysToClose: "—", winRate: "—", forecastVsActual: "—" };
-  const totalDeals = stages.reduce((s: number, st: { count: number }) => s + st.count, 0);
   const coverageRatio = data?.coverageRatio ?? null;
   const belowTarget = coverageRatio !== null && coverageRatio < 3;
+  const leaks = data?.leaks;
+
+  const chartData = stages.map((s: { stage: string; count: number; value: number }) => ({
+    name: s.stage,
+    deals: s.count,
+    value: s.value,
+    fill: STAGE_COLORS[s.stage] ?? CHART_COLORS[0],
+  }));
 
   return (
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-semibold">Pipeline</h1>
-        <span className="text-[12px] text-muted-foreground">Pipedrive · live</span>
+        <span className="text-xs text-muted-foreground">Pipedrive · live</span>
       </div>
 
-      {/* Coverage alert */}
       {belowTarget && (
-        <div className="flex items-center justify-between rounded-lg border border-yellow-500/30 bg-yellow-500/5 px-4 py-3">
-          <div>
-            <p className="text-[13px] font-medium text-yellow-400">Pipeline coverage below 3×</p>
-            <p className="text-[12px] text-muted-foreground">
-              Current ratio: {coverageRatio?.toFixed(1)}× · Target: 3.0×
-            </p>
-          </div>
-          <button
-            onClick={() => openNewIssue({ title: "Investigate pipeline coverage drop" })}
-            className="flex items-center gap-1 px-3 py-1.5 rounded text-[12px] font-medium text-[#6B9BD2] hover:bg-[#6B9BD2]/10 transition-colors"
-          >
-            <Plus className="h-3 w-3" />
-            Create task
-          </button>
-        </div>
+        <AlertBanner
+          title="Pipeline coverage below 3×"
+          detail={`Current ratio: ${coverageRatio?.toFixed(1)}× · Target: 3.0×`}
+          onCreateTask={() => openNewIssue({ title: "Investigate pipeline coverage drop" })}
+        />
       )}
 
-      {/* Stage funnel */}
-      <div className="rounded-lg border border-border bg-card p-5 space-y-4">
-        <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60">
-          Deals by Stage
-        </p>
+      {/* Stage funnel — Horizontal Bar Chart */}
+      <DashCard label="Deals by Stage">
         {stages.length === 0 ? (
           <p className="text-sm text-muted-foreground">No pipeline data.</p>
         ) : (
-          stages.map((s: { stage: string; count: number; value: number }) => (
-            <StageBar key={s.stage} stage={s.stage} count={s.count} value={s.value} total={totalDeals} />
-          ))
+          <div className="h-64">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={chartData} layout="vertical" margin={{ left: 10, right: 30 }}>
+                <XAxis type="number" {...AXIS_STYLE} />
+                <YAxis type="category" dataKey="name" {...AXIS_STYLE} width={90} />
+                <Tooltip
+                  contentStyle={TOOLTIP_CONTENT_STYLE}
+                  labelStyle={TOOLTIP_LABEL_STYLE}
+                  cursor={{ fill: 'hsl(var(--muted))', opacity: 0.3 }}
+                  formatter={(value, name) => {
+                    const v = Number(value);
+                    if (name === "value") return [`$${(v / 1000).toFixed(0)}k`, "Value"];
+                    return [v, "Deals"];
+                  }}
+                />
+                <Bar dataKey="deals" radius={[0, 4, 4, 0]} barSize={20}>
+                  {chartData.map((entry: { fill: string }, i: number) => (
+                    <Cell key={i} fill={entry.fill} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         )}
-      </div>
+      </DashCard>
 
       {/* Velocity */}
       <div className="grid grid-cols-3 gap-4">
-        {[
-          { label: "Avg Days to Close", value: velocity.avgDaysToClose },
-          { label: "Win Rate", value: velocity.winRate },
-          { label: "Forecast vs Actual", value: velocity.forecastVsActual },
-        ].map(({ label, value }) => (
-          <div key={label} className="rounded-lg border border-border bg-card p-4">
-            <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 mb-2">{label}</p>
-            <p className="text-2xl font-semibold tabular-nums">{value}</p>
-          </div>
-        ))}
+        <KpiCard label="Avg Days to Close" value={velocity.avgDaysToClose} />
+        <KpiCard label="Win Rate" value={velocity.winRate} />
+        <KpiCard label="Exp / Best Case" value={velocity.forecastVsActual} />
       </div>
+
+      {/* Pipeline Leaks */}
+      {leaks && leaks.total > 0 && (
+        <DashCard label="Pipeline Leaks">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <AlertTriangle className={`h-4 w-4 shrink-0 ${leaks.critical > 0 ? "text-red-400" : "text-yellow-400"}`} />
+              <div>
+                <p className="text-[13px] font-medium">
+                  {leaks.total} deal{leaks.total !== 1 ? "s" : ""} stalling
+                  {leaks.critical > 0 && (
+                    <span className="ml-2 text-[11px] text-red-400 font-medium">{leaks.critical} critical</span>
+                  )}
+                </p>
+                <p className="text-[12px] text-muted-foreground">
+                  £{(leaks.value / 1000).toFixed(0)}k at risk
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={() => openNewIssue({ title: `Investigate ${leaks.total} stalling pipeline deal${leaks.total !== 1 ? "s" : ""}` })}
+              className="flex items-center gap-1 px-2 py-1 rounded text-[11px] font-medium text-[#6B9BD2] hover:bg-[#6B9BD2]/10 transition-colors"
+            >
+              <Plus className="h-3 w-3" />
+              Create task
+            </button>
+          </div>
+        </DashCard>
+      )}
     </div>
   );
 }

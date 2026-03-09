@@ -50,6 +50,7 @@ export interface PipelineData {
   stages: Array<{ stage: string; count: number; value: number }>;
   velocity: { avgDaysToClose: string; winRate: string; forecastVsActual: string };
   coverageRatio: number | null;
+  leaks?: { total: number; critical: number; value: number };
 }
 
 export interface MarketingData {

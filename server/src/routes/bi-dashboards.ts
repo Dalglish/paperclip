@@ -147,11 +147,12 @@ export function biDashboardRoutes(_db: Db) {
   router.get("/companies/:companyId/bi/pipeline", async (req, res) => {
     assertCompanyAccess(req, req.params.companyId);
     try {
-      const [pipeline, funnel, nrr, leaks] = await Promise.all([
+      const [pipeline, funnel, nrr, leaks, forecast] = await Promise.all([
         dashboardGet("pipeline") as Promise<Record<string, unknown>>,
         dashboardGet("funnel") as Promise<Record<string, unknown>>,
         dashboardGet("nrr") as Promise<Record<string, unknown>>,
         dashboardGet("pipeline/leaks") as Promise<Record<string, unknown>>,
+        dashboardGet("pipeline/forecast") as Promise<Record<string, unknown>>,
       ]);
 
       // Use funnel stages — cleaner than pipeline stage_counts (which are tracking states)
@@ -181,7 +182,12 @@ export function biDashboardRoutes(_db: Db) {
         velocity: {
           avgDaysToClose: avgDays > 0 ? `${avgDays}d` : "—",
           winRate: `${winRate.toFixed(0)}%`,
-          forecastVsActual: "—",
+          forecastVsActual: (() => {
+            const expected = Number((forecast as { expected_revenue?: number }).expected_revenue ?? 0);
+            const best = Number((forecast as { best_case?: number }).best_case ?? 0);
+            if (expected === 0 && best === 0) return "—";
+            return `£${(expected / 1000).toFixed(0)}k / £${(best / 1000).toFixed(0)}k`;
+          })(),
         },
         coverageRatio,
         leaks: {
@@ -230,15 +236,25 @@ export function biDashboardRoutes(_db: Db) {
     assertCompanyAccess(req, req.params.companyId);
     try {
       const trials = await dashboardGet("trials") as Record<string, unknown>;
+      const totalTrials = Number((trials as { total_trials?: number }).total_trials ?? 0);
+      const convPct = Number((trials as { trial_to_customer_pct?: number }).trial_to_customer_pct ?? 0);
+      const byQual = (trials as { by_qualification?: Record<string, number> }).by_qualification ?? {};
+      const sources = Object.entries(byQual)
+        .sort(([, a], [, b]) => b - a)
+        .map(([source, count]) => ({
+          source,
+          trials: count,
+          pct: totalTrials > 0 ? Math.round((count / totalTrials) * 100) : 0,
+        }));
       res.json({
         funnel: [
-          { label: "Total Trials", value: (trials as { total_trials?: number }).total_trials ?? 0 },
-          { label: "Converted", value: (trials as { total_customers?: number }).total_customers ?? 0, rate: `${(trials as { trial_to_customer_pct?: number }).trial_to_customer_pct ?? 0}%` },
+          { label: "Total Trials", value: totalTrials },
+          { label: "Converted", value: (trials as { total_customers?: number }).total_customers ?? 0, rate: `${convPct}%` },
         ],
         timeToConvert: "—",
-        conversionRate: `${(trials as { trial_to_customer_pct?: number }).trial_to_customer_pct ?? 0}%`,
-        belowThreshold: Number((trials as { trial_to_customer_pct?: number }).trial_to_customer_pct ?? 0) < 25,
-        sources: [],
+        conversionRate: `${convPct}%`,
+        belowThreshold: convPct < 25,
+        sources,
       });
     } catch (err) {
       res.status(502).json({ error: (err as Error).message });

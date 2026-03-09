@@ -25,7 +25,7 @@ export function DashboardsLayout() {
               cn(
                 "px-4 py-3 text-[13px] font-medium whitespace-nowrap border-b-2 -mb-px transition-colors",
                 isActive
-                  ? "border-[#6B9BD2] text-foreground"
+                  ? "border-chart-1 text-foreground"
                   : "border-transparent text-muted-foreground hover:text-foreground hover:border-muted-foreground/40",
               )
             }

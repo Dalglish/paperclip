@@ -1,18 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { DollarSign, TrendingUp, Users, RefreshCw, AlertTriangle, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { biDashboardsApi } from "@/api/biDashboards";
 import { useCompany } from "@/context/CompanyContext";
 import { useDialog } from "@/context/DialogContext";
-
-function KpiCard({ label, value, sub }: { label: string; value: string; sub?: string }) {
-  return (
-    <div className="rounded-lg border border-border bg-card p-4">
-      <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 mb-2">{label}</p>
-      <p className="text-2xl font-semibold tabular-nums">{value}</p>
-      {sub && <p className="text-[12px] text-muted-foreground mt-1">{sub}</p>}
-    </div>
-  );
-}
+import { KpiCard } from "./components/KpiCard";
+import { DashCard } from "./components/DashCard";
 
 function TargetRow({
   account,
@@ -28,13 +20,13 @@ function TargetRow({
   return (
     <div className="flex items-center gap-3 py-2.5 border-b border-border last:border-0">
       <div className="flex-1 min-w-0">
-        <p className="text-[13px] font-medium truncate">{account}</p>
-        <p className="text-[12px] text-muted-foreground">{type}</p>
+        <p className="text-sm font-medium truncate">{account}</p>
+        <p className="text-xs text-muted-foreground">{type}</p>
       </div>
-      <span className="text-[13px] font-medium text-foreground tabular-nums">{value}</span>
+      <span className="text-sm font-medium text-foreground tabular-nums">{value}</span>
       <button
         onClick={onTask}
-        className="flex items-center gap-1 px-2 py-1 rounded text-[11px] font-medium text-[#6B9BD2] hover:bg-[#6B9BD2]/10 transition-colors"
+        className="flex items-center gap-1 px-2 py-1 rounded text-xs font-medium text-[#6B9BD2] hover:bg-[#6B9BD2]/10 transition-colors"
       >
         <Plus className="h-3 w-3" />
         Task
@@ -65,7 +57,7 @@ export function Sales() {
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-semibold">Sales</h1>
-        <span className="text-[12px] text-muted-foreground">Pipedrive · live</span>
+        <span className="text-xs text-muted-foreground">Pipedrive · live</span>
       </div>
 
       {/* KPI Grid */}
@@ -79,10 +71,7 @@ export function Sales() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Upsell Targets */}
-        <div className="rounded-lg border border-border bg-card p-5">
-          <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 mb-3">
-            Upsell Targets
-          </p>
+        <DashCard label="Upsell Targets">
           {upsellTargets.length === 0 ? (
             <p className="text-sm text-muted-foreground py-2">No upsell targets identified.</p>
           ) : (
@@ -96,13 +85,10 @@ export function Sales() {
               />
             ))
           )}
-        </div>
+        </DashCard>
 
         {/* Win-Back Targets */}
-        <div className="rounded-lg border border-border bg-card p-5">
-          <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 mb-3">
-            Win-Back Targets
-          </p>
+        <DashCard label="Win-Back Targets">
           {winBackTargets.length === 0 ? (
             <p className="text-sm text-muted-foreground py-2">No win-back targets identified.</p>
           ) : (
@@ -116,7 +102,7 @@ export function Sales() {
               />
             ))
           )}
-        </div>
+        </DashCard>
       </div>
     </div>
   );

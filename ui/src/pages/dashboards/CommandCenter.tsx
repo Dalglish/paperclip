@@ -1,16 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { TrendingUp, AlertTriangle, Users, DollarSign, Activity, CheckCircle2, XCircle, Plus } from "lucide-react";
+import { Users, Activity, CheckCircle2, DollarSign, XCircle, AlertTriangle } from "lucide-react";
+import { RadialBarChart, RadialBar, BarChart, Bar, XAxis, YAxis, Tooltip, Cell, ResponsiveContainer } from "recharts";
 import { biDashboardsApi } from "@/api/biDashboards";
 import { useCompany } from "@/context/CompanyContext";
 import { useDialog } from "@/context/DialogContext";
-
-function ScoreBadge({ score }: { score: number }) {
-  const color =
-    score >= 80 ? "text-green-400" : score >= 60 ? "text-yellow-400" : "text-red-400";
-  return (
-    <span className={`text-5xl font-bold tabular-nums ${color}`}>{score}</span>
-  );
-}
+import { DashCard } from "./components/DashCard";
+import { CHART_COLORS, TOOLTIP_CONTENT_STYLE, TOOLTIP_LABEL_STYLE, AXIS_STYLE } from "./components/ChartTheme";
 
 function AlertRow({
   title,
@@ -35,15 +30,14 @@ function AlertRow({
     <div className="flex items-start gap-3 py-3 border-b border-border last:border-0">
       <Icon className={`h-4 w-4 shrink-0 mt-0.5 ${iconColor}`} />
       <div className="flex-1 min-w-0">
-        <p className="text-[13px] font-medium text-foreground">{title}</p>
-        <p className="text-[12px] text-muted-foreground">{detail}</p>
+        <p className="text-sm font-medium text-foreground">{title}</p>
+        <p className="text-xs text-muted-foreground">{detail}</p>
       </div>
       <button
         onClick={onCreateTask}
-        className="flex items-center gap-1 px-2 py-1 rounded text-[11px] font-medium text-[#6B9BD2] hover:bg-[#6B9BD2]/10 transition-colors shrink-0"
+        className="flex items-center gap-1 px-2 py-1 rounded text-xs font-medium text-[#6B9BD2] hover:bg-[#6B9BD2]/10 transition-colors shrink-0"
       >
-        <Plus className="h-3 w-3" />
-        Task
+        + Task
       </button>
     </div>
   );
@@ -67,53 +61,83 @@ export function CommandCenter() {
   const funnel = data?.funnel ?? { visitors: 0, trials: 0, converted: 0, retained: 0 };
   const alerts = data?.alerts ?? [];
 
+  const scoreColor = score >= 80 ? CHART_COLORS[1] : score >= 60 ? CHART_COLORS[2] : CHART_COLORS[3];
+  const gaugeData = [{ name: "score", value: score, fill: scoreColor }];
+
+  const funnelData = [
+    { name: "Visitors", value: funnel.visitors, icon: Users },
+    { name: "Trials", value: funnel.trials, icon: Activity },
+    { name: "Converted", value: funnel.converted, icon: CheckCircle2 },
+    { name: "Retained", value: funnel.retained, icon: DollarSign },
+  ];
+
   return (
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-semibold">Command Center</h1>
-        <span className="text-[12px] text-muted-foreground">Live · refreshes every 60s</span>
+        <span className="text-xs text-muted-foreground">Live · refreshes every 60s</span>
       </div>
 
-      {/* Revenue Engine Score */}
-      <div className="rounded-lg border border-border bg-card p-6">
-        <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 mb-3">
-          Revenue Engine Score
-        </p>
-        <div className="flex items-end gap-4">
-          <ScoreBadge score={score} />
-          <div className="text-sm text-muted-foreground mb-1">/ 100</div>
+      {/* Revenue Engine Score — Radial Gauge */}
+      <DashCard label="Revenue Engine Score">
+        <div className="flex items-center gap-6">
+          <div className="w-40 h-40">
+            <ResponsiveContainer width="100%" height="100%">
+              <RadialBarChart
+                cx="50%"
+                cy="50%"
+                innerRadius="70%"
+                outerRadius="100%"
+                startAngle={180}
+                endAngle={0}
+                data={gaugeData}
+                barSize={12}
+              >
+                <RadialBar
+                  dataKey="value"
+                  cornerRadius={6}
+                  background={{ fill: 'hsl(var(--muted))' }}
+                />
+              </RadialBarChart>
+            </ResponsiveContainer>
+          </div>
+          <div>
+            <span className={`text-5xl font-bold tabular-nums`} style={{ color: scoreColor }}>
+              {score}
+            </span>
+            <span className="text-sm text-muted-foreground ml-2">/ 100</span>
+            <p className="text-xs text-muted-foreground mt-2">
+              Composite: retention × conversion × pipeline × NRR
+            </p>
+          </div>
         </div>
-        <p className="text-[12px] text-muted-foreground mt-2">
-          Composite: retention × conversion × pipeline × NRR
-        </p>
-      </div>
+      </DashCard>
 
-      {/* Full Funnel */}
-      <div className="rounded-lg border border-border bg-card p-6">
-        <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 mb-4">
-          Full Funnel
-        </p>
-        <div className="grid grid-cols-4 gap-4">
-          {[
-            { label: "Visitors", value: funnel.visitors, icon: Users },
-            { label: "Trials", value: funnel.trials, icon: Activity },
-            { label: "Converted", value: funnel.converted, icon: CheckCircle2 },
-            { label: "Retained", value: funnel.retained, icon: DollarSign },
-          ].map(({ label, value, icon: Icon }) => (
-            <div key={label} className="text-center">
-              <Icon className="h-4 w-4 text-muted-foreground mx-auto mb-2" />
-              <p className="text-2xl font-semibold tabular-nums">{value.toLocaleString()}</p>
-              <p className="text-[11px] text-muted-foreground mt-1">{label}</p>
-            </div>
-          ))}
+      {/* Full Funnel — Bar Chart */}
+      <DashCard label="Full Funnel">
+        <div className="h-52">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={funnelData} layout="vertical" margin={{ left: 10, right: 30 }}>
+              <XAxis type="number" {...AXIS_STYLE} />
+              <YAxis type="category" dataKey="name" {...AXIS_STYLE} width={80} />
+              <Tooltip
+                contentStyle={TOOLTIP_CONTENT_STYLE}
+                labelStyle={TOOLTIP_LABEL_STYLE}
+                cursor={{ fill: 'hsl(var(--muted))', opacity: 0.3 }}
+                formatter={(value) => [Number(value).toLocaleString(), ""]}
+              />
+              <Bar dataKey="value" radius={[0, 4, 4, 0]} barSize={24}>
+                {funnelData.map((_, i) => (
+                  <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
         </div>
-      </div>
+      </DashCard>
 
       {/* Alerts & Action Items */}
-      <div className="rounded-lg border border-border bg-card p-6">
-        <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 mb-2">
-          Alerts & Action Items
-        </p>
+      <DashCard label="Alerts & Action Items">
         {alerts.length === 0 ? (
           <p className="text-sm text-muted-foreground py-4">No active alerts.</p>
         ) : (
@@ -127,7 +151,7 @@ export function CommandCenter() {
             />
           ))
         )}
-      </div>
+      </DashCard>
     </div>
   );
 }

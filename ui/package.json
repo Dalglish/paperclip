@@ -17,8 +17,8 @@
     "@paperclipai/adapter-claude-local": "workspace:*",
     "@paperclipai/adapter-codex-local": "workspace:*",
     "@paperclipai/adapter-cursor-local": "workspace:*",
-    "@paperclipai/adapter-opencode-local": "workspace:*",
     "@paperclipai/adapter-openclaw": "workspace:*",
+    "@paperclipai/adapter-opencode-local": "workspace:*",
     "@paperclipai/adapter-utils": "workspace:*",
     "@paperclipai/shared": "workspace:*",
     "@radix-ui/react-slot": "^1.2.4",
@@ -33,6 +33,7 @@
     "react-dom": "^19.0.0",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.1.5",
+    "recharts": "^3.8.0",
     "remark-gfm": "^4.0.1",
     "tailwind-merge": "^3.4.1"
   },
