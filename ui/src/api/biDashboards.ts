@@ -24,6 +24,9 @@ export const biDashboardsApi = {
 
   abm: (companyId: string) =>
     api.get<ABMData>(`/companies/${companyId}/bi/abm`),
+
+  alerts: (companyId: string) =>
+    api.get<AlertsData>(`/companies/${companyId}/bi/alerts`),
 };
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -31,7 +34,7 @@ export const biDashboardsApi = {
 export interface CommandCenterData {
   revenueEngineScore: number;
   funnel: { visitors: number; trials: number; converted: number; retained: number };
-  alerts: Array<{ id: string; title: string; detail: string; severity: "critical" | "warning" | "info" }>;
+  alerts: Array<{ id: string; title: string; detail: string; severity: "critical" | "warning" | "info"; agent_assignee?: string }>;
 }
 
 export interface SalesData {
@@ -84,4 +87,18 @@ export interface ABMData {
     dealStage?: string;
     value?: string;
   }>;
+}
+
+export interface AlertsData {
+  alerts: Array<{
+    id: string;
+    title: string;
+    detail: string;
+    severity: "critical" | "warning" | "info";
+    agent_assignee?: string;
+  }>;
+  count: number;
+  critical: number;
+  warning: number;
+  evaluated_at: string;
 }

@@ -283,6 +283,146 @@ async def retargeting(_auth: bool = Depends(verify_token)):
 
 
 # ---------------------------------------------------------------------------
+# Alert Threshold Engine (Phase 2 — PRD-DASHBOARD-MIGRATION Phase 3)
+# ---------------------------------------------------------------------------
+# Thresholds (override via env vars)
+ALERT_PIPELINE_COVERAGE_MIN = float(os.environ.get("ALERT_PIPELINE_COVERAGE_MIN", "3.0"))
+ALERT_TRIAL_CONVERSION_MIN = float(os.environ.get("ALERT_TRIAL_CONVERSION_MIN", "5.0"))
+ALERT_NRR_WARNING = float(os.environ.get("ALERT_NRR_WARNING", "90.0"))
+ALERT_NRR_CRITICAL = float(os.environ.get("ALERT_NRR_CRITICAL", "80.0"))
+ALERT_CHURN_CUSTOMERS_WARNING = int(os.environ.get("ALERT_CHURN_CUSTOMERS_WARNING", "3"))
+
+
+def _evaluate_alerts() -> List[Dict[str, Any]]:
+    """Evaluate all threshold rules and return active alerts.
+
+    Each alert: {id, title, detail, severity, agent_assignee}
+    """
+    alerts: List[Dict[str, Any]] = []
+
+    # --- 1. NRR + Churn risk ---
+    try:
+        nrr = intelligence.get_nrr()
+        nrr_pct = nrr.get("nrr_pct", 100.0)
+        churned = nrr.get("churned_customers", 0)
+        current_arr = nrr.get("current_arr", 0)
+        churn_arr = nrr.get("churn_arr", 0)
+
+        if nrr_pct < ALERT_NRR_CRITICAL:
+            alerts.append({
+                "id": "nrr-critical",
+                "title": f"NRR critical: {nrr_pct:.1f}%",
+                "detail": f"Below {ALERT_NRR_CRITICAL:.0f}% threshold. Churn ARR: ${churn_arr:,.0f}. Immediate attention required.",
+                "severity": "critical",
+                "agent_assignee": "ff-sales-pipeline",
+            })
+        elif nrr_pct < ALERT_NRR_WARNING:
+            alerts.append({
+                "id": "nrr-warning",
+                "title": f"NRR below target: {nrr_pct:.1f}%",
+                "detail": f"Below {ALERT_NRR_WARNING:.0f}% target. {churned} churned customers (${churn_arr:,.0f} ARR at risk).",
+                "severity": "warning",
+                "agent_assignee": "ff-sales-pipeline",
+            })
+
+        if churned >= ALERT_CHURN_CUSTOMERS_WARNING and nrr_pct >= ALERT_NRR_WARNING:
+            alerts.append({
+                "id": "churn-risk",
+                "title": f"Churn risk: {churned} lapsed customers",
+                "detail": f"${churn_arr:,.0f} recoverable ARR. Run save-play sequences.",
+                "severity": "warning",
+                "agent_assignee": "ff-sales-pipeline",
+            })
+    except Exception as exc:
+        logger.warning("Alert eval: NRR check failed: %s", exc)
+
+    # --- 2. Trial conversion ---
+    try:
+        trials = intelligence.get_trial_metrics()
+        if trials.get("has_data"):
+            conv_pct = trials.get("trial_to_customer_pct", 0.0)
+            total_trials = trials.get("total_trials", 0)
+            if conv_pct < ALERT_TRIAL_CONVERSION_MIN and total_trials >= 5:
+                alerts.append({
+                    "id": "trial-conversion-low",
+                    "title": f"Trial conversion low: {conv_pct:.1f}%",
+                    "detail": f"{trials.get('converted_from_trial', 0)} of {total_trials} trials converted. Below {ALERT_TRIAL_CONVERSION_MIN:.0f}% threshold.",
+                    "severity": "warning",
+                    "agent_assignee": "ff-sales-triage",
+                })
+    except Exception as exc:
+        logger.warning("Alert eval: trial conversion check failed: %s", exc)
+
+    # --- 3. Pipeline coverage (active pipeline deals vs current ARR) ---
+    try:
+        velocity = intelligence.get_pipeline_velocity()
+        stage_counts = velocity.get("stage_counts", {})
+        # Active pipeline stages (not Won / Lost / Paid)
+        active_stages = {k: v for k, v in stage_counts.items()
+                         if k.lower() not in ("won", "lost", "paid", "cancelled")}
+        total_active = sum(active_stages.values())
+
+        nrr_data = intelligence.get_nrr()
+        current_arr = nrr_data.get("current_arr", 0)
+
+        if current_arr > 0 and total_active > 0:
+            # Coverage ratio: active deal count vs ARR proxy
+            # Use deal count as coverage proxy since we don't have pipeline value here
+            avg_deal_value = current_arr / max(nrr_data.get("retained_customers", 1), 1)
+            pipeline_value = total_active * avg_deal_value
+            coverage = pipeline_value / current_arr if current_arr > 0 else 0
+
+            if coverage < ALERT_PIPELINE_COVERAGE_MIN:
+                alerts.append({
+                    "id": "pipeline-coverage-low",
+                    "title": f"Pipeline coverage: {coverage:.1f}x (target {ALERT_PIPELINE_COVERAGE_MIN:.0f}x)",
+                    "detail": f"{total_active} active deals. Coverage below {ALERT_PIPELINE_COVERAGE_MIN:.0f}x annual target.",
+                    "severity": "warning" if coverage >= ALERT_PIPELINE_COVERAGE_MIN * 0.66 else "critical",
+                    "agent_assignee": "ff-sales-pipeline",
+                })
+    except Exception as exc:
+        logger.warning("Alert eval: pipeline coverage check failed: %s", exc)
+
+    # --- 4. SUM gap (recoverable ARR from lapsed customers) ---
+    try:
+        gap = intelligence.get_sum_gap()
+        if gap:
+            total_recoverable = sum(
+                g.get("recoverable_arr", 0) or 0 for g in gap
+            )
+            lapsed_count = len(gap)
+            if total_recoverable > 10000:
+                alerts.append({
+                    "id": "sum-gap",
+                    "title": f"${total_recoverable:,.0f} recoverable ARR",
+                    "detail": f"{lapsed_count} lapsed customers off SUM. Win-back sequences recommended.",
+                    "severity": "info",
+                    "agent_assignee": "ff-sales-pipeline",
+                })
+    except Exception as exc:
+        logger.warning("Alert eval: SUM gap check failed: %s", exc)
+
+    return alerts
+
+
+@app.get("/api/private/alerts")
+async def get_alerts(_auth: bool = Depends(verify_token)):
+    """Return active threshold alerts across pipeline, NRR, trials, and SUM.
+
+    Each alert includes id, title, detail, severity (critical/warning/info),
+    and agent_assignee for task routing.
+    """
+    alerts = _evaluate_alerts()
+    return {
+        "alerts": alerts,
+        "count": len(alerts),
+        "critical": sum(1 for a in alerts if a["severity"] == "critical"),
+        "warning": sum(1 for a in alerts if a["severity"] == "warning"),
+        "evaluated_at": datetime.now().isoformat(),
+    }
+
+
+# ---------------------------------------------------------------------------
 # Signal Ingestion (GTM pipeline — n8n webhook target)
 # ---------------------------------------------------------------------------
 

@@ -78,10 +78,17 @@ export function biDashboardRoutes(_db: Db) {
       const nrrScore = Math.min(20, Math.max(0, (nrrPct - 80) * 1));
       const revenueEngineScore = Math.round(retentionScore + conversionScore + pipelineScore + nrrScore);
 
-      const alerts: { id: string; title: string; detail: string; severity: "critical" | "warning" | "info" }[] = [];
-      if (retentionRate < 80) alerts.push({ id: "retention-low", title: "Retention below 80%", detail: `Current: ${retentionRate.toFixed(1)}%`, severity: "critical" });
-      if (totalDeals < 5) alerts.push({ id: "pipeline-thin", title: "Pipeline thin", detail: `Only ${totalDeals} open deals`, severity: "warning" });
-      if (nrrPct < 100) alerts.push({ id: "nrr-below-100", title: "NRR below 100%", detail: `Current: ${nrrPct.toFixed(1)}%`, severity: "warning" });
+      // Pull alerts from threshold engine (best-effort — fall back to local checks on failure)
+      let alerts: { id: string; title: string; detail: string; severity: "critical" | "warning" | "info"; agent_assignee?: string }[] = [];
+      try {
+        const alertsData = await dashboardGet("alerts") as { alerts: typeof alerts };
+        alerts = alertsData.alerts ?? [];
+      } catch {
+        // Fallback: compute locally if threshold engine unavailable
+        if (retentionRate < 80) alerts.push({ id: "retention-low", title: "Retention below 80%", detail: `Current: ${retentionRate.toFixed(1)}%`, severity: "critical" });
+        if (totalDeals < 5) alerts.push({ id: "pipeline-thin", title: "Pipeline thin", detail: `Only ${totalDeals} open deals`, severity: "warning" });
+        if (nrrPct < 100) alerts.push({ id: "nrr-below-100", title: "NRR below 100%", detail: `Current: ${nrrPct.toFixed(1)}%`, severity: "warning" });
+      }
 
       const stages = (funnel as { stages?: Array<{ name: string; count: number }> }).stages ?? [];
       res.json({
@@ -290,6 +297,17 @@ export function biDashboardRoutes(_db: Db) {
           churnRate: `${(retention as { churn_rate?: number }).churn_rate ?? 0}%`,
         },
       });
+    } catch (err) {
+      res.status(502).json({ error: (err as Error).message });
+    }
+  });
+
+  // ── Alerts (threshold engine) ─────────────────────────────────────────────
+  router.get("/companies/:companyId/bi/alerts", async (req, res) => {
+    assertCompanyAccess(req, req.params.companyId);
+    try {
+      const data = await dashboardGet("alerts");
+      res.json(data);
     } catch (err) {
       res.status(502).json({ error: (err as Error).message });
     }
