@@ -10,6 +10,7 @@ const TABS = [
   { to: "analytics", label: "Analytics" },
   { to: "abm", label: "ABM" },
   { to: "pm", label: "PM" },
+  { to: "usage", label: "Usage" },
 ] as const;
 
 export function DashboardsLayout() {

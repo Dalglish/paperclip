@@ -33,6 +33,7 @@ import { Trials } from "./pages/dashboards/Trials";
 import { Analytics } from "./pages/dashboards/Analytics";
 import { ABM } from "./pages/dashboards/ABM";
 import { PM } from "./pages/dashboards/PM";
+import { Usage } from "./pages/dashboards/Usage";
 import { AuthPage } from "./pages/Auth";
 import { BoardClaimPage } from "./pages/BoardClaim";
 import { InviteLandingPage } from "./pages/InviteLanding";
@@ -147,6 +148,7 @@ function boardRoutes() {
         <Route path="analytics" element={<Analytics />} />
         <Route path="abm" element={<ABM />} />
         <Route path="pm" element={<PM />} />
+        <Route path="usage" element={<Usage />} />
       </Route>
     </>
   );

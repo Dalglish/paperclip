@@ -8,7 +8,8 @@ The `claude_local` adapter runs Anthropic's Claude Code CLI locally. It supports
 ## Prerequisites
 
 - Claude Code CLI installed (`claude` command available)
-- `ANTHROPIC_API_KEY` set in the environment or agent config
+- Either `ANTHROPIC_API_KEY` in the environment/agent config, OR a logged-in Claude Code subscription (`claude login`)
+- If using subscription auth: ensure `ANTHROPIC_API_KEY` is NOT set (it takes priority over subscription)
 
 ## Configuration Fields
 

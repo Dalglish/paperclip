@@ -1,3 +1,4 @@
+import path from "node:path";
 import type {
   AdapterEnvironmentCheck,
   AdapterEnvironmentTestContext,
@@ -19,6 +20,11 @@ function summarizeStatus(checks: AdapterEnvironmentCheck[]): AdapterEnvironmentT
   if (checks.some((check) => check.level === "error")) return "fail";
   if (checks.some((check) => check.level === "warn")) return "warn";
   return "pass";
+}
+
+function commandLooksLikeOpenCode(command: string): boolean {
+  const base = path.basename(command).toLowerCase();
+  return base === "opencode" || base === "opencode.cmd" || base === "opencode.exe";
 }
 
 function firstNonEmptyLine(text: string): string {
@@ -59,7 +65,7 @@ export async function testEnvironment(
   const cwd = asString(config.cwd, process.cwd());
 
   try {
-    await ensureAbsoluteDirectory(cwd, { createIfMissing: false });
+    await ensureAbsoluteDirectory(cwd, { createIfMissing: true });
     checks.push({
       code: "opencode_cwd_valid",
       level: "info",
@@ -79,6 +85,16 @@ export async function testEnvironment(
   for (const [key, value] of Object.entries(envConfig)) {
     if (typeof value === "string") env[key] = value;
   }
+
+  if ("OPENAI_API_KEY" in envConfig && env.OPENAI_API_KEY === "") {
+    checks.push({
+      code: "opencode_openai_api_key_missing",
+      level: "warn",
+      message: "OPENAI_API_KEY is explicitly set but empty.",
+      hint: "The OPENAI_API_KEY override is empty. Set a valid key or remove the override to inherit from the host environment.",
+    });
+  }
+
   const runtimeEnv = normalizeEnv(ensurePathInEnv({ ...process.env, ...env }));
 
   const cwdInvalid = checks.some((check) => check.code === "opencode_cwd_invalid");
@@ -110,8 +126,11 @@ export async function testEnvironment(
   const canRunProbe =
     checks.every((check) => check.code !== "opencode_cwd_invalid" && check.code !== "opencode_command_unresolvable");
 
+  const commandIsOpenCode = commandLooksLikeOpenCode(command);
+
   let modelValidationPassed = false;
-  if (canRunProbe) {
+  let providerModelNotFoundDetected = false;
+  if (canRunProbe && commandIsOpenCode) {
     try {
       const discovered = await discoverOpenCodeModels({ command, cwd, env: runtimeEnv });
       if (discovered.length > 0) {
@@ -129,24 +148,35 @@ export async function testEnvironment(
         });
       }
     } catch (err) {
-      checks.push({
-        code: "opencode_models_discovery_failed",
-        level: "error",
-        message: err instanceof Error ? err.message : "OpenCode model discovery failed.",
-        hint: "Run `opencode models` manually to verify provider auth and config.",
-      });
+      const errMsg = err instanceof Error ? err.message : "OpenCode model discovery failed.";
+      if (/ProviderModelNotFoundError/i.test(errMsg)) {
+        providerModelNotFoundDetected = true;
+        checks.push({
+          code: "opencode_hello_probe_model_unavailable",
+          level: "warn",
+          message: "OpenCode is installed but the configured model is unavailable.",
+          hint: "Run `opencode models` to see available models, then update adapterConfig.model.",
+        });
+      } else {
+        checks.push({
+          code: "opencode_models_discovery_failed",
+          level: "error",
+          message: errMsg,
+          hint: "Run `opencode models` manually to verify provider auth and config.",
+        });
+      }
     }
   }
 
   const configuredModel = asString(config.model, "").trim();
-  if (!configuredModel) {
+  if (commandIsOpenCode && !configuredModel && !providerModelNotFoundDetected) {
     checks.push({
       code: "opencode_model_required",
       level: "error",
       message: "OpenCode requires a configured model in provider/model format.",
       hint: "Set adapterConfig.model using an ID from `opencode models`.",
     });
-  } else if (canRunProbe) {
+  } else if (commandIsOpenCode && configuredModel && canRunProbe) {
     try {
       await ensureOpenCodeModelConfiguredAndAvailable({
         model: configuredModel,

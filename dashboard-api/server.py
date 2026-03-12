@@ -14,7 +14,7 @@ import logging
 import secrets
 from datetime import datetime, timedelta
 from functools import lru_cache
-from typing import Any
+from typing import Any, Dict, List, Optional
 
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
@@ -56,6 +56,13 @@ if (not _current_sa or not os.path.exists(_current_sa)) and os.path.exists(_sa_d
 
 # Now import the intelligence module
 import intelligence  # noqa: E402
+
+# ---------------------------------------------------------------------------
+# Setup: add FFagents26/src to sys.path for signal_adapter + synthesis
+# ---------------------------------------------------------------------------
+FF_AGENTS26_SRC = "/Users/brianross/FFagents26/src"
+if FF_AGENTS26_SRC not in sys.path:
+    sys.path.insert(0, FF_AGENTS26_SRC)
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -273,6 +280,77 @@ async def trials(_auth: bool = Depends(verify_token)):
 @app.get("/api/private/retargeting")
 async def retargeting(_auth: bool = Depends(verify_token)):
     return _safe_call(intelligence.get_retargeting_opportunities)
+
+
+# ---------------------------------------------------------------------------
+# Signal Ingestion (GTM pipeline — n8n webhook target)
+# ---------------------------------------------------------------------------
+
+class SignalIngestRequest(BaseModel):
+    """Payload from n8n or external webhooks."""
+    signal_type: str  # e.g. "signal.buying_intent"
+    company: str
+    source: str = "n8n"
+    data: Dict[str, Any] = {}
+    contacts: List[Dict[str, Any]] = []
+
+
+class SynthesisRequest(BaseModel):
+    """Full lead synthesis request with signals + enrichment."""
+    company: str
+    signals: List[Dict[str, Any]]
+    contacts: List[Dict[str, Any]] = []
+    enrichment: Dict[str, Any] = {}
+
+
+@app.post("/api/private/signals/ingest")
+async def ingest_signal(req: SignalIngestRequest, _auth: bool = Depends(verify_token)):
+    """Ingest a signal from n8n or external webhook.
+
+    n8n WF5/WF6 POST here to bridge signals into the FFagents26 event bus.
+    """
+    try:
+        from event_bus import EventBus
+        from signal_adapter import SignalAdapter
+
+        bus = EventBus()
+        adapter = SignalAdapter(bus)
+        result = adapter.ingest_http_signal(req.model_dump())
+        if result.get("status") == "error":
+            raise HTTPException(status_code=400, detail=result["message"])
+        return result
+    except ImportError as exc:
+        logger.exception("FFagents26 import failed: %s", exc)
+        raise HTTPException(status_code=500, detail=f"FFagents26 module not available: {exc}")
+
+
+@app.post("/api/private/signals/synthesize")
+async def synthesize_lead_endpoint(req: SynthesisRequest, _auth: bool = Depends(verify_token)):
+    """Synthesize an IntelligencePackage from signals + enrichment.
+
+    Used by n8n WF6 (inbound scoring) to get ICP score + recipe routing.
+    Returns the full IntelligencePackage with Pipedrive field values.
+    """
+    try:
+        from synthesis import synthesize_lead
+
+        pkg = synthesize_lead(
+            company=req.company,
+            signals=req.signals,
+            contacts=req.contacts,
+            enrichment=req.enrichment,
+        )
+        return {
+            "status": "ok",
+            "package": pkg.to_dict(),
+            "pipedrive_fields": pkg.to_pipedrive_fields(),
+            "tier": pkg.tier,
+            "icp_score": pkg.icp_score,
+            "recipe": pkg.recipe,
+        }
+    except ImportError as exc:
+        logger.exception("FFagents26 synthesis import failed: %s", exc)
+        raise HTTPException(status_code=500, detail=f"Synthesis module not available: {exc}")
 
 
 # ---------------------------------------------------------------------------

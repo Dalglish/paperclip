@@ -56,19 +56,21 @@ function parseToolUse(parsed: Record<string, unknown>, ts: string): TranscriptEn
   const status = asString(state?.status);
   if (status !== "completed" && status !== "error") return [callEntry];
 
-  const output =
-    asString(state?.output) ||
-    asString(state?.error) ||
-    asString(part.title) ||
-    `${toolName} ${status}`;
+  const metadata = asRecord(state?.metadata);
+  const exit = metadata?.exit;
+  const rawOutput = asString(state?.output) || asString(state?.error) || asString(part.title) || "";
+  const contentParts: string[] = [`status: ${status}`];
+  if (exit !== undefined) contentParts.push(`exit: ${exit}`);
+  if (rawOutput.trim()) contentParts.push("", rawOutput.trimEnd());
+  const content = contentParts.join("\n");
 
   return [
     callEntry,
     {
       kind: "tool_result",
       ts,
-      toolUseId: asString(part.id, toolName),
-      content: output,
+      toolUseId: asString(part.callID, asString(part.id, toolName)),
+      content,
       isError: status === "error",
     },
   ];
