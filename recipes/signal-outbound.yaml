@@ -1,0 +1,102 @@
+# Recipe 1: Signal-Outbound
+# Trigger: Job posting or funding signal detected
+# Output: Email sent to decision maker (after Slack approval)
+
+name: signal-outbound
+version: "1.0"
+description: >
+  Detect buying intent signals (job postings, funding rounds, headcount growth),
+  enrich the company via Apollo, score against ICP, and send personalised
+  outreach offering a free design audit.
+
+trigger:
+  signal_types:
+    - signal.buying_intent
+  sources:
+    - job-posting-intent
+    - funding-signal-monitor
+    - signal-scanner
+  min_icp_score: 60
+
+skill_chain:
+  - step: enrich
+    skill: genbot
+    action: company_enrich
+    input: "{{ signal.company }}"
+    output: enrichment
+
+  - step: find_contacts
+    skill: genbot
+    action: find_contacts
+    input: "{{ signal.company }}"
+    filters:
+      titles: ["VP Engineering", "Director Engineering", "Chief Engineer", "Plant Manager"]
+    output: contacts
+
+  - step: synthesize
+    skill: synthesis
+    action: synthesize_lead
+    input:
+      company: "{{ signal.company }}"
+      signals: "{{ [signal] }}"
+      contacts: "{{ contacts }}"
+      enrichment: "{{ enrichment }}"
+    output: intelligence_package
+
+  - step: score_gate
+    type: gate
+    condition: "{{ intelligence_package.icp_score >= 60 }}"
+    on_fail: park
+
+  - step: generate_email
+    skill: sales-swarm
+    action: draft_audit_email
+    input:
+      company: "{{ signal.company }}"
+      contact: "{{ intelligence_package.contacts[0] }}"
+      signal: "{{ signal }}"
+      industry: "{{ intelligence_package.industry }}"
+    output: email_draft
+
+  - step: slack_approval
+    type: human_gate
+    channel: "#gtm-actions"
+    message: |
+      *New Signal-Outbound Lead*
+      Company: {{ signal.company }}
+      ICP Score: {{ intelligence_package.icp_score }} ({{ intelligence_package.tier }})
+      Signal: {{ signal.signal_type }} from {{ signal.source }}
+      Contact: {{ intelligence_package.contacts[0].name }} ({{ intelligence_package.contacts[0].title }})
+      Email preview: {{ email_draft.subject }}
+    buttons:
+      - label: "Approve & Send"
+        action: approve
+      - label: "Edit First"
+        action: edit
+      - label: "Skip"
+        action: reject
+
+  - step: send_sequence
+    skill: apollo
+    action: enroll_sequence
+    input:
+      contact_email: "{{ intelligence_package.contacts[0].email }}"
+      sequence_id: "{{ config.apollo_audit_sequence_id }}"
+    requires: "slack_approval.action == 'approve'"
+
+  - step: update_pipedrive
+    skill: pipedrive
+    action: update_deal_fields
+    input:
+      deal_id: "{{ intelligence_package.pipedrive_deal_id }}"
+      fields: "{{ intelligence_package.to_pipedrive_fields() }}"
+
+output:
+  type: email_sequence_enrolled
+  notify_channel: "#gtm-feed"
+  log_to: mem0
+
+cost_estimate:
+  deepseek_tokens: 15000  # enrich + email draft
+  opus_tokens: 0
+  haiku_tokens: 2000      # routing

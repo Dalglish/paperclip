@@ -1,0 +1,87 @@
+# Recipe 2: Content-Lead-Gen
+# Trigger: Reddit/HN pain discussion detected
+# Output: Blog/KB article published
+
+name: content-lead-gen
+version: "1.0"
+description: >
+  Detect pain discussions on Reddit/HN related to pipe sizing, pressure drop,
+  or hydraulic analysis. Generate SEO-optimised content that addresses the
+  pain point and captures organic search traffic.
+
+trigger:
+  signal_types:
+    - signal.pain_detected
+  sources:
+    - reddit-scraper
+    - hacker-news-scraper
+    - social-listener
+  min_icp_score: 0  # Content doesn't require high ICP
+
+skill_chain:
+  - step: analyse_pain
+    skill: content-swarm
+    action: extract_pain_points
+    input:
+      topic: "{{ signal.topic }}"
+      url: "{{ signal.url }}"
+      platform: "{{ signal.platform }}"
+    output: pain_analysis
+
+  - step: check_existing
+    skill: seo-content
+    action: check_existing_coverage
+    input:
+      keywords: "{{ pain_analysis.keywords }}"
+    output: coverage_check
+
+  - step: coverage_gate
+    type: gate
+    condition: "{{ not coverage_check.already_covered }}"
+    on_fail: skip
+
+  - step: draft_article
+    skill: seo-content
+    action: draft_article
+    input:
+      pain_points: "{{ pain_analysis.pain_points }}"
+      keywords: "{{ pain_analysis.keywords }}"
+      target_length: 1500
+      style: technical_educational
+    output: article_draft
+
+  - step: slack_approval
+    type: human_gate
+    channel: "#gtm-actions"
+    message: |
+      *Content Opportunity Detected*
+      Source: {{ signal.platform }} — {{ signal.url }}
+      Pain: {{ pain_analysis.summary }}
+      Proposed article: {{ article_draft.title }}
+      Keywords: {{ pain_analysis.keywords | join(', ') }}
+    buttons:
+      - label: "Publish"
+        action: approve
+      - label: "Edit First"
+        action: edit
+      - label: "Skip"
+        action: reject
+
+  - step: publish
+    skill: notion-publisher
+    action: create_kb_page
+    input:
+      title: "{{ article_draft.title }}"
+      content: "{{ article_draft.content }}"
+      category: "{{ pain_analysis.category }}"
+    requires: "slack_approval.action == 'approve'"
+
+output:
+  type: article_published
+  notify_channel: "#gtm-feed"
+  log_to: mem0
+
+cost_estimate:
+  deepseek_tokens: 25000  # pain analysis + article draft
+  opus_tokens: 0
+  haiku_tokens: 1000

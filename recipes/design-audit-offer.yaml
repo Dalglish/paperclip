@@ -1,0 +1,104 @@
+# Recipe 6: Design-Audit-Offer
+# Trigger: ICP score >= 80 (any signal source)
+# Output: Personalised design audit offer email
+
+name: design-audit-offer
+version: "1.0"
+description: >
+  For high-scoring leads (ICP >= 80), generate a personalised free
+  hydraulic network design audit offer. The audit is FluidFlow's primary
+  conversion mechanism — demonstrate value before asking for a purchase.
+
+trigger:
+  signal_types: []  # Score-triggered, not signal-type specific
+  score_threshold: 80
+  sources: []  # Any source
+
+skill_chain:
+  - step: gather_context
+    skill: genbot
+    action: company_deep_enrich
+    input:
+      company: "{{ intelligence_package.company }}"
+      domain: "{{ intelligence_package.domain }}"
+      industry: "{{ intelligence_package.industry }}"
+    output: deep_enrichment
+
+  - step: identify_use_case
+    skill: sales-swarm
+    action: identify_audit_angle
+    input:
+      company: "{{ intelligence_package.company }}"
+      industry: "{{ intelligence_package.industry }}"
+      enrichment: "{{ deep_enrichment }}"
+      signals: "{{ intelligence_package.signals }}"
+    output: audit_angle
+
+  - step: draft_audit_prd
+    skill: sales-swarm
+    action: draft_audit_proposal
+    input:
+      company: "{{ intelligence_package.company }}"
+      angle: "{{ audit_angle }}"
+      contact: "{{ intelligence_package.contacts[0] }}"
+      industry: "{{ intelligence_package.industry }}"
+    output: audit_proposal
+
+  - step: draft_email
+    skill: sales-swarm
+    action: draft_audit_offer_email
+    input:
+      company: "{{ intelligence_package.company }}"
+      contact: "{{ intelligence_package.contacts[0] }}"
+      angle: "{{ audit_angle }}"
+      proposal_summary: "{{ audit_proposal.summary }}"
+    output: email_draft
+
+  - step: slack_approval
+    type: human_gate
+    channel: "#gtm-actions"
+    message: |
+      *Design Audit Offer — HIGH VALUE LEAD*
+      Company: {{ intelligence_package.company }}
+      ICP Score: {{ intelligence_package.icp_score }}
+      Industry: {{ intelligence_package.industry }}
+      Contact: {{ intelligence_package.contacts[0].name }} ({{ intelligence_package.contacts[0].title }})
+      Audit Angle: {{ audit_angle.summary }}
+      Email Subject: {{ email_draft.subject }}
+    buttons:
+      - label: "Send Audit Offer"
+        action: approve
+      - label: "Customise First"
+        action: edit
+      - label: "Skip"
+        action: reject
+
+  - step: send_email
+    skill: apollo
+    action: send_one_off_email
+    input:
+      to: "{{ intelligence_package.contacts[0].email }}"
+      subject: "{{ email_draft.subject }}"
+      body: "{{ email_draft.body }}"
+    requires: "slack_approval.action == 'approve'"
+
+  - step: create_audit_record
+    skill: notion
+    action: create_audit_record
+    input:
+      company: "{{ intelligence_package.company }}"
+      contact: "{{ intelligence_package.contacts[0] }}"
+      angle: "{{ audit_angle }}"
+      proposal: "{{ audit_proposal }}"
+      icp_score: "{{ intelligence_package.icp_score }}"
+
+output:
+  type: audit_offer_sent
+  notify_channel: "#gtm-feed"
+  log_to: mem0
+  priority: high
+
+cost_estimate:
+  deepseek_tokens: 30000  # deep enrich + proposal + email
+  opus_tokens: 5000       # audit angle requires Opus reasoning
+  haiku_tokens: 1000

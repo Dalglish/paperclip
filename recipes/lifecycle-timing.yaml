@@ -1,0 +1,92 @@
+# Recipe 5: Lifecycle-Timing
+# Trigger: Trial activated or renewal due
+# Output: Nurture sequence or retention email
+
+name: lifecycle-timing
+version: "1.0"
+description: >
+  Monitor trial activations and approaching renewals. For trials, start
+  a nurture sequence with training resources. For renewals, assess health
+  and send proactive retention outreach if at risk.
+
+trigger:
+  signal_types:
+    - signal.trial_activated
+    - signal.renewal_due
+  sources:
+    - csmate-swarm
+    - pipedrive
+    - license-tracker
+  min_icp_score: 0  # Lifecycle applies to all existing relationships
+
+skill_chain:
+  - step: assess_health
+    skill: csmate-swarm
+    action: health_check
+    input:
+      company: "{{ signal.company }}"
+      license_type: "{{ signal.license_type }}"
+      event_type: "{{ signal.signal_type }}"
+    output: health_report
+
+  - step: route_by_event
+    type: router
+    condition: "{{ signal.signal_type }}"
+    routes:
+      signal.trial_activated: trial_nurture
+      signal.renewal_due: renewal_outreach
+
+  - step: trial_nurture
+    skill: sales-swarm
+    action: draft_trial_nurture
+    input:
+      company: "{{ signal.company }}"
+      contact: "{{ signal.contact }}"
+      license_type: "{{ signal.license_type }}"
+      course_id: "{{ signal.course_id }}"
+      health: "{{ health_report }}"
+    output: nurture_sequence
+    when: "{{ route == 'trial_nurture' }}"
+
+  - step: renewal_outreach
+    skill: sales-swarm
+    action: draft_renewal_email
+    input:
+      company: "{{ signal.company }}"
+      health: "{{ health_report }}"
+      days_until_renewal: "{{ signal.days_until_renewal }}"
+    output: renewal_email
+    when: "{{ route == 'renewal_outreach' }}"
+
+  - step: slack_notification
+    type: human_gate
+    channel: "#gtm-actions"
+    message: |
+      *Lifecycle Event*
+      Company: {{ signal.company }}
+      Event: {{ signal.signal_type }}
+      Health: {{ health_report.score }}/100
+      Action: {{ route }}
+    buttons:
+      - label: "Approve"
+        action: approve
+      - label: "Manual Handle"
+        action: manual
+
+  - step: execute
+    skill: apollo
+    action: enroll_sequence
+    input:
+      contact_email: "{{ signal.contact.email }}"
+      sequence_id: "{{ config.nurture_sequence_id if route == 'trial_nurture' else config.renewal_sequence_id }}"
+    requires: "slack_notification.action == 'approve'"
+
+output:
+  type: lifecycle_action_taken
+  notify_channel: "#gtm-feed"
+  log_to: mem0
+
+cost_estimate:
+  deepseek_tokens: 8000
+  opus_tokens: 0
+  haiku_tokens: 1500

@@ -1,0 +1,94 @@
+# Recipe 4: Champion-Warm
+# Trigger: Former FluidFlow champion changed jobs
+# Output: Personalised warm outreach to new company
+
+name: champion-warm
+version: "1.0"
+description: >
+  Detect when a known FluidFlow champion (from champions.csv) changes
+  companies. Enrich the new company, assess ICP fit, and send a warm
+  personalised outreach.
+
+trigger:
+  signal_types:
+    - signal.champion_move
+  sources:
+    - champion-tracker
+    - linkedin-scraper
+  min_icp_score: 40
+
+skill_chain:
+  - step: enrich_new_company
+    skill: genbot
+    action: company_enrich
+    input: "{{ signal.new_company }}"
+    output: enrichment
+
+  - step: synthesize
+    skill: synthesis
+    action: synthesize_lead
+    input:
+      company: "{{ signal.new_company }}"
+      signals:
+        - signal_type: champion_move
+          source: champion-tracker
+          details: "{{ signal.champion_name }} moved from {{ signal.old_company }}"
+      contacts:
+        - name: "{{ signal.champion_name }}"
+          title: "{{ signal.new_title }}"
+          linkedin_url: "{{ signal.linkedin_url }}"
+      enrichment: "{{ enrichment }}"
+    output: intelligence_package
+
+  - step: score_gate
+    type: gate
+    condition: "{{ intelligence_package.icp_score >= 40 }}"
+    on_fail: park
+
+  - step: draft_warm_email
+    skill: sales-swarm
+    action: draft_champion_email
+    input:
+      champion_name: "{{ signal.champion_name }}"
+      old_company: "{{ signal.old_company }}"
+      new_company: "{{ signal.new_company }}"
+      new_title: "{{ signal.new_title }}"
+      industry: "{{ intelligence_package.industry }}"
+    output: email_draft
+
+  - step: slack_approval
+    type: human_gate
+    channel: "#gtm-actions"
+    message: |
+      *Champion Move Detected*
+      {{ signal.champion_name }}: {{ signal.old_company }} → {{ signal.new_company }}
+      New title: {{ signal.new_title }}
+      ICP Score: {{ intelligence_package.icp_score }} ({{ intelligence_package.tier }})
+      Industry: {{ intelligence_package.industry }}
+    buttons:
+      - label: "Send Warm Outreach"
+        action: approve
+      - label: "Edit First"
+        action: edit
+      - label: "Skip"
+        action: reject
+
+  - step: send_email
+    skill: apollo
+    action: send_one_off_email
+    input:
+      to: "{{ signal.champion_name }}"
+      linkedin_url: "{{ signal.linkedin_url }}"
+      subject: "{{ email_draft.subject }}"
+      body: "{{ email_draft.body }}"
+    requires: "slack_approval.action == 'approve'"
+
+output:
+  type: warm_outreach_sent
+  notify_channel: "#gtm-feed"
+  log_to: mem0
+
+cost_estimate:
+  deepseek_tokens: 12000
+  opus_tokens: 0
+  haiku_tokens: 1000

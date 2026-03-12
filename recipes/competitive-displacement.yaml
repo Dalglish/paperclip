@@ -1,0 +1,90 @@
+# Recipe 3: Competitive-Displacement
+# Trigger: Negative competitor review detected
+# Output: Vs comparison page + targeted email
+
+name: competitive-displacement
+version: "1.0"
+description: >
+  Detect negative reviews of competitors (AFT Fathom, Pipe-Flo, Aspen HYSYS)
+  on G2/Capterra. Generate a FluidFlow vs Competitor comparison page and
+  send targeted outreach to companies using that competitor.
+
+trigger:
+  signal_types:
+    - signal.competitor_weakness
+  sources:
+    - review-scraper
+    - competitor-content-tracker
+  min_icp_score: 50
+
+skill_chain:
+  - step: analyse_weakness
+    skill: competitive-intelligence
+    action: analyse_review
+    input:
+      competitor: "{{ signal.competitor }}"
+      review_text: "{{ signal.details }}"
+      platform: "{{ signal.platform }}"
+    output: weakness_analysis
+
+  - step: check_battlecard
+    skill: competitive-intelligence
+    action: get_battlecard
+    input:
+      competitor: "{{ signal.competitor }}"
+    output: battlecard
+
+  - step: generate_comparison
+    skill: seo-content
+    action: draft_comparison_page
+    input:
+      competitor: "{{ signal.competitor }}"
+      weaknesses: "{{ weakness_analysis.weaknesses }}"
+      battlecard: "{{ battlecard }}"
+      fluidflow_strengths: "{{ battlecard.our_strengths }}"
+    output: comparison_draft
+
+  - step: draft_outreach
+    skill: sales-swarm
+    action: draft_displacement_email
+    input:
+      competitor: "{{ signal.competitor }}"
+      weakness: "{{ weakness_analysis.primary_weakness }}"
+      comparison_url: "{{ comparison_draft.url }}"
+    output: email_draft
+
+  - step: slack_approval
+    type: human_gate
+    channel: "#gtm-actions"
+    message: |
+      *Competitive Displacement Opportunity*
+      Competitor: {{ signal.competitor }}
+      Platform: {{ signal.platform }} ({{ signal.rating }}/5)
+      Weakness: {{ weakness_analysis.primary_weakness }}
+      Comparison page: {{ comparison_draft.title }}
+    buttons:
+      - label: "Publish + Send"
+        action: approve
+      - label: "Review Content"
+        action: edit
+      - label: "Skip"
+        action: reject
+
+  - step: publish_comparison
+    skill: notion-publisher
+    action: create_kb_page
+    input:
+      title: "{{ comparison_draft.title }}"
+      content: "{{ comparison_draft.content }}"
+      category: "competitors"
+    requires: "slack_approval.action == 'approve'"
+
+output:
+  type: comparison_published
+  notify_channel: "#gtm-feed"
+  log_to: mem0
+
+cost_estimate:
+  deepseek_tokens: 20000
+  opus_tokens: 0
+  haiku_tokens: 1500
