@@ -1,0 +1,109 @@
+# Recipe: YT Transcript Intelligence
+# Trigger: YouTube URL assigned to ff-youtube-digest
+# Output: Skill file + routed insights to relevant agents
+
+name: yt-transcript-intel
+version: "1.0"
+description: >
+  Process a YouTube video URL into an actionable skill file.
+  Extracts transcript, classifies content, maps tools to FluidFlow stack,
+  writes a skill markdown file, and routes insights to relevant agents.
+
+trigger:
+  assignment:
+    agent: ff-youtube-digest
+  issue_contains:
+    - "youtube.com"
+    - "youtu.be"
+
+skill_chain:
+  - step: extract_transcript
+    type: shell
+    command: "python3 /Users/brianross/infra/yt-agent/extract_transcript.py '{{ issue.body | extract_url }}'"
+    output: transcript_json
+    timeout_sec: 120
+
+  - step: validate_transcript
+    type: gate
+    condition: "{{ transcript_json.word_count > 100 }}"
+    on_fail: comment_and_close
+    fail_message: "Transcript too short or extraction failed ({{ transcript_json.word_count }} words)"
+
+  - step: archive_transcript
+    type: python
+    command: |
+      import json, os
+      path = "/Users/brianross/knowledge/yt-transcripts/{{ transcript_json.video_id }}.json"
+      os.makedirs(os.path.dirname(path), exist_ok=True)
+      with open(path, "w") as f:
+          json.dump({{ transcript_json | tojson }}, f, ensure_ascii=False)
+
+  - step: classify_and_extract
+    skill: ff-youtube-digest
+    action: process_transcript
+    input:
+      video_id: "{{ transcript_json.video_id }}"
+      title: "{{ transcript_json.title }}"
+      channel: "{{ transcript_json.channel }}"
+      word_count: "{{ transcript_json.word_count }}"
+      transcript: "{{ transcript_json.transcript }}"
+    output: intelligence
+
+  - step: write_skill_file
+    type: python
+    command: |
+      import os
+      path = "/Users/brianross/.claude/skills/yt-extracted/{{ transcript_json.video_id }}.md"
+      os.makedirs(os.path.dirname(path), exist_ok=True)
+      with open(path, "w") as f:
+          f.write({{ intelligence.skill_content | tojson }})
+
+  - step: route_sales
+    type: conditional
+    condition: "'sales' in {{ intelligence.categories }}"
+    skill: ff-sales-pipeline
+    action: ingest_intel
+    input:
+      source: "youtube"
+      video_id: "{{ transcript_json.video_id }}"
+      title: "{{ transcript_json.title }}"
+      insights: "{{ intelligence.sales_insights }}"
+
+  - step: route_marketing
+    type: conditional
+    condition: "'marketing' in {{ intelligence.categories }}"
+    skill: ff-marketing
+    action: ingest_intel
+    input:
+      source: "youtube"
+      video_id: "{{ transcript_json.video_id }}"
+      title: "{{ transcript_json.title }}"
+      insights: "{{ intelligence.marketing_insights }}"
+
+  - step: route_product
+    type: conditional
+    condition: "'product' in {{ intelligence.categories }}"
+    skill: ff-pm
+    action: ingest_intel
+    input:
+      source: "youtube"
+      video_id: "{{ transcript_json.video_id }}"
+      title: "{{ transcript_json.title }}"
+      insights: "{{ intelligence.product_insights }}"
+
+  - step: notify_slack
+    type: shell
+    command: >
+      curl -s -X POST "{{ env.SLACK_WEBHOOK_URL }}"
+      -H "Content-Type: application/json"
+      -d '{"text": "📺 YT Digest: *{{ transcript_json.title }}* ({{ transcript_json.channel }})\n{{ intelligence.categories | join(\", \") }} | {{ intelligence.technique_count }} techniques | {{ intelligence.prompt_count }} prompts\nSkill: yt-extracted/{{ transcript_json.video_id }}.md"}'
+
+output:
+  type: yt_transcript_processed
+  notify_channel: "#gtm-feed"
+  log_to: mem0
+
+cost_estimate:
+  deepseek_tokens: 0
+  opus_tokens: 0
+  haiku_tokens: 15000
