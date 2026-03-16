@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { issuesApi } from "@/api/issues";
 import { agentsApi } from "@/api/agents";
 import { costsApi } from "@/api/costs";
@@ -11,6 +11,32 @@ import type { Issue } from "@paperclipai/shared";
 import { KpiCard } from "./components/KpiCard";
 import { DashCard } from "./components/DashCard";
 import { CHART_COLORS, AXIS_STYLE, TOOLTIP_CONTENT_STYLE, TOOLTIP_LABEL_STYLE } from "./components/ChartTheme";
+
+// Returns the ISO week label "W{n} MMM D" for a given date
+function weekLabel(d: Date): string {
+  const mon = new Date(d);
+  mon.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+  return `${mon.toLocaleDateString("en-GB", { month: "short", day: "numeric" })}`;
+}
+
+// Build trailing-N-weeks velocity buckets from a list of completed issues
+function buildVelocityData(doneIssues: Issue[], weeks = 4) {
+  const now = new Date();
+  const buckets: { label: string; count: number; isCurrent: boolean }[] = [];
+  for (let w = weeks - 1; w >= 0; w--) {
+    const start = new Date(now);
+    start.setDate(now.getDate() - ((now.getDay() + 6) % 7) - w * 7);
+    start.setHours(0, 0, 0, 0);
+    const end = new Date(start);
+    end.setDate(start.getDate() + 7);
+    const count = doneIssues.filter((i) => {
+      const t = i.completedAt ? new Date(i.completedAt) : null;
+      return t && t >= start && t < end;
+    }).length;
+    buckets.push({ label: weekLabel(start), count, isCurrent: w === 0 });
+  }
+  return buckets;
+}
 
 const STATUS_COLOR: Record<string, string> = {
   todo: "bg-blue-500/20 text-blue-300",
@@ -72,7 +98,13 @@ export function PM() {
   const blocked = byStatus["blocked"] ?? [];
   const todo = byStatus["todo"] ?? [];
   const done = byStatus["done"] ?? [];
-  const velocityThisSprint = done.length;
+
+  const velocityData = buildVelocityData(done, 4);
+  const velocityThisWeek = velocityData[velocityData.length - 1]?.count ?? 0;
+  const velocityLastWeek = velocityData[velocityData.length - 2]?.count ?? 0;
+  const velocityTrend = velocityLastWeek > 0
+    ? ((velocityThisWeek - velocityLastWeek) / velocityLastWeek) * 100
+    : null;
 
   // Agent cost chart data
   const agentCostData = agents
@@ -98,7 +130,12 @@ export function PM() {
         <KpiCard label="In Progress" value={inProgress.length} tone="text-yellow-300" />
         <KpiCard label="Blocked" value={blocked.length} tone={blocked.length > 0 ? "text-red-400" : ""} />
         <KpiCard label="Todo" value={todo.length} />
-        <KpiCard label="Done (sprint)" value={velocityThisSprint} tone="text-green-400" />
+        <KpiCard
+          label="Done (this week)"
+          value={velocityThisWeek}
+          tone="text-green-400"
+          sub={velocityTrend !== null ? `${velocityTrend >= 0 ? "+" : ""}${velocityTrend.toFixed(0)}% vs last wk` : undefined}
+        />
         <KpiCard label="Pending Approvals" value={approvals.length} tone={approvals.length > 0 ? "text-yellow-300" : ""} />
       </div>
 
@@ -121,6 +158,33 @@ export function PM() {
           )}
         </DashCard>
       </div>
+
+      {/* Velocity trend — trailing 4 weeks */}
+      <DashCard label="Velocity (trailing 4 weeks)">
+        <div className="h-44">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={velocityData} margin={{ top: 4, right: 8, left: -16, bottom: 0 }}>
+              <XAxis dataKey="label" {...AXIS_STYLE} />
+              <YAxis {...AXIS_STYLE} allowDecimals={false} />
+              <Tooltip
+                contentStyle={TOOLTIP_CONTENT_STYLE}
+                labelStyle={TOOLTIP_LABEL_STYLE}
+                cursor={{ fill: 'hsl(var(--muted))', opacity: 0.3 }}
+                formatter={(v) => [v, "Tasks done"]}
+              />
+              <Bar dataKey="count" radius={[4, 4, 0, 0]} barSize={32}>
+                {velocityData.map((entry, i) => (
+                  <Cell
+                    key={i}
+                    fill={entry.isCurrent ? CHART_COLORS[0] : CHART_COLORS[1]}
+                    opacity={entry.isCurrent ? 1 : 0.55}
+                  />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </DashCard>
 
       {/* Agent Cost — Bar Chart */}
       {agentCostData.length > 0 && (
