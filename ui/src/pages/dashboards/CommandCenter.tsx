@@ -2,8 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { Users, Activity, CheckCircle2, DollarSign, XCircle, AlertTriangle } from "lucide-react";
 import { RadialBarChart, RadialBar, BarChart, Bar, XAxis, YAxis, Tooltip, Cell, ResponsiveContainer } from "recharts";
 import { biDashboardsApi } from "@/api/biDashboards";
+import { agentsApi } from "@/api/agents";
 import { useCompany } from "@/context/CompanyContext";
 import { useDialog } from "@/context/DialogContext";
+import { queryKeys } from "@/lib/queryKeys";
 import { DashCard } from "./components/DashCard";
 import { CHART_COLORS, TOOLTIP_CONTENT_STYLE, TOOLTIP_LABEL_STYLE, AXIS_STYLE } from "./components/ChartTheme";
 
@@ -53,6 +55,13 @@ export function CommandCenter() {
     staleTime: 60_000,
   });
 
+  const { data: agents } = useQuery({
+    queryKey: queryKeys.agents.list(selectedCompanyId!),
+    queryFn: () => agentsApi.list(selectedCompanyId!),
+    enabled: !!selectedCompanyId,
+    staleTime: 5 * 60_000,
+  });
+
   if (isLoading) {
     return <div className="p-6 text-sm text-muted-foreground">Loading…</div>;
   }
@@ -70,6 +79,12 @@ export function CommandCenter() {
     { name: "Converted", value: funnel.converted, icon: CheckCircle2 },
     { name: "Retained", value: funnel.retained, icon: DollarSign },
   ];
+
+  // Map agent shortname (e.g. "ff-sales-pipeline") → UUID for task assignment
+  const resolveAgentId = (name?: string): string | undefined => {
+    if (!name || !agents) return undefined;
+    return agents.find((a) => a.name === name || a.name.endsWith(`/${name}`))?.id;
+  };
 
   return (
     <div className="p-6 space-y-6">
@@ -141,13 +156,20 @@ export function CommandCenter() {
         {alerts.length === 0 ? (
           <p className="text-sm text-muted-foreground py-4">No active alerts.</p>
         ) : (
-          alerts.map((alert: { id: string; title: string; detail: string; severity: "critical" | "warning" | "info" }) => (
+          alerts.map((alert: { id: string; title: string; detail: string; severity: "critical" | "warning" | "info"; agent_assignee?: string }) => (
             <AlertRow
               key={alert.id}
               title={alert.title}
               detail={alert.detail}
               severity={alert.severity}
-              onCreateTask={() => openNewIssue({ title: alert.title })}
+              onCreateTask={() =>
+                openNewIssue({
+                  title: alert.title,
+                  ...(alert.agent_assignee
+                    ? { assigneeAgentId: resolveAgentId(alert.agent_assignee) }
+                    : {}),
+                })
+              }
             />
           ))
         )}
