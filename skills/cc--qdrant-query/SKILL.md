@@ -5,7 +5,7 @@ Utility skill for querying FluidFlow Qdrant vector database collections.
 ## Connection Details
 
 ```bash
-QDRANT_HOST=152.42.149.145
+QDRANT_HOST=localhost
 QDRANT_PORT=6333
 QDRANT_API_KEY=<load from /Users/user/ffagents26/.env>
 ```
@@ -19,10 +19,15 @@ export QDRANT_API_KEY=$(grep QDRANT_API_KEY /Users/user/ffagents26/.env | cut -d
 
 | Collection | Points | Primary Fields | Purpose |
 |------------|--------|----------------|---------|
-| `fluidflow_kb` | 100 | content, section, source, topic, source_type | Primary knowledge base articles |
-| `fluidflow_unified` | 100 | question_text, question_category, technical_complexity | Agent interactions and Q&A |
-| `correlations` | 21 | heading, text, source | Correlation data and references |
-| `hubspot_production_v2` | 200 | searchable_content, ticket_category | CRM tickets and support data |
+| `fluidflow_mem0` | ~60 | data, category, user_id, created_at | Org-level mem0 memory (editorial rules, technical facts) |
+| `ff-knowledge-base` | 1 | content, agent, type, system_prompt_hash | KB agent memory store |
+| `ff-support-memory` | 1 | content, agent, type, system_prompt_hash | Support triage agent memory |
+| `ff-sales-memory` | 1 | content, agent, type, system_prompt_hash | Sales pipeline agent memory |
+| `ff-corrections` | 1 | content, agent, type, system_prompt_hash | Corrections/validation agent memory |
+| `ff-validation` | 1 | content, agent, type, system_prompt_hash | Validator agent memory |
+| `ff-marketing-memory` | 1 | content, agent, type, system_prompt_hash | Marketing agent memory |
+
+> **Note:** The old `fluidflow_kb`, `fluidflow_unified`, `correlations`, and `hubspot_production_v2` collections no longer exist. All agent memory now flows through mem0 collections.
 
 ---
 
@@ -34,7 +39,7 @@ Use when you know the exact field value to filter by (e.g., topic, category, sou
 
 ```bash
 curl -s -H "api-key: $QDRANT_API_KEY" \
-  -X POST http://152.42.149.145:6333/collections/COLLECTION/points/scroll \
+  -X POST http://localhost:6333/collections/COLLECTION/points/scroll \
   -H "Content-Type: application/json" \
   -d '{
     "limit": 10,
@@ -59,7 +64,7 @@ Use when searching for keywords within content fields. Retrieves all points and 
 ```bash
 # Step 1: Retrieve all points
 curl -s -H "api-key: $QDRANT_API_KEY" \
-  -X POST http://152.42.149.145:6333/collections/COLLECTION/points/scroll \
+  -X POST http://localhost:6333/collections/COLLECTION/points/scroll \
   -H "Content-Type: application/json" \
   -d '{"limit": 100, "with_payload": true}' \
   | jq '.result.points[] | select(.payload.CONTENT_FIELD | test("KEYWORD"; "i"))'
@@ -76,7 +81,7 @@ For collections with many points, use offset parameter:
 
 ```bash
 curl -s -H "api-key: $QDRANT_API_KEY" \
-  -X POST http://152.42.149.145:6333/collections/COLLECTION/points/scroll \
+  -X POST http://localhost:6333/collections/COLLECTION/points/scroll \
   -H "Content-Type: application/json" \
   -d '{
     "limit": 50,
@@ -89,121 +94,66 @@ curl -s -H "api-key: $QDRANT_API_KEY" \
 
 ## Collection-Specific Templates
 
-### fluidflow_kb (Primary Knowledge Base)
+### fluidflow_mem0 (Org-Level Memory)
 
-**Filter by topic:**
+Primary mem0 store for org-wide editorial rules, technical facts, and cross-agent corrections.
+
+**Filter by category:**
 ```bash
 curl -s -H "api-key: $QDRANT_API_KEY" \
-  -X POST http://152.42.149.145:6333/collections/fluidflow_kb/points/scroll \
-  -H "Content-Type: application/json" \
-  -d '{
-    "limit": 10,
-    "with_payload": true,
-    "filter": {
-      "must": [
-        {"key": "topic", "match": {"value": "TOPIC_NAME"}}
-      ]
-    }
-  }'
-```
-
-**Search content for keywords:**
-```bash
-curl -s -H "api-key: $QDRANT_API_KEY" \
-  -X POST http://152.42.149.145:6333/collections/fluidflow_kb/points/scroll \
-  -H "Content-Type: application/json" \
-  -d '{"limit": 100, "with_payload": true}' \
-  | jq -r '.result.points[] | select(.payload.content | ascii_downcase | contains("KEYWORD")) | {id, topic: .payload.topic, section: .payload.section, source: .payload.source}'
-```
-
-**Filter by source type:**
-```bash
-curl -s -H "api-key: $QDRANT_API_KEY" \
-  -X POST http://152.42.149.145:6333/collections/fluidflow_kb/points/scroll \
-  -H "Content-Type: application/json" \
-  -d '{
-    "limit": 10,
-    "with_payload": true,
-    "filter": {
-      "must": [
-        {"key": "source_type", "match": {"value": "manual|support|training"}}
-      ]
-    }
-  }'
-```
-
-### fluidflow_unified (Agent Interactions)
-
-**Filter by question category:**
-```bash
-curl -s -H "api-key: $QDRANT_API_KEY" \
-  -X POST http://152.42.149.145:6333/collections/fluidflow_unified/points/scroll \
-  -H "Content-Type: application/json" \
-  -d '{
-    "limit": 10,
-    "with_payload": true,
-    "filter": {
-      "must": [
-        {"key": "question_category", "match": {"value": "CATEGORY"}}
-      ]
-    }
-  }'
-```
-
-**Search questions by keyword:**
-```bash
-curl -s -H "api-key: $QDRANT_API_KEY" \
-  -X POST http://152.42.149.145:6333/collections/fluidflow_unified/points/scroll \
-  -H "Content-Type: application/json" \
-  -d '{"limit": 100, "with_payload": true}' \
-  | jq -r '.result.points[] | select(.payload.question_text | ascii_downcase | contains("KEYWORD")) | {id, question: .payload.question_text, category: .payload.question_category}'
-```
-
-### correlations (Correlation Data)
-
-**Search by heading keyword:**
-```bash
-curl -s -H "api-key: $QDRANT_API_KEY" \
-  -X POST http://152.42.149.145:6333/collections/correlations/points/scroll \
-  -H "Content-Type: application/json" \
-  -d '{"limit": 21, "with_payload": true}' \
-  | jq -r '.result.points[] | select(.payload.heading | ascii_downcase | contains("KEYWORD")) | {id, heading: .payload.heading, source: .payload.source}'
-```
-
-**Full text search in correlation text:**
-```bash
-curl -s -H "api-key: $QDRANT_API_KEY" \
-  -X POST http://152.42.149.145:6333/collections/correlations/points/scroll \
-  -H "Content-Type: application/json" \
-  -d '{"limit": 21, "with_payload": true}' \
-  | jq -r '.result.points[] | select(.payload.text | ascii_downcase | contains("KEYWORD"))'
-```
-
-### hubspot_production_v2 (CRM Data)
-
-**Filter by ticket category:**
-```bash
-curl -s -H "api-key: $QDRANT_API_KEY" \
-  -X POST http://152.42.149.145:6333/collections/hubspot_production_v2/points/scroll \
+  -X POST http://localhost:6333/collections/fluidflow_mem0/points/scroll \
   -H "Content-Type: application/json" \
   -d '{
     "limit": 20,
     "with_payload": true,
     "filter": {
       "must": [
-        {"key": "ticket_category", "match": {"value": "CATEGORY"}}
+        {"key": "category", "match": {"value": "CATEGORY"}}
       ]
     }
   }'
 ```
+Categories include: `editorial`, `technical`, `brand`, `product`
 
-**Search tickets by content:**
+**Search by keyword in data field:**
 ```bash
 curl -s -H "api-key: $QDRANT_API_KEY" \
-  -X POST http://152.42.149.145:6333/collections/hubspot_production_v2/points/scroll \
+  -X POST http://localhost:6333/collections/fluidflow_mem0/points/scroll \
   -H "Content-Type: application/json" \
-  -d '{"limit": 200, "with_payload": true}' \
-  | jq -r '.result.points[] | select(.payload.searchable_content | ascii_downcase | contains("KEYWORD")) | {id, category: .payload.ticket_category, content: .payload.searchable_content[0:200]}'
+  -d '{"limit": 100, "with_payload": true}' \
+  | jq -r '.result.points[] | select(.payload.data | ascii_downcase | contains("KEYWORD")) | {id, category: .payload.category, data: .payload.data}'
+```
+
+**Get all entries (full dump):**
+```bash
+curl -s -H "api-key: $QDRANT_API_KEY" \
+  -X POST http://localhost:6333/collections/fluidflow_mem0/points/scroll \
+  -H "Content-Type: application/json" \
+  -d '{"limit": 100, "with_payload": true}' \
+  | jq -r '.result.points[] | {category: .payload.category, data: .payload.data}'
+```
+
+### Agent Memory Collections (ff-*-memory)
+
+Per-agent memory stores with fields: `agent`, `type`, `content`, `system_prompt_hash`, `synced_at`.
+
+**Get agent's stored memories:**
+```bash
+COLLECTION=ff-support-memory  # or ff-sales-memory, ff-marketing-memory, etc.
+curl -s -H "api-key: $QDRANT_API_KEY" \
+  -X POST "http://localhost:6333/collections/$COLLECTION/points/scroll" \
+  -H "Content-Type: application/json" \
+  -d '{"limit": 50, "with_payload": true}' \
+  | jq -r '.result.points[] | {type: .payload.type, content: .payload.content}'
+```
+
+**Search agent memory by keyword:**
+```bash
+curl -s -H "api-key: $QDRANT_API_KEY" \
+  -X POST http://localhost:6333/collections/ff-support-memory/points/scroll \
+  -H "Content-Type: application/json" \
+  -d '{"limit": 100, "with_payload": true}' \
+  | jq -r '.result.points[] | select(.payload.content | ascii_downcase | contains("KEYWORD")) | {type: .payload.type, content: .payload.content}'
 ```
 
 ---
@@ -239,26 +189,26 @@ curl -s -H "api-key: $QDRANT_API_KEY" \
 
 ## Usage Example
 
-Query `fluidflow_kb` for "cavitation":
+Query `fluidflow_mem0` for all editorial rules:
 
 ```bash
+export QDRANT_API_KEY=$(grep QDRANT_API_KEY /Users/brianross/FFagents26/.env | cut -d= -f2)
 curl -s -H "api-key: $QDRANT_API_KEY" \
-  -X POST http://152.42.149.145:6333/collections/fluidflow_kb/points/scroll \
+  -X POST http://localhost:6333/collections/fluidflow_mem0/points/scroll \
   -H "Content-Type: application/json" \
-  -d '{"limit": 100, "with_payload": true}' \
-  | jq -r '.result.points[] | select(.payload.content | ascii_downcase | contains("cavitation")) | {
-      id,
-      topic: .payload.topic,
-      section: .payload.section,
-      source: .payload.source,
-      preview: .payload.content[0:150]
-    } | @json' | head -5
+  -d '{
+    "limit": 100,
+    "with_payload": true,
+    "filter": {"must": [{"key": "category", "match": {"value": "editorial"}}]}
+  }' \
+  | jq -r '.result.points[] | .payload.data' | head -10
 ```
 
 **Example output:**
-```json
-{"id":386905063990090,"topic":"faq","section":null,"source":"Agent FAQS - LOOK HERE FIRST.txt","preview":"Q: Where do low-pressure zones commonly occur in two-phase systems?\nA: Low-pressure zones prone to vaporization commonly occur downstream of control v"}
-{"id":18330615291369769,"topic":"theory","section":null,"source":"F02 Advanced Hydraulic Modeling Theory.txt","preview":"Voiceover Script:\n\"The standard fluid database covers many common applications, but you'll frequently encounter fluids that aren't included. Process i"}
+```
+EDITORIAL RULE: Never use '10,000+ engineers' without proper context in FluidFlow content
+SRK is NOT supported
+Always use "FluidFlow" (one word, capital F twice)
 ```
 
 ---
@@ -282,7 +232,7 @@ curl -s -H "api-key: $QDRANT_API_KEY" \
 
 **API errors:**
 - Verify API key is correct
-- Check network connectivity to 152.42.149.145:6333
+- Check network connectivity to localhost:6333
 - Ensure JSON payload is properly formatted
 
 **JQ parsing errors:**
