@@ -37,3 +37,11 @@ tmp/
 .vscode/
 .claude/settings.local.json
 .paperclip-local/
+
+# Local SQLite databases
+packages/db/local.db
+*.sqlite
+*.sqlite3
+
+# Agent worktree pointers
+.claude/worktrees/
