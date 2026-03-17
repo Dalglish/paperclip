@@ -1,6 +1,6 @@
 # PRD: Dashboard Migration — dash.equilibri.pro → Paperclip
 
-**Status:** Draft
+**Status:** Complete (2026-03-17)
 **Priority:** P1
 **Owner:** BR
 **Depends on:** Paperclip running on Mac Studio (Week 1), Qdrant secured
