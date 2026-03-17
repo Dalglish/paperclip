@@ -9,6 +9,7 @@
 import { Router } from "express";
 import type { Db } from "@paperclipai/db";
 import { assertCompanyAccess } from "./authz.js";
+import { issueService, agentService, heartbeatService } from "../services/index.js";
 
 const DASHBOARD_API = process.env.DASHBOARD_API_URL ?? "http://localhost:3200";
 
@@ -50,8 +51,31 @@ const ROUTE_MAP: Record<string, string> = {
   "abm": "retargeting",
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function biDashboardRoutes(_db: Db) {
+// ---------------------------------------------------------------------------
+// Auto-task deduplication — alert ID → timestamp of last task creation
+// Alerts won't re-fire within ALERT_COOLDOWN_MS (default 24h)
+// ---------------------------------------------------------------------------
+const firedAlerts = new Map<string, number>();
+const ALERT_COOLDOWN_MS = 24 * 60 * 60 * 1000;
+
+function shouldFire(alertId: string): boolean {
+  const last = firedAlerts.get(alertId);
+  return !last || Date.now() - last > ALERT_COOLDOWN_MS;
+}
+
+function markFired(alertId: string): void {
+  firedAlerts.set(alertId, Date.now());
+}
+
+type AlertPayload = {
+  id: string;
+  title: string;
+  detail: string;
+  severity: "critical" | "warning" | "info";
+  agent_assignee?: string;
+};
+
+export function biDashboardRoutes(db: Db) {
   const router = Router();
 
   // ── Command Center ──────────────────────────────────────────────────────────
@@ -311,6 +335,100 @@ export function biDashboardRoutes(_db: Db) {
     } catch (err) {
       res.status(502).json({ error: (err as Error).message });
     }
+  });
+
+  // ── Auto-task creation from alert thresholds ──────────────────────────────
+  // POST /api/companies/:companyId/bi/alerts/auto-task
+  //
+  // Evaluates all active alerts. For each critical or warning alert that
+  // hasn't fired within the cooldown window, creates a Paperclip issue and
+  // wakes the assigned agent. Idempotent within ALERT_COOLDOWN_MS (24h).
+  router.post("/companies/:companyId/bi/alerts/auto-task", async (req, res) => {
+    const companyId = req.params.companyId;
+    assertCompanyAccess(req, companyId);
+
+    const issueSvc = issueService(db);
+    const agentSvc = agentService(db);
+    const heartbeat = heartbeatService(db);
+
+    const created: Array<{ alertId: string; issueId: string; title: string }> = [];
+    const skipped: Array<{ alertId: string; reason: string }> = [];
+
+    try {
+      const alertsData = await dashboardGet("alerts") as { alerts: AlertPayload[] };
+      const alerts: AlertPayload[] = alertsData.alerts ?? [];
+
+      // Only auto-create tasks for critical/warning alerts
+      const actionable = alerts.filter((a) => a.severity === "critical" || a.severity === "warning");
+
+      // Look up all agents for this company once
+      const companyAgents = await agentSvc.list(companyId);
+
+      for (const alert of actionable) {
+        if (!shouldFire(alert.id)) {
+          skipped.push({ alertId: alert.id, reason: "cooldown" });
+          continue;
+        }
+
+        // Resolve agent_assignee name → UUID
+        let assigneeAgentId: string | undefined;
+        if (alert.agent_assignee) {
+          const match = companyAgents.find(
+            (a) => a.name === alert.agent_assignee || a.name.endsWith(`/${alert.agent_assignee}`),
+          );
+          assigneeAgentId = match?.id;
+        }
+
+        const issue = await issueSvc.create(companyId, {
+          title: alert.title,
+          description: `**Alert:** ${alert.detail}\n\n*Auto-created by alert threshold engine — severity: ${alert.severity}*`,
+          status: assigneeAgentId ? "todo" : "backlog",
+          priority: alert.severity === "critical" ? "urgent" : "medium",
+          assigneeAgentId: assigneeAgentId ?? null,
+        });
+
+        markFired(alert.id);
+        created.push({ alertId: alert.id, issueId: issue.id, title: issue.title });
+
+        // Wake the assigned agent (same pattern as issues route)
+        if (assigneeAgentId && issue.status !== "backlog") {
+          void heartbeat
+            .wakeup(assigneeAgentId, {
+              source: "assignment",
+              triggerDetail: "system",
+              reason: "issue_assigned",
+              payload: { issueId: issue.id, mutation: "create", alertId: alert.id },
+              requestedByActorType: "system",
+              requestedByActorId: "alert-threshold-engine",
+              contextSnapshot: { issueId: issue.id, source: "alert.auto-task" },
+            })
+            .catch(() => undefined);
+        }
+      }
+
+      res.json({
+        created: created.length,
+        skipped: skipped.length,
+        tasks: created,
+        skippedDetails: skipped,
+        evaluatedAt: new Date().toISOString(),
+      });
+    } catch (err) {
+      res.status(502).json({ error: (err as Error).message });
+    }
+  });
+
+  // Status: show last-fired timestamps for all tracked alert IDs
+  router.get("/companies/:companyId/bi/alerts/auto-task/status", (req, res) => {
+    assertCompanyAccess(req, req.params.companyId);
+    const now = Date.now();
+    const status = Object.fromEntries(
+      [...firedAlerts.entries()].map(([id, ts]) => [
+        id,
+        { lastFiredAt: new Date(ts).toISOString(), cooldownRemainingMs: Math.max(0, ALERT_COOLDOWN_MS - (now - ts)) },
+      ]),
+    );
+    res.json({ cooldownMs: ALERT_COOLDOWN_MS, trackedAlerts: status });
   });
 
   // ── ABM ───────────────────────────────────────────────────────────────────
