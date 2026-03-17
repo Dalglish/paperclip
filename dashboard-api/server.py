@@ -38,7 +38,8 @@ if FF_SALES_PATH not in sys.path:
 # Force dotenv loading before intelligence imports
 from dotenv import load_dotenv
 
-# Load dashboard-api's own .env first (overrides), then ff-sales-pipeline .env
+# Load dashboard-api's own .env first (overrides), then ff-sales-pipeline .env,
+# then FFagents26/.env as final fallback.
 dashboard_env = os.path.join(os.path.dirname(__file__), ".env")
 if os.path.exists(dashboard_env):
     load_dotenv(dashboard_env)
@@ -46,6 +47,10 @@ if os.path.exists(dashboard_env):
 ff_env_path = os.path.join(FF_SALES_PATH, ".env")
 if os.path.exists(ff_env_path):
     load_dotenv(ff_env_path, override=False)
+
+ffagents26_env = "/Users/brianross/FFagents26/.env"
+if os.path.exists(ffagents26_env):
+    load_dotenv(ffagents26_env, override=False)
 
 # Ensure GOOGLE_SA_CREDS points to the correct local path.
 # The parent shell may have a stale /Users/user/ path; override if the file doesn't exist.
