@@ -27,6 +27,9 @@ export const biDashboardsApi = {
 
   alerts: (companyId: string) =>
     api.get<AlertsData>(`/companies/${companyId}/bi/alerts`),
+
+  revisionRate: (companyId: string) =>
+    api.get<RevisionRateData>(`/companies/${companyId}/bi/revision-rate`),
 };
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -87,6 +90,12 @@ export interface ABMData {
     dealStage?: string;
     value?: string;
   }>;
+}
+
+export interface RevisionRateData {
+  weeks: Array<{ label: string; total: number; firstPass: number; rate: number | null; isCurrent: boolean }>;
+  currentRate: number | null;
+  trend: number | null;
 }
 
 export interface AlertsData {

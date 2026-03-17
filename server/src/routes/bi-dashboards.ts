@@ -6,8 +6,10 @@
  * API keys never leave the server.
  */
 
+import { and, eq, gte, lt, inArray } from "drizzle-orm";
 import { Router } from "express";
 import type { Db } from "@paperclipai/db";
+import { activityLog, approvals } from "@paperclipai/db";
 import { assertCompanyAccess } from "./authz.js";
 import { issueService, agentService, heartbeatService } from "../services/index.js";
 
@@ -429,6 +431,83 @@ export function biDashboardRoutes(db: Db) {
       ]),
     );
     res.json({ cooldownMs: ALERT_COOLDOWN_MS, trackedAlerts: status });
+  });
+
+  // ── Revision Rate ─────────────────────────────────────────────────────────
+  // GET /api/companies/:companyId/bi/revision-rate
+  //
+  // Returns trailing-4-week first-pass approval rate.
+  // "First-pass" = approval resolved without any revision_requested event.
+  // revision_rate_pct = 100 * (resolved_without_revision / total_resolved)
+  router.get("/companies/:companyId/bi/revision-rate", async (req, res) => {
+    assertCompanyAccess(req, req.params.companyId);
+    const companyId = req.params.companyId;
+    const WEEKS = 4;
+    const now = new Date();
+
+    // Build week boundaries (Mon–Sun, trailing WEEKS weeks)
+    const weekBoundaries: Array<{ start: Date; end: Date; label: string }> = [];
+    for (let w = WEEKS - 1; w >= 0; w--) {
+      const start = new Date(now);
+      start.setDate(now.getDate() - ((now.getDay() + 6) % 7) - w * 7);
+      start.setHours(0, 0, 0, 0);
+      const end = new Date(start);
+      end.setDate(start.getDate() + 7);
+      const label = start.toLocaleDateString("en-GB", { month: "short", day: "numeric" });
+      weekBoundaries.push({ start, end, label });
+    }
+
+    try {
+      const earliest = weekBoundaries[0].start;
+
+      // All approvals resolved (approved or rejected) in window
+      const resolved = await db
+        .select({ id: approvals.id, decidedAt: approvals.decidedAt })
+        .from(approvals)
+        .where(
+          and(
+            eq(approvals.companyId, companyId),
+            inArray(approvals.status, ["approved", "rejected"]),
+            gte(approvals.decidedAt, earliest),
+          ),
+        );
+
+      // Activity log entries for revision_requested in window
+      const revisionEvents = await db
+        .select({ entityId: activityLog.entityId })
+        .from(activityLog)
+        .where(
+          and(
+            eq(activityLog.companyId, companyId),
+            eq(activityLog.action, "approval.revision_requested"),
+            gte(activityLog.createdAt, earliest),
+          ),
+        );
+      const revisedIds = new Set(revisionEvents.map((e) => e.entityId));
+
+      // Build per-week buckets
+      const weeks = weekBoundaries.map(({ start, end, label }, i) => {
+        const weekResolved = resolved.filter((a) => {
+          const t = a.decidedAt ? new Date(a.decidedAt) : null;
+          return t && t >= start && t < end;
+        });
+        const total = weekResolved.length;
+        const firstPass = weekResolved.filter((a) => !revisedIds.has(a.id)).length;
+        const rate = total > 0 ? Math.round((firstPass / total) * 100) : null;
+        return { label, total, firstPass, rate, isCurrent: i === WEEKS - 1 };
+      });
+
+      const current = weeks[weeks.length - 1];
+      const prev = weeks[weeks.length - 2];
+      const trend =
+        current.rate !== null && prev.rate !== null && prev.rate > 0
+          ? current.rate - prev.rate
+          : null;
+
+      res.json({ weeks, currentRate: current.rate, trend });
+    } catch (err) {
+      res.status(500).json({ error: (err as Error).message });
+    }
   });
 
   // ── ABM ───────────────────────────────────────────────────────────────────

@@ -8,6 +8,7 @@ import { useCompany } from "@/context/CompanyContext";
 import { queryKeys } from "@/lib/queryKeys";
 import { Link } from "@/lib/router";
 import type { Issue } from "@paperclipai/shared";
+import { biDashboardsApi } from "@/api/biDashboards";
 import { KpiCard } from "./components/KpiCard";
 import { DashCard } from "./components/DashCard";
 import { CHART_COLORS, AXIS_STYLE, TOOLTIP_CONTENT_STYLE, TOOLTIP_LABEL_STYLE } from "./components/ChartTheme";
@@ -88,6 +89,12 @@ export function PM() {
     enabled: !!selectedCompanyId,
     staleTime: 30_000,
   });
+  const { data: revisionRate } = useQuery({
+    queryKey: ["bi", "revision-rate", selectedCompanyId],
+    queryFn: () => biDashboardsApi.revisionRate(selectedCompanyId!),
+    enabled: !!selectedCompanyId,
+    staleTime: 60_000,
+  });
 
   const byStatus = allIssues.reduce<Record<string, Issue[]>>((acc, i) => {
     (acc[i.status] ??= []).push(i);
@@ -126,7 +133,7 @@ export function PM() {
       </div>
 
       {/* Summary row */}
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-6 gap-4">
         <KpiCard label="In Progress" value={inProgress.length} tone="text-yellow-300" />
         <KpiCard label="Blocked" value={blocked.length} tone={blocked.length > 0 ? "text-red-400" : ""} />
         <KpiCard label="Todo" value={todo.length} />
@@ -137,6 +144,22 @@ export function PM() {
           sub={velocityTrend !== null ? `${velocityTrend >= 0 ? "+" : ""}${velocityTrend.toFixed(0)}% vs last wk` : undefined}
         />
         <KpiCard label="Pending Approvals" value={approvals.length} tone={approvals.length > 0 ? "text-yellow-300" : ""} />
+        <KpiCard
+          label="1st-Pass Rate"
+          value={revisionRate?.currentRate !== null && revisionRate?.currentRate !== undefined ? `${revisionRate.currentRate}%` : "—"}
+          tone={
+            revisionRate?.currentRate !== null && revisionRate?.currentRate !== undefined
+              ? revisionRate.currentRate >= 80 ? "text-green-400"
+              : revisionRate.currentRate >= 60 ? "text-yellow-300"
+              : "text-red-400"
+              : ""
+          }
+          sub={
+            revisionRate?.trend !== null && revisionRate?.trend !== undefined
+              ? `${revisionRate.trend >= 0 ? "+" : ""}${revisionRate.trend}pp vs last wk`
+              : undefined
+          }
+        />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -185,6 +208,38 @@ export function PM() {
           </ResponsiveContainer>
         </div>
       </DashCard>
+
+      {/* Revision Rate — trailing 4 weeks */}
+      {revisionRate && revisionRate.weeks.some((w) => w.total > 0) && (
+        <DashCard label="1st-Pass Approval Rate (trailing 4 weeks)">
+          <div className="h-44">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={revisionRate.weeks} margin={{ top: 4, right: 8, left: -16, bottom: 0 }}>
+                <XAxis dataKey="label" {...AXIS_STYLE} />
+                <YAxis {...AXIS_STYLE} domain={[0, 100]} tickFormatter={(v: number) => `${v}%`} />
+                <Tooltip
+                  contentStyle={TOOLTIP_CONTENT_STYLE}
+                  labelStyle={TOOLTIP_LABEL_STYLE}
+                  cursor={{ fill: 'hsl(var(--muted))', opacity: 0.3 }}
+                  formatter={(v: unknown, _name: unknown, props: { payload?: { total?: number } }) => [
+                    `${v}%`,
+                    `1st-pass (${props.payload?.total ?? 0} resolved)`,
+                  ]}
+                />
+                <Bar dataKey="rate" radius={[4, 4, 0, 0]} barSize={32}>
+                  {revisionRate.weeks.map((entry, i) => (
+                    <Cell
+                      key={i}
+                      fill={entry.isCurrent ? CHART_COLORS[2] : CHART_COLORS[1]}
+                      opacity={entry.isCurrent ? 1 : 0.55}
+                    />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </DashCard>
+      )}
 
       {/* Agent Cost — Bar Chart */}
       {agentCostData.length > 0 && (
