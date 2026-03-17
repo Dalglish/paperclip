@@ -8,6 +8,8 @@ import { useDialog } from "@/context/DialogContext";
 import { queryKeys } from "@/lib/queryKeys";
 import { DashCard } from "./components/DashCard";
 import { CHART_COLORS, TOOLTIP_CONTENT_STYLE, TOOLTIP_LABEL_STYLE, AXIS_STYLE } from "./components/ChartTheme";
+import { DashboardApiError } from "./components/DashboardApiError";
+import { DashPageSkeleton } from "./components/DashSkeleton";
 
 function AlertRow({
   title,
@@ -48,7 +50,7 @@ function AlertRow({
 export function CommandCenter() {
   const { selectedCompanyId } = useCompany();
   const { openNewIssue } = useDialog();
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ["bi", "command-center", selectedCompanyId],
     queryFn: () => biDashboardsApi.commandCenter(selectedCompanyId!),
     enabled: !!selectedCompanyId,
@@ -62,9 +64,8 @@ export function CommandCenter() {
     staleTime: 5 * 60_000,
   });
 
-  if (isLoading) {
-    return <div className="p-6 text-sm text-muted-foreground">Loading…</div>;
-  }
+  if (isLoading) return <DashPageSkeleton kpis={1} cards={2} />;
+  if (isError) return <DashboardApiError message={(error as Error)?.message} />;
 
   const score = data?.revenueEngineScore ?? 0;
   const funnel = data?.funnel ?? { visitors: 0, trials: 0, converted: 0, retained: 0 };

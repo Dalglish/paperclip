@@ -3,6 +3,8 @@ import { biDashboardsApi } from "@/api/biDashboards";
 import { useCompany } from "@/context/CompanyContext";
 import { KpiCard } from "./components/KpiCard";
 import { DashCard } from "./components/DashCard";
+import { DashboardApiError } from "./components/DashboardApiError";
+import { DashPageSkeleton } from "./components/DashSkeleton";
 
 function CohortGrid({ cohorts }: { cohorts: { label: string; months: (number | null)[] }[] }) {
   if (!cohorts.length) return <p className="text-sm text-muted-foreground">No cohort data.</p>;

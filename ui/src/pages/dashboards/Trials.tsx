@@ -7,20 +7,21 @@ import { DashCard } from "./components/DashCard";
 import { KpiCard } from "./components/KpiCard";
 import { AlertBanner } from "./components/AlertBanner";
 import { CHART_COLORS, AXIS_STYLE, TOOLTIP_CONTENT_STYLE, TOOLTIP_LABEL_STYLE } from "./components/ChartTheme";
+import { DashboardApiError } from "./components/DashboardApiError";
+import { DashPageSkeleton } from "./components/DashSkeleton";
 
 export function Trials() {
   const { selectedCompanyId } = useCompany();
   const { openNewIssue } = useDialog();
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ["bi", "trials", selectedCompanyId],
     queryFn: () => biDashboardsApi.trials(selectedCompanyId!),
     enabled: !!selectedCompanyId,
     staleTime: 60_000,
   });
 
-  if (isLoading) {
-    return <div className="p-6 text-sm text-muted-foreground">Loading…</div>;
-  }
+  if (isLoading) return <DashPageSkeleton kpis={2} cards={2} />;
+  if (isError) return <DashboardApiError message={(error as Error)?.message} />;
 
   const funnel = data?.funnel ?? [];
   const timeToConvert = data?.timeToConvert ?? "—";

@@ -5,6 +5,8 @@ import { useCompany } from "@/context/CompanyContext";
 import { useDialog } from "@/context/DialogContext";
 import { KpiCard } from "./components/KpiCard";
 import { DashCard } from "./components/DashCard";
+import { DashboardApiError } from "./components/DashboardApiError";
+import { DashPageSkeleton } from "./components/DashSkeleton";
 
 function TargetRow({
   account,
@@ -38,16 +40,15 @@ function TargetRow({
 export function Sales() {
   const { selectedCompanyId } = useCompany();
   const { openNewIssue } = useDialog();
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ["bi", "sales", selectedCompanyId],
     queryFn: () => biDashboardsApi.sales(selectedCompanyId!),
     enabled: !!selectedCompanyId,
     staleTime: 60_000,
   });
 
-  if (isLoading) {
-    return <div className="p-6 text-sm text-muted-foreground">Loading…</div>;
-  }
+  if (isLoading) return <DashPageSkeleton kpis={5} cards={2} />;
+  if (isError) return <DashboardApiError message={(error as Error)?.message} />;
 
   const kpis = data?.kpis ?? { totalRevenue: "—", nrrGrowth: "—", trialConversion: "—", pipelineDeals: "—", valueAtRisk: "—" };
   const upsellTargets = data?.upsellTargets ?? [];
